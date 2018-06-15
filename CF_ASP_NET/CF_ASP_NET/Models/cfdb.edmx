@@ -1,0 +1,1235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CrowdfundingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CfAccount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfAccount2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="account" Type="int" />
+          <Property Name="passMd" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfBank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member" Type="int" />
+          <Property Name="bankCdoe" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="bankName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="accountCdoe" Type="varchar" MaxLength="28" Nullable="false" />
+          <Property Name="accountName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfBulletin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="content" Type="varchar" MaxLength="8000" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfDirectory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfDirFile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parentDir" Type="int" />
+          <Property Name="directory" Type="int" />
+          <Property Name="fileid" Type="int" />
+        </EntityType>
+        <EntityType Name="CfFile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="secondName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="width" Type="int" Nullable="false" />
+          <Property Name="height" Type="int" Nullable="false" />
+          <Property Name="fileid" Type="int" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfInvestment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proposal" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="invColumn" Type="decimal" Precision="38" Scale="19" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfMember">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfProposal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member" Type="int" />
+          <Property Name="bank" Type="int" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfProposalComment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proposal" Type="int" />
+          <Property Name="comment" Type="varchar" MaxLength="1000" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfProposalGoal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proposal" Type="int" />
+          <Property Name="targetColumn" Type="decimal" Precision="38" Scale="19" Nullable="false" />
+          <Property Name="totalColumn" Type="decimal" Precision="38" Scale="19" Nullable="false" />
+          <Property Name="orderNum" Type="int" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfProposalPromotion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proposal" Type="int" />
+          <Property Name="fileid" Type="int" />
+          <Property Name="filetype" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="orderNum" Type="int" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfProposalV">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="proposal" Type="int" />
+          <Property Name="used" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="introduction" Type="varchar" MaxLength="1000" />
+          <Property Name="content" Type="varchar" MaxLength="8000" />
+          <Property Name="startTime" Type="datetime" Nullable="false" />
+          <Property Name="endTime" Type="datetime" Nullable="false" />
+          <Property Name="accomplishTime" Type="datetime" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfProposalVerify">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proposal" Type="int" />
+          <Property Name="comment" Type="varchar" MaxLength="1000" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="lastTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfVideo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="width" Type="int" Nullable="false" />
+          <Property Name="height" Type="int" Nullable="false" />
+          <Property Name="fileid" Type="int" />
+          <Property Name="videoTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CfAccount__accou__47DBAE45">
+          <End Role="CfAccount" Type="Self.CfAccount" Multiplicity="0..1" />
+          <End Role="CfAccount2" Type="Self.CfAccount2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfAccount">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfAccount2">
+              <PropertyRef Name="account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfBank__member__4E88ABD4">
+          <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
+          <End Role="CfBank" Type="Self.CfBank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfMember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfBank">
+              <PropertyRef Name="member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfDirFile__direc__3C69FB99">
+          <End Role="CfDirectory" Type="Self.CfDirectory" Multiplicity="0..1" />
+          <End Role="CfDirFile" Type="Self.CfDirFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfDirectory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfDirFile">
+              <PropertyRef Name="directory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfDirFile__filei__3D5E1FD2">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfDirFile" Type="Self.CfDirFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfDirFile">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfDirFile__paren__3B75D760">
+          <End Role="CfDirectory" Type="Self.CfDirectory" Multiplicity="0..1" />
+          <End Role="CfDirFile" Type="Self.CfDirFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfDirectory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfDirFile">
+              <PropertyRef Name="parentDir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfImage__fileid__403A8C7D">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfImage" Type="Self.CfImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfImage">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfInvestm__propo__6477ECF3">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfInvestment" Type="Self.CfInvestment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfInvestment">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__filei__59063A47">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalPromotion">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__membe__5165187F">
+          <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfMember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposal">
+              <PropertyRef Name="member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5535A963">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalV" Type="Self.CfProposalV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalV">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5812160E">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalPromotion">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5BE2A6F2">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalGoal" Type="Self.CfProposalGoal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalGoal">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5EBF139D">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalVerify" Type="Self.CfProposalVerify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalVerify">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__619B8048">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalComment" Type="Self.CfProposalComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalComment">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposal__bank__52593CB8">
+          <End Role="CfBank" Type="Self.CfBank" Multiplicity="0..1" />
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfBank">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposal">
+              <PropertyRef Name="bank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfVideo__fileid__4316F928">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfVideo" Type="Self.CfVideo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfVideo">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrowdfundingModelStoreContainer">
+          <EntitySet Name="CfAccount" EntityType="Self.CfAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfAccount2" EntityType="Self.CfAccount2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfBank" EntityType="Self.CfBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfBulletin" EntityType="Self.CfBulletin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfDirectory" EntityType="Self.CfDirectory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfDirFile" EntityType="Self.CfDirFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfFile" EntityType="Self.CfFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfImage" EntityType="Self.CfImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfInvestment" EntityType="Self.CfInvestment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfMember" EntityType="Self.CfMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfProposal" EntityType="Self.CfProposal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfProposalComment" EntityType="Self.CfProposalComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfProposalGoal" EntityType="Self.CfProposalGoal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfProposalPromotion" EntityType="Self.CfProposalPromotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfProposalV" EntityType="Self.CfProposalV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfProposalVerify" EntityType="Self.CfProposalVerify" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfVideo" EntityType="Self.CfVideo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CfAccount__accou__47DBAE45" Association="Self.FK__CfAccount__accou__47DBAE45">
+            <End Role="CfAccount" EntitySet="CfAccount" />
+            <End Role="CfAccount2" EntitySet="CfAccount2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfBank__member__4E88ABD4" Association="Self.FK__CfBank__member__4E88ABD4">
+            <End Role="CfMember" EntitySet="CfMember" />
+            <End Role="CfBank" EntitySet="CfBank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfDirFile__direc__3C69FB99" Association="Self.FK__CfDirFile__direc__3C69FB99">
+            <End Role="CfDirectory" EntitySet="CfDirectory" />
+            <End Role="CfDirFile" EntitySet="CfDirFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfDirFile__filei__3D5E1FD2" Association="Self.FK__CfDirFile__filei__3D5E1FD2">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfDirFile" EntitySet="CfDirFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfDirFile__paren__3B75D760" Association="Self.FK__CfDirFile__paren__3B75D760">
+            <End Role="CfDirectory" EntitySet="CfDirectory" />
+            <End Role="CfDirFile" EntitySet="CfDirFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfImage__fileid__403A8C7D" Association="Self.FK__CfImage__fileid__403A8C7D">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfImage" EntitySet="CfImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfInvestm__propo__6477ECF3" Association="Self.FK__CfInvestm__propo__6477ECF3">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfInvestment" EntitySet="CfInvestment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__filei__59063A47" Association="Self.FK__CfProposa__filei__59063A47">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__membe__5165187F" Association="Self.FK__CfProposa__membe__5165187F">
+            <End Role="CfMember" EntitySet="CfMember" />
+            <End Role="CfProposal" EntitySet="CfProposal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5535A963" Association="Self.FK__CfProposa__propo__5535A963">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalV" EntitySet="CfProposalV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5812160E" Association="Self.FK__CfProposa__propo__5812160E">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5BE2A6F2" Association="Self.FK__CfProposa__propo__5BE2A6F2">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalGoal" EntitySet="CfProposalGoal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5EBF139D" Association="Self.FK__CfProposa__propo__5EBF139D">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalVerify" EntitySet="CfProposalVerify" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__619B8048" Association="Self.FK__CfProposa__propo__619B8048">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalComment" EntitySet="CfProposalComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposal__bank__52593CB8" Association="Self.FK__CfProposal__bank__52593CB8">
+            <End Role="CfBank" EntitySet="CfBank" />
+            <End Role="CfProposal" EntitySet="CfProposal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfVideo__fileid__4316F928" Association="Self.FK__CfVideo__fileid__4316F928">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfVideo" EntitySet="CfVideo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CrowdfundingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CfAccount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfAccount2" Relationship="Self.FK__CfAccount__accou__47DBAE45" FromRole="CfAccount" ToRole="CfAccount2" />
+        </EntityType>
+        <EntityType Name="CfAccount2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="account" Type="Int32" />
+          <Property Name="passMd" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfAccount" Relationship="Self.FK__CfAccount__accou__47DBAE45" FromRole="CfAccount2" ToRole="CfAccount" />
+        </EntityType>
+        <EntityType Name="CfBank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member" Type="Int32" />
+          <Property Name="bankCdoe" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bankName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accountCdoe" Type="String" MaxLength="28" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfMember" Relationship="Self.FK__CfBank__member__4E88ABD4" FromRole="CfBank" ToRole="CfMember" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposal__bank__52593CB8" FromRole="CfBank" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfBulletin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CfDirectory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfDirFile" Relationship="Self.FK__CfDirFile__direc__3C69FB99" FromRole="CfDirectory" ToRole="CfDirFile" />
+          <NavigationProperty Name="CfDirFile1" Relationship="Self.FK__CfDirFile__paren__3B75D760" FromRole="CfDirectory" ToRole="CfDirFile" />
+        </EntityType>
+        <EntityType Name="CfDirFile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parentDir" Type="Int32" />
+          <Property Name="directory" Type="Int32" />
+          <Property Name="fileid" Type="Int32" />
+          <NavigationProperty Name="CfDirectory" Relationship="Self.FK__CfDirFile__direc__3C69FB99" FromRole="CfDirFile" ToRole="CfDirectory" />
+          <NavigationProperty Name="CfDirectory1" Relationship="Self.FK__CfDirFile__paren__3B75D760" FromRole="CfDirFile" ToRole="CfDirectory" />
+          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfDirFile__filei__3D5E1FD2" FromRole="CfDirFile" ToRole="CfFile" />
+        </EntityType>
+        <EntityType Name="CfFile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secondName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfDirFile" Relationship="Self.FK__CfDirFile__filei__3D5E1FD2" FromRole="CfFile" ToRole="CfDirFile" />
+          <NavigationProperty Name="CfImage" Relationship="Self.FK__CfImage__fileid__403A8C7D" FromRole="CfFile" ToRole="CfImage" />
+          <NavigationProperty Name="CfProposalPromotion" Relationship="Self.FK__CfProposa__filei__59063A47" FromRole="CfFile" ToRole="CfProposalPromotion" />
+          <NavigationProperty Name="CfVideo" Relationship="Self.FK__CfVideo__fileid__4316F928" FromRole="CfFile" ToRole="CfVideo" />
+        </EntityType>
+        <EntityType Name="CfImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="width" Type="Int32" Nullable="false" />
+          <Property Name="height" Type="Int32" Nullable="false" />
+          <Property Name="fileid" Type="Int32" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfImage__fileid__403A8C7D" FromRole="CfImage" ToRole="CfFile" />
+        </EntityType>
+        <EntityType Name="CfInvestment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proposal" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="invColumn" Type="Decimal" Precision="38" Scale="19" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfInvestm__propo__6477ECF3" FromRole="CfInvestment" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfMember">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfBank" Relationship="Self.FK__CfBank__member__4E88ABD4" FromRole="CfMember" ToRole="CfBank" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__membe__5165187F" FromRole="CfMember" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfProposal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member" Type="Int32" />
+          <Property Name="bank" Type="Int32" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfBank" Relationship="Self.FK__CfProposal__bank__52593CB8" FromRole="CfProposal" ToRole="CfBank" />
+          <NavigationProperty Name="CfInvestment" Relationship="Self.FK__CfInvestm__propo__6477ECF3" FromRole="CfProposal" ToRole="CfInvestment" />
+          <NavigationProperty Name="CfMember" Relationship="Self.FK__CfProposa__membe__5165187F" FromRole="CfProposal" ToRole="CfMember" />
+          <NavigationProperty Name="CfProposalV" Relationship="Self.FK__CfProposa__propo__5535A963" FromRole="CfProposal" ToRole="CfProposalV" />
+          <NavigationProperty Name="CfProposalPromotion" Relationship="Self.FK__CfProposa__propo__5812160E" FromRole="CfProposal" ToRole="CfProposalPromotion" />
+          <NavigationProperty Name="CfProposalGoal" Relationship="Self.FK__CfProposa__propo__5BE2A6F2" FromRole="CfProposal" ToRole="CfProposalGoal" />
+          <NavigationProperty Name="CfProposalVerify" Relationship="Self.FK__CfProposa__propo__5EBF139D" FromRole="CfProposal" ToRole="CfProposalVerify" />
+          <NavigationProperty Name="CfProposalComment" Relationship="Self.FK__CfProposa__propo__619B8048" FromRole="CfProposal" ToRole="CfProposalComment" />
+        </EntityType>
+        <EntityType Name="CfProposalComment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proposal" Type="Int32" />
+          <Property Name="comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__619B8048" FromRole="CfProposalComment" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfProposalGoal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proposal" Type="Int32" />
+          <Property Name="targetColumn" Type="Decimal" Precision="38" Scale="19" Nullable="false" />
+          <Property Name="totalColumn" Type="Decimal" Precision="38" Scale="19" Nullable="false" />
+          <Property Name="orderNum" Type="Int32" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5BE2A6F2" FromRole="CfProposalGoal" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfProposalPromotion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proposal" Type="Int32" />
+          <Property Name="fileid" Type="Int32" />
+          <Property Name="filetype" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="orderNum" Type="Int32" Nullable="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfProposa__filei__59063A47" FromRole="CfProposalPromotion" ToRole="CfFile" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5812160E" FromRole="CfProposalPromotion" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfProposalV">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="proposal" Type="Int32" />
+          <Property Name="used" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="introduction" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="endTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="accomplishTime" Type="DateTime" Precision="3" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5535A963" FromRole="CfProposalV" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfProposalVerify">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proposal" Type="Int32" />
+          <Property Name="comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5EBF139D" FromRole="CfProposalVerify" ToRole="CfProposal" />
+        </EntityType>
+        <EntityType Name="CfVideo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="width" Type="Int32" Nullable="false" />
+          <Property Name="height" Type="Int32" Nullable="false" />
+          <Property Name="fileid" Type="Int32" />
+          <Property Name="videoTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfVideo__fileid__4316F928" FromRole="CfVideo" ToRole="CfFile" />
+        </EntityType>
+        <Association Name="FK__CfAccount__accou__47DBAE45">
+          <End Role="CfAccount" Type="Self.CfAccount" Multiplicity="0..1" />
+          <End Role="CfAccount2" Type="Self.CfAccount2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfAccount">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfAccount2">
+              <PropertyRef Name="account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfBank__member__4E88ABD4">
+          <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
+          <End Role="CfBank" Type="Self.CfBank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfMember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfBank">
+              <PropertyRef Name="member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposal__bank__52593CB8">
+          <End Role="CfBank" Type="Self.CfBank" Multiplicity="0..1" />
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfBank">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposal">
+              <PropertyRef Name="bank" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfDirFile__direc__3C69FB99">
+          <End Role="CfDirectory" Type="Self.CfDirectory" Multiplicity="0..1" />
+          <End Role="CfDirFile" Type="Self.CfDirFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfDirectory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfDirFile">
+              <PropertyRef Name="directory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfDirFile__paren__3B75D760">
+          <End Role="CfDirectory" Type="Self.CfDirectory" Multiplicity="0..1" />
+          <End Role="CfDirFile" Type="Self.CfDirFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfDirectory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfDirFile">
+              <PropertyRef Name="parentDir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfDirFile__filei__3D5E1FD2">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfDirFile" Type="Self.CfDirFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfDirFile">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfImage__fileid__403A8C7D">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfImage" Type="Self.CfImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfImage">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__filei__59063A47">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalPromotion">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfVideo__fileid__4316F928">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfVideo" Type="Self.CfVideo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfVideo">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfInvestm__propo__6477ECF3">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfInvestment" Type="Self.CfInvestment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfInvestment">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__membe__5165187F">
+          <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfMember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposal">
+              <PropertyRef Name="member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5535A963">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalV" Type="Self.CfProposalV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalV">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5812160E">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalPromotion">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5BE2A6F2">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalGoal" Type="Self.CfProposalGoal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalGoal">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__5EBF139D">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalVerify" Type="Self.CfProposalVerify" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalVerify">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__propo__619B8048">
+          <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
+          <End Role="CfProposalComment" Type="Self.CfProposalComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfProposal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfProposalComment">
+              <PropertyRef Name="proposal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrowdfundingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CfAccount" EntityType="Self.CfAccount" />
+          <EntitySet Name="CfAccount2" EntityType="Self.CfAccount2" />
+          <EntitySet Name="CfBank" EntityType="Self.CfBank" />
+          <EntitySet Name="CfBulletin" EntityType="Self.CfBulletin" />
+          <EntitySet Name="CfDirectory" EntityType="Self.CfDirectory" />
+          <EntitySet Name="CfDirFile" EntityType="Self.CfDirFile" />
+          <EntitySet Name="CfFile" EntityType="Self.CfFile" />
+          <EntitySet Name="CfImage" EntityType="Self.CfImage" />
+          <EntitySet Name="CfInvestment" EntityType="Self.CfInvestment" />
+          <EntitySet Name="CfMember" EntityType="Self.CfMember" />
+          <EntitySet Name="CfProposal" EntityType="Self.CfProposal" />
+          <EntitySet Name="CfProposalComment" EntityType="Self.CfProposalComment" />
+          <EntitySet Name="CfProposalGoal" EntityType="Self.CfProposalGoal" />
+          <EntitySet Name="CfProposalPromotion" EntityType="Self.CfProposalPromotion" />
+          <EntitySet Name="CfProposalV" EntityType="Self.CfProposalV" />
+          <EntitySet Name="CfProposalVerify" EntityType="Self.CfProposalVerify" />
+          <EntitySet Name="CfVideo" EntityType="Self.CfVideo" />
+          <AssociationSet Name="FK__CfAccount__accou__47DBAE45" Association="Self.FK__CfAccount__accou__47DBAE45">
+            <End Role="CfAccount" EntitySet="CfAccount" />
+            <End Role="CfAccount2" EntitySet="CfAccount2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfBank__member__4E88ABD4" Association="Self.FK__CfBank__member__4E88ABD4">
+            <End Role="CfMember" EntitySet="CfMember" />
+            <End Role="CfBank" EntitySet="CfBank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposal__bank__52593CB8" Association="Self.FK__CfProposal__bank__52593CB8">
+            <End Role="CfBank" EntitySet="CfBank" />
+            <End Role="CfProposal" EntitySet="CfProposal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfDirFile__direc__3C69FB99" Association="Self.FK__CfDirFile__direc__3C69FB99">
+            <End Role="CfDirectory" EntitySet="CfDirectory" />
+            <End Role="CfDirFile" EntitySet="CfDirFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfDirFile__paren__3B75D760" Association="Self.FK__CfDirFile__paren__3B75D760">
+            <End Role="CfDirectory" EntitySet="CfDirectory" />
+            <End Role="CfDirFile" EntitySet="CfDirFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfDirFile__filei__3D5E1FD2" Association="Self.FK__CfDirFile__filei__3D5E1FD2">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfDirFile" EntitySet="CfDirFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfImage__fileid__403A8C7D" Association="Self.FK__CfImage__fileid__403A8C7D">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfImage" EntitySet="CfImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__filei__59063A47" Association="Self.FK__CfProposa__filei__59063A47">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfVideo__fileid__4316F928" Association="Self.FK__CfVideo__fileid__4316F928">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfVideo" EntitySet="CfVideo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfInvestm__propo__6477ECF3" Association="Self.FK__CfInvestm__propo__6477ECF3">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfInvestment" EntitySet="CfInvestment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__membe__5165187F" Association="Self.FK__CfProposa__membe__5165187F">
+            <End Role="CfMember" EntitySet="CfMember" />
+            <End Role="CfProposal" EntitySet="CfProposal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5535A963" Association="Self.FK__CfProposa__propo__5535A963">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalV" EntitySet="CfProposalV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5812160E" Association="Self.FK__CfProposa__propo__5812160E">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5BE2A6F2" Association="Self.FK__CfProposa__propo__5BE2A6F2">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalGoal" EntitySet="CfProposalGoal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__5EBF139D" Association="Self.FK__CfProposa__propo__5EBF139D">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalVerify" EntitySet="CfProposalVerify" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__propo__619B8048" Association="Self.FK__CfProposa__propo__619B8048">
+            <End Role="CfProposal" EntitySet="CfProposal" />
+            <End Role="CfProposalComment" EntitySet="CfProposalComment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CrowdfundingModelStoreContainer" CdmEntityContainer="CrowdfundingEntities">
+          <EntitySetMapping Name="CfAccount">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfAccount">
+              <MappingFragment StoreEntitySet="CfAccount">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfAccount2">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfAccount2">
+              <MappingFragment StoreEntitySet="CfAccount2">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="account" ColumnName="account" />
+                <ScalarProperty Name="passMd" ColumnName="passMd" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfBank">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfBank">
+              <MappingFragment StoreEntitySet="CfBank">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="member" ColumnName="member" />
+                <ScalarProperty Name="bankCdoe" ColumnName="bankCdoe" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+                <ScalarProperty Name="accountCdoe" ColumnName="accountCdoe" />
+                <ScalarProperty Name="accountName" ColumnName="accountName" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfBulletin">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfBulletin">
+              <MappingFragment StoreEntitySet="CfBulletin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfDirectory">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfDirectory">
+              <MappingFragment StoreEntitySet="CfDirectory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfDirFile">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfDirFile">
+              <MappingFragment StoreEntitySet="CfDirFile">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parentDir" ColumnName="parentDir" />
+                <ScalarProperty Name="directory" ColumnName="directory" />
+                <ScalarProperty Name="fileid" ColumnName="fileid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfFile">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfFile">
+              <MappingFragment StoreEntitySet="CfFile">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="secondName" ColumnName="secondName" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfImage">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfImage">
+              <MappingFragment StoreEntitySet="CfImage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="fileid" ColumnName="fileid" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfInvestment">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfInvestment">
+              <MappingFragment StoreEntitySet="CfInvestment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="proposal" ColumnName="proposal" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="invColumn" ColumnName="invColumn" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfMember">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfMember">
+              <MappingFragment StoreEntitySet="CfMember">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfProposal">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfProposal">
+              <MappingFragment StoreEntitySet="CfProposal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="member" ColumnName="member" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfProposalComment">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalComment">
+              <MappingFragment StoreEntitySet="CfProposalComment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="proposal" ColumnName="proposal" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfProposalGoal">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalGoal">
+              <MappingFragment StoreEntitySet="CfProposalGoal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="proposal" ColumnName="proposal" />
+                <ScalarProperty Name="targetColumn" ColumnName="targetColumn" />
+                <ScalarProperty Name="totalColumn" ColumnName="totalColumn" />
+                <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfProposalPromotion">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalPromotion">
+              <MappingFragment StoreEntitySet="CfProposalPromotion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="proposal" ColumnName="proposal" />
+                <ScalarProperty Name="fileid" ColumnName="fileid" />
+                <ScalarProperty Name="filetype" ColumnName="filetype" />
+                <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfProposalV">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalV">
+              <MappingFragment StoreEntitySet="CfProposalV">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="proposal" ColumnName="proposal" />
+                <ScalarProperty Name="used" ColumnName="used" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="introduction" ColumnName="introduction" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="accomplishTime" ColumnName="accomplishTime" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfProposalVerify">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalVerify">
+              <MappingFragment StoreEntitySet="CfProposalVerify">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="proposal" ColumnName="proposal" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfVideo">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfVideo">
+              <MappingFragment StoreEntitySet="CfVideo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="fileid" ColumnName="fileid" />
+                <ScalarProperty Name="videoTime" ColumnName="videoTime" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

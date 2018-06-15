@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CrowdfundingModelStoreContainer" CdmEntityContainer="CrowdfundingEntities">
+    <EntitySetMapping Name="CfAccount">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfAccount">
+        <MappingFragment StoreEntitySet="CfAccount">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfAccount2">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfAccount2">
+        <MappingFragment StoreEntitySet="CfAccount2">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="passMd" ColumnName="passMd" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfBank">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfBank">
+        <MappingFragment StoreEntitySet="CfBank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="member" ColumnName="member" />
+          <ScalarProperty Name="bankCdoe" ColumnName="bankCdoe" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="accountCdoe" ColumnName="accountCdoe" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfBulletin">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfBulletin">
+        <MappingFragment StoreEntitySet="CfBulletin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfDirectory">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfDirectory">
+        <MappingFragment StoreEntitySet="CfDirectory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfDirFile">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfDirFile">
+        <MappingFragment StoreEntitySet="CfDirFile">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="parentDir" ColumnName="parentDir" />
+          <ScalarProperty Name="directory" ColumnName="directory" />
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfFile">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfFile">
+        <MappingFragment StoreEntitySet="CfFile">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="secondName" ColumnName="secondName" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfImage">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfImage">
+        <MappingFragment StoreEntitySet="CfImage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfInvestment">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfInvestment">
+        <MappingFragment StoreEntitySet="CfInvestment">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="proposal" ColumnName="proposal" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="invColumn" ColumnName="invColumn" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfMember">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfMember">
+        <MappingFragment StoreEntitySet="CfMember">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfProposal">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfProposal">
+        <MappingFragment StoreEntitySet="CfProposal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="member" ColumnName="member" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfProposalComment">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalComment">
+        <MappingFragment StoreEntitySet="CfProposalComment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="proposal" ColumnName="proposal" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfProposalGoal">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalGoal">
+        <MappingFragment StoreEntitySet="CfProposalGoal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="proposal" ColumnName="proposal" />
+          <ScalarProperty Name="targetColumn" ColumnName="targetColumn" />
+          <ScalarProperty Name="totalColumn" ColumnName="totalColumn" />
+          <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfProposalPromotion">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalPromotion">
+        <MappingFragment StoreEntitySet="CfProposalPromotion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="proposal" ColumnName="proposal" />
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="filetype" ColumnName="filetype" />
+          <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfProposalV">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalV">
+        <MappingFragment StoreEntitySet="CfProposalV">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="proposal" ColumnName="proposal" />
+          <ScalarProperty Name="used" ColumnName="used" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="introduction" ColumnName="introduction" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="accomplishTime" ColumnName="accomplishTime" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfProposalVerify">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfProposalVerify">
+        <MappingFragment StoreEntitySet="CfProposalVerify">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="proposal" ColumnName="proposal" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CfVideo">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfVideo">
+        <MappingFragment StoreEntitySet="CfVideo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="videoTime" ColumnName="videoTime" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
