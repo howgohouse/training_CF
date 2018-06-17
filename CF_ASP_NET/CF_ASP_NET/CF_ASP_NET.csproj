@@ -172,6 +172,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BHomeModel.cs" />
     <Compile Include="Models\CfAccount.cs">
       <DependentUpon>cfdb.tt</DependentUpon>
     </Compile>
@@ -239,6 +240,8 @@
       <DependentUpon>cfdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\BNewsModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

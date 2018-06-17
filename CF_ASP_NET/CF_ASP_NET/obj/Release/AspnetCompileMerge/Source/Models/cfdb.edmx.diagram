@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f59e5d2443243dea2ab2f84c143eb54" Name="Diagram1">
+        <EntityTypeShape EntityType="CrowdfundingModel.CfAccount" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfAccount2" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfBank" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfBulletin" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfDirectory" Width="1.5" PointX="11.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfDirFile" Width="1.5" PointX="13.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfFile" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfImage" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfInvestment" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfMember" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfProposal" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfProposalComment" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfProposalGoal" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfProposalPromotion" Width="1.5" PointX="10.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfProposalV" Width="1.5" PointX="7.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfProposalVerify" Width="1.5" PointX="7.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrowdfundingModel.CfVideo" Width="1.5" PointX="10.5" PointY="18.25" IsExpanded="true" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfAccount__accou__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfBank__member__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposal__bank__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfDirFile__direc__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfDirFile__paren__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfDirFile__filei__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfImage__fileid__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposa__filei__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfVideo__fileid__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfInvestm__propo__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposa__membe__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposa__propo__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposa__propo__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposa__propo__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposa__propo__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="CrowdfundingModel.FK__CfProposa__propo__619B8048" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

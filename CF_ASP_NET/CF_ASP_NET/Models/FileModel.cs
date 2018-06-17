@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Web;
 
 namespace CF_ASP_NET.Models
 {
