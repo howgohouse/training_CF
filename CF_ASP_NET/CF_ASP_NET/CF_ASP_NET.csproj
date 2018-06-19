@@ -241,6 +241,7 @@
     </Compile>
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\BNewsModel.cs" />
+    <Compile Include="Models\VerifyModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

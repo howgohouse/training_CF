@@ -74,7 +74,7 @@ namespace CF_ASP_NET.Controllers
             if (buffer != null)
             {
                 Response.ContentType = this.GetMimeType(path);
-                Response.AddHeader("Content-Disposition", "attachment; filename=" + fileName + ";");
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + HttpUtility.UrlEncode(fileName) + ";");
                 Response.AddHeader("content-length", buffer.Length.ToString());
                 Response.BinaryWrite(buffer);
             }

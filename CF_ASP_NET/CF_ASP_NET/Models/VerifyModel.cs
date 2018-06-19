@@ -5,7 +5,9 @@ using System.Web;
 
 namespace CF_ASP_NET.Models
 {
-    public class HomeModel
+    /*前台 審核*/
+
+    public class VerifyModel
     {
         CrowdfundingEntities db = new CrowdfundingEntities();
         public List<Models.CfBulletin> list = null;
@@ -16,37 +18,9 @@ namespace CF_ASP_NET.Models
 
         }
 
-        /*前台 新聞消息*/
-
-        public void NewsList()
-        {
-            this.list = (from d in db.CfBulletin orderby d.makeTime descending select d).ToList();
-        }
-
-        public void News(int id)
-        {
-            this.list = (from d in db.CfBulletin where d.id == id select d).ToList();
-        }
-
-        public String NewsContent(int id)
-        {
-            var query = (from d in db.CfBulletin where d.id == id select d).ToList();
-            String tempstr = "";
-
-            foreach (Models.CfBulletin bulletin in query)
-            {
-                tempstr = bulletin.content;
-                // Insert any additional changes to column values.
-            }
-
-            return HttpUtility.HtmlDecode(tempstr);
-        }
-
-        /*前台 探索*/
-
         public void ProposalList()
         {
-            this.list2 = (from d in db.CfProposalV where d.used == 1 orderby d.makeTime descending select d).ToList();
+            this.list2 = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.makeTime descending select d).ToList();
         }
 
         public void Proposal(int id)

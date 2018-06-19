@@ -22,16 +22,16 @@
       <publishTime>06/15/2018 18:48:46</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/17/2018 09:42:50</publishTime>
+      <publishTime>06/19/2018 21:10:57</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/17/2018 09:42:50</publishTime>
+      <publishTime>06/19/2018 21:10:57</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.dll">
-      <publishTime>06/17/2018 09:42:41</publishTime>
+      <publishTime>06/19/2018 21:10:48</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.pdb">
-      <publishTime>06/17/2018 09:42:41</publishTime>
+      <publishTime>06/19/2018 21:10:48</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/29/2018 14:51:46</publishTime>
@@ -325,7 +325,7 @@
       <publishTime>06/15/2018 18:51:19</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/17/2018 09:42:42</publishTime>
+      <publishTime>06/19/2018 21:10:50</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>06/15/2018 18:48:33</publishTime>
@@ -394,6 +394,12 @@
       <publishTime>06/15/2018 18:48:27</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
+      <publishTime>06/15/2018 18:48:27</publishTime>
+    </File>
+    <File Include="Views/Home/NewsContent.cshtml">
+      <publishTime>06/15/2018 18:48:27</publishTime>
+    </File>
+    <File Include="Views/Home/NewsList.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
