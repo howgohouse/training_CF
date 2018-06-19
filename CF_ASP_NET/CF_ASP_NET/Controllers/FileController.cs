@@ -31,7 +31,7 @@ namespace CF_ASP_NET.Controllers
 
         public string mUrl = "http://192.168.2.113/";
 
-        public Models.FileModel testmodel = new Models.FileModel();
+        public Models.FileModel filemodel = new Models.FileModel();
 
         public ActionResult Index()
         {
@@ -44,15 +44,15 @@ namespace CF_ASP_NET.Controllers
             //List < Models.TtBulletin > list = (from d in db.TtBulletins where d.ID == 1 select d).ToList();
             //ViewBag.DataList = list;
             
-            this.testmodel.Index();
+            this.filemodel.Index();
 
-            ViewData["DataList"] = this.testmodel.list;
+            ViewData["DataList"] = this.filemodel.list;
             return View();
         }
         
         public ActionResult Show(int id)
         {
-            string path = Server.MapPath(this.testmodel.Show(id));
+            string path = Server.MapPath(this.filemodel.Show(id));
             WebClient client = new WebClient();
             Byte[] buffer = client.DownloadData(path);
             if (buffer != null)
@@ -67,8 +67,8 @@ namespace CF_ASP_NET.Controllers
 
         public ActionResult DownLoad(int id)
         {
-            string path = Server.MapPath(this.testmodel.DownLoad(id));
-            string fileName = this.testmodel.fileName;
+            string path = Server.MapPath(this.filemodel.DownLoad(id));
+            string fileName = this.filemodel.fileName;
             WebClient client = new WebClient();
             Byte[] buffer = client.DownloadData(path);
             if (buffer != null)
@@ -84,7 +84,7 @@ namespace CF_ASP_NET.Controllers
 
         public ActionResult VideoStream(int id)
         {
-            string path = Server.MapPath(this.testmodel.VideoStream(id));
+            string path = Server.MapPath(this.filemodel.VideoStream(id));
             try
             {
                 using (var client = new WebClient())
@@ -143,11 +143,11 @@ namespace CF_ASP_NET.Controllers
                 string mimeType = file.ContentType;
                 System.IO.Stream fileContent = file.InputStream;
 
-                lastid = this.testmodel.Upload(fileName);
-                DateTime temptime = this.testmodel.mTime;
-                String[] temparray = this.testmodel.temp_str_array;
-                this.testmodel = new Models.FileModel();
-                this.testmodel.Upload_2(lastid, temptime);
+                lastid = this.filemodel.Upload(fileName);
+                DateTime temptime = this.filemodel.mTime;
+                String[] temparray = this.filemodel.temp_str_array;
+                this.filemodel = new Models.FileModel();
+                this.filemodel.Upload_2(lastid, temptime);
 
                 bool dir = false;
                 dir = Directory.Exists(@"C:\www\cf\UpLoadFile\" + temparray[0]);
@@ -171,10 +171,10 @@ namespace CF_ASP_NET.Controllers
                 //To save file, use SaveAs method
                 file.SaveAs(Server.MapPath("/UpLoadFile/" + temparray[0] + "/" + temparray[0] + "-" + temparray[1] + "/" + temparray[0] + "-" + temparray[1] + "-" + temparray[2]) + "/" + lastid.ToString() + ".file"); //File will be saved in application root
 
-                this.testmodel = new Models.FileModel();
-                string path = Server.MapPath(this.testmodel.DownLoad(lastid));
-                this.testmodel = new Models.FileModel();
-                this.testmodel.Upload_3(lastid, temptime, path);
+                this.filemodel = new Models.FileModel();
+                string path = Server.MapPath(this.filemodel.DownLoad(lastid));
+                this.filemodel = new Models.FileModel();
+                this.filemodel.Upload_3(lastid, temptime, path);
             }
 
             //String cKEditorFuncNum = Request.Form["CKEditorFuncNum"]; POST值

@@ -8,23 +8,32 @@ namespace CF_ASP_NET.Controllers
 {
     public class HomeController : Controller
     {
+        public Models.HomeModel homemodel = new Models.HomeModel();
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult NewsList()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult News()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult NewsContent()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return Content("");
         }
     }
 }
