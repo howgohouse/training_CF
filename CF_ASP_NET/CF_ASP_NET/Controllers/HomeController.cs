@@ -15,6 +15,11 @@ namespace CF_ASP_NET.Controllers
             return View();
         }
 
+        public ActionResult Draft()
+        {
+            return View();
+        }
+
         public ActionResult NewsList()
         {
             ViewBag.Message = "Your application description page.";

@@ -42,6 +42,10 @@ namespace CF_ASP_NET.Models
             return HttpUtility.HtmlDecode(tempstr);
         }
 
+        /*前台 提案*/
+
+        //新增方案表單
+
         /*前台 探索*/
 
         public void ProposalList()
