@@ -250,7 +250,7 @@
                 $("#target_money_check_value").html('0');
                 checkAll();
             } else if ($("#target_money").val() != '' & Number($("#target_money").val()) <= 0) {
-                $("#target_money_check").html("不得小於" + min_num);
+                $("#target_money_check").html("須超過" + min_num);
                 $("#target_money").addClass('w3-border-red');
                 $("#target_money_check").removeClass('w3-text-green');
                 $("#target_money_check").addClass('w3-text-red');

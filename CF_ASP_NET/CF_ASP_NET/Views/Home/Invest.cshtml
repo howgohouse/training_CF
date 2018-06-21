@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<a id="murl" href="~/" style="display:none"></a>
+<div class="container">
+    <p class="col-md-6">
+        <label>姓名</label>
+        <input id="name" class="w3-input w3-border w3-round-large" onKeyUp="CheckName()" onMouseUp="CheckName()" onChange="CheckName()" type="text">
+        <p id="name_check" style="height: 25px;"></p>
+        <p id="name_check_value" style="display: none;">0</p>
+    </p>
+    <p class="col-md-6">
+        <label>連絡電話</label>
+        <input id="phone" class="w3-input w3-border w3-round-large" onkeyup="CheckPhone()" onmouseup="CheckPhone()" onchange="CheckPhone()" type="text">
+        <p id="phone_check" style="height: 25px;"></p>
+        <p id="phone_check_value" style="display: none;">0</p>
+    </p>
+    <p class="col-md-6">
+        <label>金額</label>
+        <input id="invest_money" class="w3-input w3-border w3-round-large" onkeyup="CheckInvestMoney()" onmouseup="CheckInvestMoney()" onchange="CheckInvestMoney()" type="number">
+        <p id="invest_money_check" style="height: 25px;"></p>
+        <p id="invest_money_check_value" style="display: none;">0</p>
+    </p>
+</div>
+
+<script>
+    function CheckName() {
+		if ($("#name").val()!='' & $("#name").val().length<51) {
+			$("#name_check").html("");
+			$("#name").removeClass('w3-border-red');
+			$("#name_check").removeClass('w3-text-red');
+			$("#name_check").addClass('w3-text-green');
+			$("#name_check_value").html('1');
+			checkAll();
+		} else if ($("#name").val()!='' & $("#name").val().length>50) {
+			$("#name_check").html("不得超過50個字");
+			$("#name").addClass('w3-border-red');
+			$("#name_check").removeClass('w3-text-green');
+			$("#name_check").addClass('w3-text-red');
+			$("#name_check_value").html('0');
+			checkAll();
+		} else {
+			$("#name_check").html("請輸入");
+			$("#name").addClass('w3-border-red');
+			$("#name_check").removeClass('w3-text-green');
+			$("#name_check").addClass('w3-text-red');
+			$("#name_check_value").html('0');
+			checkAll();
+		}
+    }
+
+    function CheckPhone() {
+        if ($("#phone").val() != '' & $("#phone").val().length < 51) {
+            $("#phone_check").html("");
+            $("#phone").removeClass('w3-border-red');
+            $("#phone_check").removeClass('w3-text-red');
+            $("#phone_check").addClass('w3-text-green');
+            $("#phone_check_value").html('1');
+            checkAll();
+        } else if ($("#phone").val() != '' & $("#phone").val().length > 50) {
+            $("#phone_check").html("不得超過50個字");
+            $("#phone").addClass('w3-border-red');
+            $("#phone_check").removeClass('w3-text-green');
+            $("#phone_check").addClass('w3-text-red');
+            $("#phone_check_value").html('0');
+            checkAll();
+        } else {
+            $("#phone_check").html("請輸入");
+            $("#phone").addClass('w3-border-red');
+            $("#phone_check").removeClass('w3-text-green');
+            $("#phone_check").addClass('w3-text-red');
+            $("#phone_check_value").html('0');
+            checkAll();
+        }
+    }
+
+    function CheckInvestMoney() {
+        var max_num = 97199254740991;
+        //var min_num = -97199254740991;
+        var min_num = 0;
+
+        if ($("#invest_money").val() != '' & (!isNaN($("#invest_money").val()))) {
+            if (Number($("#invest_money").val()) <= max_num & Number($("#invest_money").val()) > 0) {
+                $("#invest_money_check").html("");
+                $("#invest_money").removeClass('w3-border-red');
+                $("#invest_money_check").removeClass('w3-text-red');
+                $("#invest_money_check").addClass('w3-text-green');
+                $("#invest_money_check_value").html('1');
+                checkAll();
+            } else if ($("#invest_money").val() != '' & Number($("#invest_money").val()) > max_num) {
+                $("#invest_money_check").html("不得超過" + max_num);
+                $("#invest_money").addClass('w3-border-red');
+                $("#invest_money_check").removeClass('w3-text-green');
+                $("#invest_money_check").addClass('w3-text-red');
+                $("#invest_money_check_value").html('0');
+                checkAll();
+            } else if ($("#invest_money").val() != '' & Number($("#invest_money").val()) <= 0) {
+                $("#invest_money_check").html("須超過" + min_num);
+                $("#invest_money").addClass('w3-border-red');
+                $("#invest_money_check").removeClass('w3-text-green');
+                $("#invest_money_check").addClass('w3-text-red');
+                $("#invest_money_check_value").html('0');
+                checkAll();
+            }
+        } else if ($("#invest_money").val() != '' & (isNaN($("#invest_money").val()))) {
+            $("#invest_money_check").html("請輸入數字");
+            $("#invest_money").addClass('w3-border-red');
+            $("#invest_money_check").removeClass('w3-text-green');
+            $("#invest_money_check").addClass('w3-text-red');
+            $("#invest_money_check_value").html('0');
+            checkAll();
+        } else {
+            $("#invest_money_check").html("請輸入數字");
+            $("#invest_money").addClass('w3-border-red');
+            $("#invest_money_check").removeClass('w3-text-green');
+            $("#invest_money_check").addClass('w3-text-red');
+            $("#invest_money_check_value").html('0');
+            checkAll();
+        }
+    }
+</script>

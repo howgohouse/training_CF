@@ -767,7 +767,8 @@
     <Content Include="Views\BHome\About.cshtml" />
     <Content Include="Views\BHome\Contact.cshtml" />
     <Content Include="Views\BHome\Index.cshtml" />
-    <Content Include="Views\Home\draft.cshtml" />
+    <Content Include="Views\Home\Draft.cshtml" />
+    <Content Include="Views\Home\Invest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
