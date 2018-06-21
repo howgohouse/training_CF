@@ -2,6 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
+<a id="murl" href="~/" style="display:none"></a>
 <div class="container">
     <p class="col-md-6">
         <label>姓名</label>
@@ -366,4 +367,12 @@
             checkAll();
         }
     }
+
+    var editor = CKEDITOR.replace('content', {
+        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/upload/?'
+    });
+    editor.on('change', function (evt) {
+        $("#content").html(evt.editor.getData());
+    });
 </script>
