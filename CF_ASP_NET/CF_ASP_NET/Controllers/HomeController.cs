@@ -20,9 +20,33 @@ namespace CF_ASP_NET.Controllers
             return View();
         }
 
-        public ActionResult DraftRun()
+        public ActionResult DraftRun(String name,String phone,String bank_code,String bank_name,String account_code,String account_name, decimal target_money,String end_datetime,String title,String introduction,String content)
         {
-            return Content("");
+            DateTime now_time = DateTime.Now;
+            DateTime end_datetime_2 = Convert.ToDateTime(end_datetime);
+
+            homemodel.DraftRunMen(name,phone,now_time);
+            int menber_id = homemodel.lastid;
+
+            homemodel = new Models.HomeModel();
+
+            homemodel.DraftRunB(menber_id, bank_code, bank_name, account_code, account_name, now_time);
+            int bank_id = homemodel.lastid;
+
+            homemodel = new Models.HomeModel();
+
+            homemodel.DraftRunP(menber_id, bank_id, now_time);
+            int proposal_id = homemodel.lastid;
+
+            homemodel = new Models.HomeModel();
+
+            homemodel.DraftRunPV(proposal_id, title, introduction, content, end_datetime_2, now_time);
+
+            homemodel = new Models.HomeModel();
+
+            homemodel.DraftRunPG(proposal_id, target_money, now_time);
+
+            return Content("ok");
         }
 
         public ActionResult Invest()

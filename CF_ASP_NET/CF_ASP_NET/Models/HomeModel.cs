@@ -11,6 +11,8 @@ namespace CF_ASP_NET.Models
         public List<Models.CfBulletin> list = null;
         public List<Models.CfProposalV> list2 = null;
 
+        public int lastid = 0;
+
         public void Index()
         {
 
@@ -45,6 +47,110 @@ namespace CF_ASP_NET.Models
         /*前台 提案*/
 
         //新增方案表單
+
+        public void DraftRunMen(String name,String phone,DateTime now_time)
+        {
+            db = new CrowdfundingEntities();
+
+            var query = from d in db.CfMember select d;
+            Models.CfMember cfm = new Models.CfMember();
+
+            cfm.name = name;
+            cfm.phone = phone;
+            cfm.makeTime = now_time;
+            cfm.stEnable = "Y";
+
+            db.CfMember.Add(cfm);
+            db.SaveChanges();
+
+            this.lastid = cfm.id;
+        }
+
+        public void DraftRunB(int menber_id,String bank_code,String bank_name,String account_code,String account_name, DateTime now_time)
+        {
+            db = new CrowdfundingEntities();
+
+            var query = from d in db.CfBank select d;
+            Models.CfBank cfb = new Models.CfBank();
+
+            cfb.member = menber_id;
+            cfb.bankCdoe = bank_code;
+            cfb.bankName = bank_name;
+            cfb.accountCdoe = account_code;
+            cfb.accountName = account_name;
+            cfb.makeTime = now_time;
+            cfb.lastTime = now_time;
+            cfb.stEnable = "Y";
+
+            db.CfBank.Add(cfb);
+            db.SaveChanges();
+
+            this.lastid = cfb.id;
+        }
+
+        public void DraftRunP(int menber_id, int bank_id, DateTime now_time)
+        {
+            db = new CrowdfundingEntities();
+
+            var query = from d in db.CfProposal select d;
+            Models.CfProposal cfp = new Models.CfProposal();
+
+            cfp.member = menber_id;
+            cfp.bank = bank_id;
+            cfp.makeTime = now_time;
+            cfp.lastTime = now_time;
+            cfp.stEnable = "Y";
+
+            db.CfProposal.Add(cfp);
+            db.SaveChanges();
+
+            this.lastid = cfp.id;
+        }
+
+        public void DraftRunPV(int proposal_id, String title, String introduction, String content, DateTime end_datetime_2, DateTime now_time)
+        {
+            db = new CrowdfundingEntities();
+
+            var query = from d in db.CfProposalV select d;
+            Models.CfProposalV cfp = new Models.CfProposalV();
+
+            cfp.title = title;
+            cfp.proposal = proposal_id;
+            cfp.used = 0;
+            cfp.status = 1;
+            cfp.introduction = introduction;
+            cfp.content = content;
+            cfp.startTime = now_time;
+            cfp.endTime = end_datetime_2;
+            cfp.makeTime = now_time;
+            cfp.lastTime = now_time;
+            cfp.stEnable = "Y";
+
+            db.CfProposalV.Add(cfp);
+            db.SaveChanges();
+
+            this.lastid = cfp.id;
+        }
+
+        public void DraftRunPG(int proposal_id,decimal target_money, DateTime now_time)
+        {
+            db = new CrowdfundingEntities();
+
+            var query = from d in db.CfProposalGoal select d;
+            Models.CfProposalGoal cfp = new Models.CfProposalGoal();
+
+            cfp.proposal = proposal_id;
+            cfp.targetColumn = target_money;
+            cfp.orderNum = 1;
+            cfp.makeTime = now_time;
+            cfp.lastTime = now_time;
+            cfp.stEnable = "Y";
+
+            db.CfProposalGoal.Add(cfp);
+            db.SaveChanges();
+
+            this.lastid = cfp.id;
+        }
 
         /*前台 探索*/
 
