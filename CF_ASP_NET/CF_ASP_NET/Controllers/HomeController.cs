@@ -25,33 +25,55 @@ namespace CF_ASP_NET.Controllers
             DateTime now_time = DateTime.Now;
             DateTime end_datetime_2 = Convert.ToDateTime(end_datetime);
 
-            homemodel.DraftRunMen(name,phone,now_time);
-            int menber_id = homemodel.lastid;
+            this.homemodel.DraftRunMen(name,phone,now_time);
+            int menber_id = this.homemodel.lastid;
 
-            homemodel = new Models.HomeModel();
+            this.homemodel = new Models.HomeModel();
 
-            homemodel.DraftRunB(menber_id, bank_code, bank_name, account_code, account_name, now_time);
-            int bank_id = homemodel.lastid;
+            this.homemodel.DraftRunB(menber_id, bank_code, bank_name, account_code, account_name, now_time);
+            int bank_id = this.homemodel.lastid;
 
-            homemodel = new Models.HomeModel();
+            this.homemodel = new Models.HomeModel();
 
-            homemodel.DraftRunP(menber_id, bank_id, now_time);
-            int proposal_id = homemodel.lastid;
+            this.homemodel.DraftRunP(menber_id, bank_id, now_time);
+            int proposal_id = this.homemodel.lastid;
 
-            homemodel = new Models.HomeModel();
+            this.homemodel = new Models.HomeModel();
 
-            homemodel.DraftRunPV(proposal_id, title, introduction, content, end_datetime_2, now_time);
+            this.homemodel.DraftRunPV(proposal_id, title, introduction, content, end_datetime_2, now_time);
 
-            homemodel = new Models.HomeModel();
+            this.homemodel = new Models.HomeModel();
 
-            homemodel.DraftRunPG(proposal_id, target_money, now_time);
+            this.homemodel.DraftRunPG(proposal_id, target_money, now_time);
 
             return Content("ok");
         }
 
-        public ActionResult Invest()
+        public ActionResult Invest(int id)
         {
+            this.homemodel.Proposal(id);
+            ViewData["DataList"] = this.homemodel.list2;
             return View();
+        }
+
+        public ActionResult ProposalContent(int id)
+        {
+            //ViewBag.Message = "Your application description page.";
+
+            return Content(this.homemodel.ProposalContent(id));
+        }
+
+        public ActionResult InvestRun(int p_id, String name, String phone, decimal invest_money)
+        {
+            DateTime now_time = DateTime.Now;
+
+            this.homemodel.InvestIRun(p_id, name, phone, invest_money, now_time);
+
+            this.homemodel = new Models.HomeModel();
+
+            this.homemodel.InvestRsetRun(p_id, invest_money);
+
+            return Content("ok");
         }
 
         public ActionResult NewsList()

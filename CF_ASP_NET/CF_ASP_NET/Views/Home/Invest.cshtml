@@ -1,30 +1,66 @@
-﻿@{
+﻿@using CF_ASP_NET.Models;
+@{
     ViewBag.Title = "Home Page";
 }
 
 <a id="murl" href="~/" style="display:none"></a>
 <div class="container">
+    @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
+    {
+        <p class="col-md-12">
+            <label>@a.title</label>
+            <p>@a.introduction</p>
+            <p id="content"></p>
+            <p id="p_id" style="display:none;">@a.proposal</p>
+        </p>
+    }
     <p class="col-md-6">
         <label>姓名</label>
         <input id="name" class="w3-input w3-border w3-round-large" onKeyUp="CheckName()" onMouseUp="CheckName()" onChange="CheckName()" type="text">
-        <p id="name_check" style="height: 25px;"></p>
-        <p id="name_check_value" style="display: none;">0</p>
+    <p id="name_check" style="height: 25px;"></p>
+    <p id="name_check_value" style="display: none;">0</p>
     </p>
     <p class="col-md-6">
         <label>連絡電話</label>
         <input id="phone" class="w3-input w3-border w3-round-large" onkeyup="CheckPhone()" onmouseup="CheckPhone()" onchange="CheckPhone()" type="text">
-        <p id="phone_check" style="height: 25px;"></p>
-        <p id="phone_check_value" style="display: none;">0</p>
+    <p id="phone_check" style="height: 25px;"></p>
+    <p id="phone_check_value" style="display: none;">0</p>
     </p>
     <p class="col-md-6">
         <label>金額</label>
         <input id="invest_money" class="w3-input w3-border w3-round-large" onkeyup="CheckInvestMoney()" onmouseup="CheckInvestMoney()" onchange="CheckInvestMoney()" type="number">
-        <p id="invest_money_check" style="height: 25px;"></p>
-        <p id="invest_money_check_value" style="display: none;">0</p>
+    <p id="invest_money_check" style="height: 25px;"></p>
+    <p id="invest_money_check_value" style="display: none;">0</p>
+    </p>
+    <p class="w3-padding w3-center">
+        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post()">確定</a>
+        <a class="w3-button w3-round-large w3-green col-sm-12">返回</a>
     </p>
 </div>
 
 <script>
+    function getContent() {
+        var array =
+            { "id": $("#p_id").html() }
+        $.post(document.getElementById("murl").href + 'home/proposalcontent', array,
+            function (data) {
+                $("#content").html(data);
+            }
+        );
+    }
+
+    function checkAll() {
+        var num = 0;
+        num = Number($("#name_check_value").html())
+            + Number($("#phone_check_value").html())
+            + Number($("#invest_money_check_value").html());
+        if (num == 3) {
+            $("#output").removeClass('w3-disabled');
+        } else {
+            $("#output").addClass('w3-disabled');
+        }
+    }
+
     function CheckName() {
 		if ($("#name").val()!='' & $("#name").val().length<51) {
 			$("#name_check").html("");
@@ -117,6 +153,56 @@
             $("#invest_money_check").addClass('w3-text-red');
             $("#invest_money_check_value").html('0');
             checkAll();
+        }
+    }
+
+    //輸入欄位設置檢查動作
+    setTimeout(function () {
+        $("#name").keypress(function (event) {
+            return setKeyEnter(event);
+        });
+        $("#phone").keypress(function (event) {
+            return setKeyEnter(event);
+        });
+        $("#invest_money").keypress(function (event) {
+            return setKeyEnter(event);
+        });
+
+        //按鈕狀態重設
+        $("#output").addClass('w3-disabled');
+
+        getContent();
+    }, 100);
+
+    //設置Enter Key事件
+    function setKeyEnter(event) {
+        var keycode = event.keyCode || event.which;
+        if (keycode == '13') {
+            var num = 0;
+            num = Number($("#name_check_value").html())
+                + Number($("#phone_check_value").html())
+                + Number($("#invest_money_check_value").html());
+            if (num == 3) {
+                post();
+            } else {
+                CheckName();
+                CheckPhone();
+                CheckInvestMoney();
+            }
+            return false;
+        }
+        return true;
+    }
+
+    function post() {
+        if (confirm("是否要進行此操作?")) {
+            var array =
+                { "p_id": $("#p_id").html(), "name": $("#name").val(), "phone": $("#phone").val(), "invest_money": $("#invest_money").val() }
+            $.post(document.getElementById("murl").href + 'home/investrun', array,
+                function (data) {
+                    alert(data);
+                }
+            );
         }
     }
 </script>

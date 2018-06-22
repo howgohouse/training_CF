@@ -50,8 +50,6 @@ namespace CF_ASP_NET.Models
 
         public void DraftRunMen(String name,String phone,DateTime now_time)
         {
-            db = new CrowdfundingEntities();
-
             var query = from d in db.CfMember select d;
             Models.CfMember cfm = new Models.CfMember();
 
@@ -68,8 +66,6 @@ namespace CF_ASP_NET.Models
 
         public void DraftRunB(int menber_id,String bank_code,String bank_name,String account_code,String account_name, DateTime now_time)
         {
-            db = new CrowdfundingEntities();
-
             var query = from d in db.CfBank select d;
             Models.CfBank cfb = new Models.CfBank();
 
@@ -90,8 +86,6 @@ namespace CF_ASP_NET.Models
 
         public void DraftRunP(int menber_id, int bank_id, DateTime now_time)
         {
-            db = new CrowdfundingEntities();
-
             var query = from d in db.CfProposal select d;
             Models.CfProposal cfp = new Models.CfProposal();
 
@@ -109,8 +103,6 @@ namespace CF_ASP_NET.Models
 
         public void DraftRunPV(int proposal_id, String title, String introduction, String content, DateTime end_datetime_2, DateTime now_time)
         {
-            db = new CrowdfundingEntities();
-
             var query = from d in db.CfProposalV select d;
             Models.CfProposalV cfp = new Models.CfProposalV();
 
@@ -134,8 +126,6 @@ namespace CF_ASP_NET.Models
 
         public void DraftRunPG(int proposal_id,decimal target_money, DateTime now_time)
         {
-            db = new CrowdfundingEntities();
-
             var query = from d in db.CfProposalGoal select d;
             Models.CfProposalGoal cfp = new Models.CfProposalGoal();
 
@@ -161,12 +151,12 @@ namespace CF_ASP_NET.Models
 
         public void Proposal(int id)
         {
-            this.list2 = (from d in db.CfProposalV where d.id == id select d).ToList();
+            this.list2 = (from d in db.CfProposalV where d.proposal == id & d.used ==1 & d.status==3 select d).ToList();
         }
 
         public String ProposalContent(int id)
         {
-            var query = (from d in db.CfProposalV where d.id == id select d).ToList();
+            var query = (from d in db.CfProposalV where d.proposal == id select d).ToList();
             String tempstr = "";
 
             foreach (Models.CfProposalV proposal in query)
@@ -176,6 +166,40 @@ namespace CF_ASP_NET.Models
             }
 
             return HttpUtility.HtmlDecode(tempstr);
+        }
+
+        public void InvestIRun(int p_id, String name, String phone, decimal invest_money, DateTime now_time)
+        {
+            var query = from d in db.CfInvestment select d;
+            Models.CfInvestment cfi = new Models.CfInvestment();
+
+            cfi.name = name;
+            cfi.phone = phone;
+            cfi.invColumn = invest_money;
+            cfi.makeTime = now_time;
+            cfi.lastTime = now_time;
+            cfi.stEnable = "Y";
+
+            db.CfInvestment.Add(cfi);
+            db.SaveChanges();
+
+            this.lastid = cfi.ID;
+        }
+
+        public void InvestRsetRun(int p_id, decimal invest_money)
+        {
+            System.DateTime nowTime = System.DateTime.Now;
+            var query = from d in db.CfProposalGoal where d.proposal== p_id select d;
+
+            foreach (Models.CfProposalGoal cfp in query)
+            {
+                cfp.totalColumn = cfp.totalColumn + invest_money;
+                cfp.lastTime = nowTime;
+                // Insert any additional changes to column values.
+            }
+
+            db.SaveChanges();
+
         }
 
     }
