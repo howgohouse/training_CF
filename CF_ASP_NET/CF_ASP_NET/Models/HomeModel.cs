@@ -124,7 +124,7 @@ namespace CF_ASP_NET.Models
             this.lastid = cfp.id;
         }
 
-        public void DraftRunPG(int proposal_id,decimal target_money, DateTime now_time)
+        public void DraftRunPG(int proposal_id, decimal target_money, DateTime now_time)
         {
             var query = from d in db.CfProposalGoal select d;
             Models.CfProposalGoal cfp = new Models.CfProposalGoal();
@@ -140,6 +140,23 @@ namespace CF_ASP_NET.Models
             db.SaveChanges();
 
             this.lastid = cfp.id;
+        }
+
+        public void DraftRunPP(int proposal_id, int file_id, String file_type, DateTime now_time)
+        {
+            var query = from d in db.CfProposalPromotion select d;
+            Models.CfProposalPromotion cfp = new Models.CfProposalPromotion();
+
+            cfp.proposal = proposal_id;
+            cfp.fileid = file_id;
+            cfp.filetype = file_type;
+            cfp.orderNum = 1;
+            cfp.makeTime = now_time;
+            cfp.lastTime = now_time;
+            cfp.stEnable = "Y";
+
+            db.CfProposalPromotion.Add(cfp);
+            db.SaveChanges();
         }
 
         /*前台 探索*/

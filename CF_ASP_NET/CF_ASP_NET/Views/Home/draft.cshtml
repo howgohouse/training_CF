@@ -54,7 +54,7 @@
     </p>
     <p class="col-md-12">
         <label>方案的宣傳圖片</label>
-        <input id="propaganda_image" class="w3-input w3-border w3-round-large" type="file">
+        <input id="propaganda_image" class="w3-input w3-border w3-round-large" onchange="CheckPropagandaImage()" type="file">
     <p id="propaganda_image_check" style="height: 25px;"></p>
     <p id="propaganda_image_check_value" style="display: none;">0</p>
     </p>
@@ -93,10 +93,11 @@
             + Number($("#account_name_check_value").html())
             + Number($("#target_money_check_value").html())
             + Number($("#end_datetime_check_value").html())
+            + Number($("#propaganda_image_check_value").html())
             + Number($("#title_check_value").html())
             + Number($("#introduction_check_value").html())
             + Number($("#content_check_value").html());
-        if (num == 11) {
+        if (num == 12) {
             $("#output").removeClass('w3-disabled');
         } else {
             $("#output").addClass('w3-disabled');
@@ -331,6 +332,53 @@
         }
     }
 
+    function CheckPropagandaImage() {
+        var files = null;
+        input = document.getElementById('propaganda_image');
+        if (!input) {
+            $("#propaganda_image_check").html("找不到上傳元件");
+            $("#propaganda_image").addClass('w3-border-red');
+            $("#propaganda_image_check").removeClass('w3-text-green');
+            $("#propaganda_image_check").addClass('w3-text-red');
+            $("#propaganda_image_check_value").html('0');
+        }
+        else if (!input.files) {
+            $("#propaganda_image_check").html("瀏覽器不支援檔案的屬性");
+            $("#propaganda_image").addClass('w3-border-red');
+            $("#propaganda_image_check").removeClass('w3-text-green');
+            $("#propaganda_image_check").addClass('w3-text-red');
+            $("#propaganda_image_check_value").html('0');
+        }
+        else if (!input.files[0]) {
+            $("#propaganda_image_check").html("請於上傳前,選擇一個檔案");
+            $("#propaganda_image").addClass('w3-border-red');
+            $("#propaganda_image_check").removeClass('w3-text-green');
+            $("#propaganda_image_check").addClass('w3-text-red');
+            $("#propaganda_image_check_value").html('0');
+        }
+        else {
+            files = input.files[0];
+            var filename = files.name;
+            var res = filename.split('.');
+            if (files.type == 'image/jpg' | files.type == 'image/jpeg' | files.type == 'image/png' | files.type == 'image/gif' | res[(res.length-1)] == 'webp') {
+                $("#propaganda_image_check").html("");
+                $("#propaganda_image").removeClass('w3-border-red');
+                $("#propaganda_image_check").removeClass('w3-text-red');
+                $("#propaganda_image_check").addClass('w3-text-green');
+                $("#propaganda_image_check_value").html('1');
+                checkAll();
+            } else {
+                $("#propaganda_image_check").html("檔案格式不是jpg,png,gif或webp");
+                $("#propaganda_image").addClass('w3-border-red');
+                $("#propaganda_image_check").removeClass('w3-text-green');
+                $("#propaganda_image_check").addClass('w3-text-red');
+                $("#propaganda_image_check_value").html('0');
+                checkAll();
+            }
+        }
+        
+    }
+
     function CheckTitle() {
         if ($("#title").val() != '' & $("#title").val().length < 51) {
             $("#title_check").html("");
@@ -394,7 +442,7 @@
 
     var editor = CKEDITOR.replace('content', {
         extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/upload/?'
+        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
     });
     editor.on('change', function (evt) {
         $("#content").html(evt.editor.getData());
@@ -447,10 +495,11 @@
                 + Number($("#account_name_check_value").html())
                 + Number($("#target_money_check_value").html())
                 + Number($("#end_datetime_check_value").html())
+                + Number($("#propaganda_image_check_value").html())
                 + Number($("#title_check_value").html())
                 + Number($("#introduction_check_value").html())
                 + Number($("#content_check_value").html());
-            if (num == 11) {
+            if (num == 12) {
                 post();
             } else {
                 CheckName();
@@ -461,6 +510,7 @@
                 CheckAccountName();
                 CheckTargetMoney();
                 CheckEndDatetime();
+                CheckPropagandaImage();
                 CheckTitle();
                 CheckIntroduction();
                 CheckContent();
@@ -470,6 +520,69 @@
         return true;
     }
 
+    function openfile(evt) {
+        /*var img = evt.target.result;
+        var imgx = document.createElement('img');
+        imgx.style.margin = "10px";
+        imgx.src = img;
+        document.getElementById('imgDIV').appendChild(imgx);*/
+    }
+
+    function startupload(p_id) {//evt 為 DragEvent 物件
+        //$("#startup").prop('disabled', true);
+        //$("#uploadinfo").html('正開始上傳');
+        var files = null;
+        input = document.getElementById('propaganda_image');
+        if (!input) {
+            alert("找不到上傳元件");
+        }
+        else if (!input.files) {
+            alert("瀏覽器不支援檔案的屬性");
+        }
+        else if (!input.files[0]) {
+            alert("請於上傳前,選擇一個檔案");
+        }
+        else {
+            files = input.files[0];
+        }
+        var fd = new FormData();
+        var xhr = new XMLHttpRequest();
+        //var up_progress = document.getElementById('up_progress');
+        xhr.open('POST', document.getElementById("murl").href + 'file/upload/?p_id='+p_id);//上傳到upload.php
+        xhr.onload = function () {
+            //上傳完成
+            //up_progress.innerHTML = '100 %, 上傳完成';
+            setTimeout(function () { alert('ok'); }, 100);
+        };
+        xhr.upload.onprogress = function (evt) {
+            //up_progress.innerHTML = '正開始上傳';
+            //上傳進度
+            if (evt.lengthComputable) {
+                var complete = (evt.loaded / evt.total * 100 | 0);
+                if (100 == complete) {
+                    complete = 99.9;
+                }
+                //up_progress.innerHTML = complete + ' %';
+            }
+        }
+        files = input.files[0];
+        var filename = files.name;
+        var res = filename.split('.');
+        if (files.type == 'image/jpg' | files.type == 'image/jpeg' | files.type == 'image/png' | files.type == 'image/gif' | res[(res.length - 1)] == 'webp') {
+            //將圖片在頁面預覽
+            var fr = new FileReader();
+            fr.onload = openfile;
+            fr.readAsDataURL(files);
+            //新增上傳檔案，上傳後名稱為 ff 的陣列
+            fd.append('ff[]', files);
+
+            xhr.send(fd);//開始上傳
+        } else {
+            alert('檔案格式不是jpg,png,gif或webp');
+        }
+
+    }
+
     function post() {
         if (confirm("是否要進行此操作?")) {
             $("#content").html(CKEDITOR.instances['content'].getData());
@@ -477,7 +590,8 @@
                 { "name": $("#name").val(), "phone": $("#phone").val(), "bank_code": $("#bank_code").val(), "bank_name": $("#bank_name").val(), "account_code": $("#account_code").val(), "account_name": $("#account_name").val(), "target_money": $("#target_money").val(), "end_datetime": $("#end_datetime").val(), "title": $("#title").val(), "introduction": $("#introduction").html(), "content": $("#content").html() }
             $.post(document.getElementById("murl").href + 'home/draftrun', array,
                 function (data) {
-                    alert(data);
+                    var dataStr = JSON.parse(data);
+                    startupload(dataStr.p_id);
                 }
             );
         }

@@ -20,12 +20,12 @@ namespace CF_ASP_NET.Controllers
             return View();
         }
 
-        public ActionResult DraftRun(String name,String phone,String bank_code,String bank_name,String account_code,String account_name, decimal target_money,String end_datetime,String title,String introduction,String content)
+        public ActionResult DraftRun(String name, String phone, String bank_code, String bank_name, String account_code, String account_name, decimal target_money, String end_datetime, String title, String introduction, String content)
         {
             DateTime now_time = DateTime.Now;
             DateTime end_datetime_2 = Convert.ToDateTime(end_datetime);
 
-            this.homemodel.DraftRunMen(name,phone,now_time);
+            this.homemodel.DraftRunMen(name, phone, now_time);
             int menber_id = this.homemodel.lastid;
 
             this.homemodel = new Models.HomeModel();
@@ -46,7 +46,12 @@ namespace CF_ASP_NET.Controllers
 
             this.homemodel.DraftRunPG(proposal_id, target_money, now_time);
 
-            return Content("ok");
+            String sb = "";
+
+            sb = sb + "{";
+            sb = sb + "\"p_id\": " + proposal_id.ToString() + "  ";
+            sb = sb + "}";
+            return Content(sb);
         }
 
         public ActionResult Invest(int id)

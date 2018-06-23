@@ -141,10 +141,21 @@ namespace CF_ASP_NET.Models
         {
             this.lastid = id;
 
-            Bitmap bitmap = new Bitmap(path);
+            int iWidth = 0;
+            int iHeight = 0;
 
-            int iWidth = bitmap.Width;
-            int iHeight = bitmap.Height;
+            try
+            {
+                Bitmap bitmap = new Bitmap(path);
+
+                iWidth = bitmap.Width;
+                iHeight = bitmap.Height;
+            }
+            catch(Exception e)
+            {
+                iWidth = 0;
+                iHeight = 0;
+            }
 
             var query3 = from d in db.CfImage select d;
             Models.CfImage image = new Models.CfImage()
@@ -161,8 +172,6 @@ namespace CF_ASP_NET.Models
 
             //return this.lastid;
         }
-
-        
 
     }
 

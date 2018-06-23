@@ -55,7 +55,7 @@
 
 			// Handle images which are available in the dataTransfer.
 			fileTools.addUploadWidget( editor, 'uploadimage', {
-				supportedTypes: /image\/(jpeg|png|gif|bmp)/,
+				supportedTypes: /image\/(jpeg|png|gif)/,
 
 				uploadUrl: uploadUrl,
 

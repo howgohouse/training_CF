@@ -32,6 +32,7 @@ namespace CF_ASP_NET.Controllers
         public string mUrl = "http://192.168.2.113/";
 
         public Models.FileModel filemodel = new Models.FileModel();
+        public Models.HomeModel homemodel = new Models.HomeModel();
 
         public ActionResult Index()
         {
@@ -134,6 +135,72 @@ namespace CF_ASP_NET.Controllers
             int lastid = new int();
             string fileName = "";
 
+            int p_id= Int32.Parse(Request.QueryString["p_id"]);//GET值
+
+            for (int i = 0; i < Request.Files.Count; i++)
+            {
+                HttpPostedFileBase file = Request.Files[i]; //Uploaded file
+                                                            //Use the following properties to get file's name, size and MIMEType
+                int fileSize = file.ContentLength;
+                fileName = file.FileName;
+                string mimeType = file.ContentType;
+                System.IO.Stream fileContent = file.InputStream;
+
+                lastid = this.filemodel.Upload(fileName);
+                DateTime temptime = this.filemodel.mTime;
+                String[] temparray = this.filemodel.temp_str_array;
+                this.filemodel = new Models.FileModel();
+                this.filemodel.Upload_2(lastid, temptime);
+
+                bool dir = false;
+                dir = Directory.Exists(@"C:\www\cf\UpLoadFile\" + temparray[0]);
+                if (!dir)
+                {
+                    Directory.CreateDirectory(@"C:\www\cf\UpLoadFile\" + temparray[0]);
+                }
+
+                dir = Directory.Exists(@"C:\www\cf\UpLoadFile\" + temparray[0] + "\\" + temparray[0] + "-" + temparray[1]);
+                if (!dir)
+                {
+                    Directory.CreateDirectory(@"C:\www\cf\UpLoadFile\" + temparray[0] + "\\" + temparray[0] + "-" + temparray[1]);
+                }
+
+                dir = Directory.Exists(@"C:\www\cf\UpLoadFile\" + temparray[0] + "\\" + temparray[0] + "-" + temparray[1] + "\\" + temparray[0] + "-" + temparray[1] + "-" + temparray[2]);
+                if (!dir)
+                {
+                    Directory.CreateDirectory(@"C:\www\cf\UpLoadFile\" + temparray[0] + "\\" + temparray[0] + "-" + temparray[1] + "\\" + temparray[0] + "-" + temparray[1] + "-" + temparray[2]);
+                }
+
+                //To save file, use SaveAs method
+                file.SaveAs(Server.MapPath("/UpLoadFile/" + temparray[0] + "/" + temparray[0] + "-" + temparray[1] + "/" + temparray[0] + "-" + temparray[1] + "-" + temparray[2]) + "/" + lastid.ToString() + ".file"); //File will be saved in application root
+
+                this.filemodel = new Models.FileModel();
+                string path = Server.MapPath(this.filemodel.DownLoad(lastid));
+                this.filemodel = new Models.FileModel();
+                this.filemodel.Upload_3(lastid, temptime, path);
+                this.filemodel = new Models.FileModel();
+                this.homemodel.DraftRunPP(p_id, lastid, "image", temptime);
+            }
+
+            //String cKEditorFuncNum = Request.Form["CKEditorFuncNum"]; POST值
+            String cKEditorFuncNum = Request.QueryString["CKEditorFuncNum"];//GET值
+            if (cKEditorFuncNum == "") cKEditorFuncNum = "2";
+            String sb = "";
+            sb = sb + "{";
+            sb = sb + "\"CKEditorFuncNum\": 2 , ";
+            sb = sb + "\"uploaded\":" + "true" + " , ";
+            sb = sb + "\"fileName\":\"" + fileName + "\" , ";
+            sb = sb + "\"url\":\"" + this.mUrl + "file/show/" + lastid.ToString() + "\"";
+            sb = sb + "}";
+
+            return Content(sb);
+        }
+
+        public ActionResult UploadCkEditor()
+        {
+            int lastid = new int();
+            string fileName = "";
+
             for (int i = 0; i < Request.Files.Count; i++)
             {
                 HttpPostedFileBase file = Request.Files[i]; //Uploaded file
@@ -195,26 +262,9 @@ namespace CF_ASP_NET.Controllers
             {
                 return Content("<script>window.parent.CKEDITOR.tools.callFunction(1,'" + this.mUrl + "file/show/" + lastid.ToString() + "','');</script>");
             }
-            
+
             return Content(sb);
         }
-
-        /*protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-            HttpRuntimeSection section = (HttpRuntimeSection)ConfigurationManager.GetSection("system.web/httpRuntime");
-            int maxFileSize = section.MaxRequestLength * 1024;
-            if (Request.ContentLength > maxFileSize)
-            {
-                try
-                {
-                    Response.Redirect("~/home");
-                }
-                catch (Exception ex)
-                {
-
-                }
-            }
-        }*/
 
         public void VerificationCode()
 
@@ -813,6 +863,7 @@ namespace CF_ASP_NET.Controllers
                 case "wdp": return "image/vnd.ms-photo";
                 case "webarchive": return "application/x-safari-webarchive";
                 case "webtest": return "application/xml";
+                case "webp": return "image/webp";
                 case "wiq": return "application/xml";
                 case "wiz": return "application/msword";
                 case "wks": return "application/vnd.ms-works";
