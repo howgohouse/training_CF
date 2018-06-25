@@ -94,6 +94,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CfImageWebp">
+      <EntityTypeMapping TypeName="CrowdfundingModel.CfImageWebp">
+        <MappingFragment StoreEntitySet="CfImageWebp">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+          <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="CfInvestment">
       <EntityTypeMapping TypeName="CrowdfundingModel.CfInvestment">
         <MappingFragment StoreEntitySet="CfInvestment">

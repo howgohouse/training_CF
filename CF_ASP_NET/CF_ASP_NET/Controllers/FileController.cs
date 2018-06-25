@@ -66,6 +66,21 @@ namespace CF_ASP_NET.Controllers
             return Content("");
         }
 
+        public ActionResult WebpShow(int id)
+        {
+            string path = Server.MapPath(this.filemodel.WebpShow(id));
+            WebClient client = new WebClient();
+            Byte[] buffer = client.DownloadData(path);
+            if (buffer != null)
+            {
+                Response.ContentType = this.GetMimeType(path);
+                Response.AddHeader("content-length", buffer.Length.ToString());
+                Response.BinaryWrite(buffer);
+            }
+
+            return Content("");
+        }
+
         public ActionResult DownLoad(int id)
         {
             string path = Server.MapPath(this.filemodel.DownLoad(id));

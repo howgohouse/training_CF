@@ -40,6 +40,23 @@ namespace CF_ASP_NET.Models
             return tempstr;
         }
 
+        public String WebpShow(int id)
+        {
+            var query = (from f in db.CfFile join i in db.CfImageWebp on f.id equals i.fileid into fileGroup from f2 in fileGroup where f.id == id & f2.fileid == id select f);
+            String tempstr = "";
+
+            foreach (Models.CfFile filelist in query)
+            {
+                String date = filelist.makeTime.ToString("yyyy/MM/dd hh:mm:ss");
+                string[] tokens = date.Split(' ');
+                string[] tokens2 = tokens[0].Split('/');
+                tempstr = "~/UpLoadFile/" + tokens2[0] + "/" + tokens2[0] + "-" + tokens2[1] + "/" + tokens2[0] + "-" + tokens2[1] + "-" + tokens2[2] + "/" + filelist.id.ToString() + ".file";
+                // Insert any additional changes to column values.
+            }
+
+            return tempstr;
+        }
+
         public String DownLoad(int id)
         {
             var query = (from f in db.CfFile where f.id == id select f);
@@ -157,17 +174,35 @@ namespace CF_ASP_NET.Models
                 iHeight = 0;
             }
 
-            var query3 = from d in db.CfImage select d;
-            Models.CfImage image = new Models.CfImage()
+            if (iWidth == 0 & iHeight== 0)
             {
-                width = iWidth,
-                height = iHeight,
-                makeTime = nowTime,
-                fileid = this.lastid,
-                stEnable = "Y"
-            };
+                var query3 = from d in db.CfImageWebp select d;
+                Models.CfImageWebp image = new Models.CfImageWebp()
+                {
+                    width = iWidth,
+                    height = iHeight,
+                    makeTime = nowTime,
+                    fileid = this.lastid,
+                    stEnable = "Y"
+                };
 
-            db.CfImage.Add(image);
+                db.CfImageWebp.Add(image);
+            }
+            else
+            {
+                var query3 = from d in db.CfImage select d;
+                Models.CfImage image = new Models.CfImage()
+                {
+                    width = iWidth,
+                    height = iHeight,
+                    makeTime = nowTime,
+                    fileid = this.lastid,
+                    stEnable = "Y"
+                };
+
+                db.CfImage.Add(image);
+            }
+            
             db.SaveChanges();
 
             //return this.lastid;

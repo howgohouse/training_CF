@@ -185,6 +185,21 @@ namespace CF_ASP_NET.Models
             return HttpUtility.HtmlDecode(tempstr);
         }
 
+        public String ProposalImage(int id)
+        {
+            var query = (from f in db.CfFile join i in db.CfProposalPromotion on f.id equals i.fileid into fileGroup from f2 in fileGroup where f.id == f2.fileid & f2.id == id select f);
+            String tempstr = "";
+
+            foreach (Models.CfFile filelist in query)
+            {
+                tempstr = filelist.secondName;
+                this.lastid = filelist.id;
+                // Insert any additional changes to column values.
+            }
+
+            return tempstr;
+        }
+
         public void InvestIRun(int p_id, String name, String phone, decimal invest_money, DateTime now_time)
         {
             var query = from d in db.CfInvestment select d;

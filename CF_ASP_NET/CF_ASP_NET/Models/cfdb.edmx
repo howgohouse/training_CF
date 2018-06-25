@@ -90,6 +90,17 @@
           <Property Name="makeTime" Type="datetime" Nullable="false" />
           <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="CfImageWebp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="width" Type="int" Nullable="false" />
+          <Property Name="height" Type="int" Nullable="false" />
+          <Property Name="fileid" Type="int" />
+          <Property Name="makeTime" Type="datetime" Nullable="false" />
+          <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="CfInvestment">
           <Key>
             <PropertyRef Name="ID" />
@@ -203,7 +214,7 @@
           <Property Name="makeTime" Type="datetime" Nullable="false" />
           <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
-        <Association Name="FK__CfAccount__accou__47DBAE45">
+        <Association Name="FK__CfAccount__accou__4AB81AF0">
           <End Role="CfAccount" Type="Self.CfAccount" Multiplicity="0..1" />
           <End Role="CfAccount2" Type="Self.CfAccount2" Multiplicity="*" />
           <ReferentialConstraint>
@@ -215,7 +226,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfBank__member__4E88ABD4">
+        <Association Name="FK__CfBank__member__5165187F">
           <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
           <End Role="CfBank" Type="Self.CfBank" Multiplicity="*" />
           <ReferentialConstraint>
@@ -275,7 +286,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfInvestm__propo__6477ECF3">
+        <Association Name="FK__CfImageWe__filei__4316F928">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfImageWebp" Type="Self.CfImageWebp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfImageWebp">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfInvestm__propo__6754599E">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfInvestment" Type="Self.CfInvestment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -287,7 +310,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__filei__59063A47">
+        <Association Name="FK__CfProposa__filei__5BE2A6F2">
           <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
           <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -299,7 +322,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__membe__5165187F">
+        <Association Name="FK__CfProposa__membe__5441852A">
           <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -311,7 +334,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5535A963">
+        <Association Name="FK__CfProposa__propo__5812160E">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalV" Type="Self.CfProposalV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -323,7 +346,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5812160E">
+        <Association Name="FK__CfProposa__propo__5AEE82B9">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -335,7 +358,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5BE2A6F2">
+        <Association Name="FK__CfProposa__propo__5EBF139D">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalGoal" Type="Self.CfProposalGoal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -347,7 +370,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5EBF139D">
+        <Association Name="FK__CfProposa__propo__619B8048">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalVerify" Type="Self.CfProposalVerify" Multiplicity="*" />
           <ReferentialConstraint>
@@ -359,7 +382,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__619B8048">
+        <Association Name="FK__CfProposa__propo__6477ECF3">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalComment" Type="Self.CfProposalComment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -371,7 +394,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposal__bank__52593CB8">
+        <Association Name="FK__CfProposal__bank__5535A963">
           <End Role="CfBank" Type="Self.CfBank" Multiplicity="0..1" />
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -383,7 +406,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfVideo__fileid__4316F928">
+        <Association Name="FK__CfVideo__fileid__45F365D3">
           <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
           <End Role="CfVideo" Type="Self.CfVideo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -404,6 +427,7 @@
           <EntitySet Name="CfDirFile" EntityType="Self.CfDirFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CfFile" EntityType="Self.CfFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CfImage" EntityType="Self.CfImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CfImageWebp" EntityType="Self.CfImageWebp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CfInvestment" EntityType="Self.CfInvestment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CfMember" EntityType="Self.CfMember" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CfProposal" EntityType="Self.CfProposal" Schema="dbo" store:Type="Tables" />
@@ -413,11 +437,11 @@
           <EntitySet Name="CfProposalV" EntityType="Self.CfProposalV" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CfProposalVerify" EntityType="Self.CfProposalVerify" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CfVideo" EntityType="Self.CfVideo" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CfAccount__accou__47DBAE45" Association="Self.FK__CfAccount__accou__47DBAE45">
+          <AssociationSet Name="FK__CfAccount__accou__4AB81AF0" Association="Self.FK__CfAccount__accou__4AB81AF0">
             <End Role="CfAccount" EntitySet="CfAccount" />
             <End Role="CfAccount2" EntitySet="CfAccount2" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfBank__member__4E88ABD4" Association="Self.FK__CfBank__member__4E88ABD4">
+          <AssociationSet Name="FK__CfBank__member__5165187F" Association="Self.FK__CfBank__member__5165187F">
             <End Role="CfMember" EntitySet="CfMember" />
             <End Role="CfBank" EntitySet="CfBank" />
           </AssociationSet>
@@ -437,43 +461,47 @@
             <End Role="CfFile" EntitySet="CfFile" />
             <End Role="CfImage" EntitySet="CfImage" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfInvestm__propo__6477ECF3" Association="Self.FK__CfInvestm__propo__6477ECF3">
+          <AssociationSet Name="FK__CfImageWe__filei__4316F928" Association="Self.FK__CfImageWe__filei__4316F928">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfImageWebp" EntitySet="CfImageWebp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfInvestm__propo__6754599E" Association="Self.FK__CfInvestm__propo__6754599E">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfInvestment" EntitySet="CfInvestment" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__filei__59063A47" Association="Self.FK__CfProposa__filei__59063A47">
+          <AssociationSet Name="FK__CfProposa__filei__5BE2A6F2" Association="Self.FK__CfProposa__filei__5BE2A6F2">
             <End Role="CfFile" EntitySet="CfFile" />
             <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__membe__5165187F" Association="Self.FK__CfProposa__membe__5165187F">
+          <AssociationSet Name="FK__CfProposa__membe__5441852A" Association="Self.FK__CfProposa__membe__5441852A">
             <End Role="CfMember" EntitySet="CfMember" />
             <End Role="CfProposal" EntitySet="CfProposal" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5535A963" Association="Self.FK__CfProposa__propo__5535A963">
+          <AssociationSet Name="FK__CfProposa__propo__5812160E" Association="Self.FK__CfProposa__propo__5812160E">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalV" EntitySet="CfProposalV" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5812160E" Association="Self.FK__CfProposa__propo__5812160E">
+          <AssociationSet Name="FK__CfProposa__propo__5AEE82B9" Association="Self.FK__CfProposa__propo__5AEE82B9">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5BE2A6F2" Association="Self.FK__CfProposa__propo__5BE2A6F2">
+          <AssociationSet Name="FK__CfProposa__propo__5EBF139D" Association="Self.FK__CfProposa__propo__5EBF139D">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalGoal" EntitySet="CfProposalGoal" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5EBF139D" Association="Self.FK__CfProposa__propo__5EBF139D">
+          <AssociationSet Name="FK__CfProposa__propo__619B8048" Association="Self.FK__CfProposa__propo__619B8048">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalVerify" EntitySet="CfProposalVerify" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__619B8048" Association="Self.FK__CfProposa__propo__619B8048">
+          <AssociationSet Name="FK__CfProposa__propo__6477ECF3" Association="Self.FK__CfProposa__propo__6477ECF3">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalComment" EntitySet="CfProposalComment" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposal__bank__52593CB8" Association="Self.FK__CfProposal__bank__52593CB8">
+          <AssociationSet Name="FK__CfProposal__bank__5535A963" Association="Self.FK__CfProposal__bank__5535A963">
             <End Role="CfBank" EntitySet="CfBank" />
             <End Role="CfProposal" EntitySet="CfProposal" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfVideo__fileid__4316F928" Association="Self.FK__CfVideo__fileid__4316F928">
+          <AssociationSet Name="FK__CfVideo__fileid__45F365D3" Association="Self.FK__CfVideo__fileid__45F365D3">
             <End Role="CfFile" EntitySet="CfFile" />
             <End Role="CfVideo" EntitySet="CfVideo" />
           </AssociationSet>
@@ -493,7 +521,7 @@
           <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfAccount2" Relationship="Self.FK__CfAccount__accou__47DBAE45" FromRole="CfAccount" ToRole="CfAccount2" />
+          <NavigationProperty Name="CfAccount2" Relationship="Self.FK__CfAccount__accou__4AB81AF0" FromRole="CfAccount" ToRole="CfAccount2" />
         </EntityType>
         <EntityType Name="CfAccount2">
           <Key>
@@ -504,7 +532,7 @@
           <Property Name="passMd" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfAccount" Relationship="Self.FK__CfAccount__accou__47DBAE45" FromRole="CfAccount2" ToRole="CfAccount" />
+          <NavigationProperty Name="CfAccount" Relationship="Self.FK__CfAccount__accou__4AB81AF0" FromRole="CfAccount2" ToRole="CfAccount" />
         </EntityType>
         <EntityType Name="CfBank">
           <Key>
@@ -519,8 +547,8 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfMember" Relationship="Self.FK__CfBank__member__4E88ABD4" FromRole="CfBank" ToRole="CfMember" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposal__bank__52593CB8" FromRole="CfBank" ToRole="CfProposal" />
+          <NavigationProperty Name="CfMember" Relationship="Self.FK__CfBank__member__5165187F" FromRole="CfBank" ToRole="CfMember" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposal__bank__5535A963" FromRole="CfBank" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfBulletin">
           <Key>
@@ -567,8 +595,9 @@
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CfDirFile" Relationship="Self.FK__CfDirFile__filei__3D5E1FD2" FromRole="CfFile" ToRole="CfDirFile" />
           <NavigationProperty Name="CfImage" Relationship="Self.FK__CfImage__fileid__403A8C7D" FromRole="CfFile" ToRole="CfImage" />
-          <NavigationProperty Name="CfProposalPromotion" Relationship="Self.FK__CfProposa__filei__59063A47" FromRole="CfFile" ToRole="CfProposalPromotion" />
-          <NavigationProperty Name="CfVideo" Relationship="Self.FK__CfVideo__fileid__4316F928" FromRole="CfFile" ToRole="CfVideo" />
+          <NavigationProperty Name="CfImageWebp" Relationship="Self.FK__CfImageWe__filei__4316F928" FromRole="CfFile" ToRole="CfImageWebp" />
+          <NavigationProperty Name="CfProposalPromotion" Relationship="Self.FK__CfProposa__filei__5BE2A6F2" FromRole="CfFile" ToRole="CfProposalPromotion" />
+          <NavigationProperty Name="CfVideo" Relationship="Self.FK__CfVideo__fileid__45F365D3" FromRole="CfFile" ToRole="CfVideo" />
         </EntityType>
         <EntityType Name="CfImage">
           <Key>
@@ -582,6 +611,18 @@
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CfFile" Relationship="Self.FK__CfImage__fileid__403A8C7D" FromRole="CfImage" ToRole="CfFile" />
         </EntityType>
+        <EntityType Name="CfImageWebp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="width" Type="Int32" Nullable="false" />
+          <Property Name="height" Type="Int32" Nullable="false" />
+          <Property Name="fileid" Type="Int32" />
+          <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfImageWe__filei__4316F928" FromRole="CfImageWebp" ToRole="CfFile" />
+        </EntityType>
         <EntityType Name="CfInvestment">
           <Key>
             <PropertyRef Name="ID" />
@@ -594,7 +635,7 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfInvestm__propo__6477ECF3" FromRole="CfInvestment" ToRole="CfProposal" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfInvestm__propo__6754599E" FromRole="CfInvestment" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfMember">
           <Key>
@@ -606,8 +647,8 @@
           <Property Name="phone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfBank" Relationship="Self.FK__CfBank__member__4E88ABD4" FromRole="CfMember" ToRole="CfBank" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__membe__5165187F" FromRole="CfMember" ToRole="CfProposal" />
+          <NavigationProperty Name="CfBank" Relationship="Self.FK__CfBank__member__5165187F" FromRole="CfMember" ToRole="CfBank" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__membe__5441852A" FromRole="CfMember" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfProposal">
           <Key>
@@ -619,14 +660,14 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfBank" Relationship="Self.FK__CfProposal__bank__52593CB8" FromRole="CfProposal" ToRole="CfBank" />
-          <NavigationProperty Name="CfInvestment" Relationship="Self.FK__CfInvestm__propo__6477ECF3" FromRole="CfProposal" ToRole="CfInvestment" />
-          <NavigationProperty Name="CfMember" Relationship="Self.FK__CfProposa__membe__5165187F" FromRole="CfProposal" ToRole="CfMember" />
-          <NavigationProperty Name="CfProposalV" Relationship="Self.FK__CfProposa__propo__5535A963" FromRole="CfProposal" ToRole="CfProposalV" />
-          <NavigationProperty Name="CfProposalPromotion" Relationship="Self.FK__CfProposa__propo__5812160E" FromRole="CfProposal" ToRole="CfProposalPromotion" />
-          <NavigationProperty Name="CfProposalGoal" Relationship="Self.FK__CfProposa__propo__5BE2A6F2" FromRole="CfProposal" ToRole="CfProposalGoal" />
-          <NavigationProperty Name="CfProposalVerify" Relationship="Self.FK__CfProposa__propo__5EBF139D" FromRole="CfProposal" ToRole="CfProposalVerify" />
-          <NavigationProperty Name="CfProposalComment" Relationship="Self.FK__CfProposa__propo__619B8048" FromRole="CfProposal" ToRole="CfProposalComment" />
+          <NavigationProperty Name="CfBank" Relationship="Self.FK__CfProposal__bank__5535A963" FromRole="CfProposal" ToRole="CfBank" />
+          <NavigationProperty Name="CfInvestment" Relationship="Self.FK__CfInvestm__propo__6754599E" FromRole="CfProposal" ToRole="CfInvestment" />
+          <NavigationProperty Name="CfMember" Relationship="Self.FK__CfProposa__membe__5441852A" FromRole="CfProposal" ToRole="CfMember" />
+          <NavigationProperty Name="CfProposalV" Relationship="Self.FK__CfProposa__propo__5812160E" FromRole="CfProposal" ToRole="CfProposalV" />
+          <NavigationProperty Name="CfProposalPromotion" Relationship="Self.FK__CfProposa__propo__5AEE82B9" FromRole="CfProposal" ToRole="CfProposalPromotion" />
+          <NavigationProperty Name="CfProposalGoal" Relationship="Self.FK__CfProposa__propo__5EBF139D" FromRole="CfProposal" ToRole="CfProposalGoal" />
+          <NavigationProperty Name="CfProposalVerify" Relationship="Self.FK__CfProposa__propo__619B8048" FromRole="CfProposal" ToRole="CfProposalVerify" />
+          <NavigationProperty Name="CfProposalComment" Relationship="Self.FK__CfProposa__propo__6477ECF3" FromRole="CfProposal" ToRole="CfProposalComment" />
         </EntityType>
         <EntityType Name="CfProposalComment">
           <Key>
@@ -638,7 +679,7 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__619B8048" FromRole="CfProposalComment" ToRole="CfProposal" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__6477ECF3" FromRole="CfProposalComment" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfProposalGoal">
           <Key>
@@ -652,7 +693,7 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5BE2A6F2" FromRole="CfProposalGoal" ToRole="CfProposal" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5EBF139D" FromRole="CfProposalGoal" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfProposalPromotion">
           <Key>
@@ -666,8 +707,8 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfProposa__filei__59063A47" FromRole="CfProposalPromotion" ToRole="CfFile" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5812160E" FromRole="CfProposalPromotion" ToRole="CfProposal" />
+          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfProposa__filei__5BE2A6F2" FromRole="CfProposalPromotion" ToRole="CfFile" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5AEE82B9" FromRole="CfProposalPromotion" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfProposalV">
           <Key>
@@ -686,7 +727,7 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5535A963" FromRole="CfProposalV" ToRole="CfProposal" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5812160E" FromRole="CfProposalV" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfProposalVerify">
           <Key>
@@ -698,7 +739,7 @@
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__5EBF139D" FromRole="CfProposalVerify" ToRole="CfProposal" />
+          <NavigationProperty Name="CfProposal" Relationship="Self.FK__CfProposa__propo__619B8048" FromRole="CfProposalVerify" ToRole="CfProposal" />
         </EntityType>
         <EntityType Name="CfVideo">
           <Key>
@@ -711,9 +752,9 @@
           <Property Name="videoTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfVideo__fileid__4316F928" FromRole="CfVideo" ToRole="CfFile" />
+          <NavigationProperty Name="CfFile" Relationship="Self.FK__CfVideo__fileid__45F365D3" FromRole="CfVideo" ToRole="CfFile" />
         </EntityType>
-        <Association Name="FK__CfAccount__accou__47DBAE45">
+        <Association Name="FK__CfAccount__accou__4AB81AF0">
           <End Role="CfAccount" Type="Self.CfAccount" Multiplicity="0..1" />
           <End Role="CfAccount2" Type="Self.CfAccount2" Multiplicity="*" />
           <ReferentialConstraint>
@@ -725,7 +766,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfBank__member__4E88ABD4">
+        <Association Name="FK__CfBank__member__5165187F">
           <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
           <End Role="CfBank" Type="Self.CfBank" Multiplicity="*" />
           <ReferentialConstraint>
@@ -737,7 +778,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposal__bank__52593CB8">
+        <Association Name="FK__CfProposal__bank__5535A963">
           <End Role="CfBank" Type="Self.CfBank" Multiplicity="0..1" />
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -797,7 +838,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__filei__59063A47">
+        <Association Name="FK__CfImageWe__filei__4316F928">
+          <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
+          <End Role="CfImageWebp" Type="Self.CfImageWebp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CfFile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CfImageWebp">
+              <PropertyRef Name="fileid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CfProposa__filei__5BE2A6F2">
           <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
           <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -809,7 +862,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfVideo__fileid__4316F928">
+        <Association Name="FK__CfVideo__fileid__45F365D3">
           <End Role="CfFile" Type="Self.CfFile" Multiplicity="0..1" />
           <End Role="CfVideo" Type="Self.CfVideo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -821,7 +874,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfInvestm__propo__6477ECF3">
+        <Association Name="FK__CfInvestm__propo__6754599E">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfInvestment" Type="Self.CfInvestment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -833,7 +886,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__membe__5165187F">
+        <Association Name="FK__CfProposa__membe__5441852A">
           <End Role="CfMember" Type="Self.CfMember" Multiplicity="0..1" />
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -845,7 +898,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5535A963">
+        <Association Name="FK__CfProposa__propo__5812160E">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalV" Type="Self.CfProposalV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -857,7 +910,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5812160E">
+        <Association Name="FK__CfProposa__propo__5AEE82B9">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalPromotion" Type="Self.CfProposalPromotion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -869,7 +922,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5BE2A6F2">
+        <Association Name="FK__CfProposa__propo__5EBF139D">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalGoal" Type="Self.CfProposalGoal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -881,7 +934,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__5EBF139D">
+        <Association Name="FK__CfProposa__propo__619B8048">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalVerify" Type="Self.CfProposalVerify" Multiplicity="*" />
           <ReferentialConstraint>
@@ -893,7 +946,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CfProposa__propo__619B8048">
+        <Association Name="FK__CfProposa__propo__6477ECF3">
           <End Role="CfProposal" Type="Self.CfProposal" Multiplicity="0..1" />
           <End Role="CfProposalComment" Type="Self.CfProposalComment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -914,6 +967,7 @@
           <EntitySet Name="CfDirFile" EntityType="Self.CfDirFile" />
           <EntitySet Name="CfFile" EntityType="Self.CfFile" />
           <EntitySet Name="CfImage" EntityType="Self.CfImage" />
+          <EntitySet Name="CfImageWebp" EntityType="Self.CfImageWebp" />
           <EntitySet Name="CfInvestment" EntityType="Self.CfInvestment" />
           <EntitySet Name="CfMember" EntityType="Self.CfMember" />
           <EntitySet Name="CfProposal" EntityType="Self.CfProposal" />
@@ -923,15 +977,15 @@
           <EntitySet Name="CfProposalV" EntityType="Self.CfProposalV" />
           <EntitySet Name="CfProposalVerify" EntityType="Self.CfProposalVerify" />
           <EntitySet Name="CfVideo" EntityType="Self.CfVideo" />
-          <AssociationSet Name="FK__CfAccount__accou__47DBAE45" Association="Self.FK__CfAccount__accou__47DBAE45">
+          <AssociationSet Name="FK__CfAccount__accou__4AB81AF0" Association="Self.FK__CfAccount__accou__4AB81AF0">
             <End Role="CfAccount" EntitySet="CfAccount" />
             <End Role="CfAccount2" EntitySet="CfAccount2" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfBank__member__4E88ABD4" Association="Self.FK__CfBank__member__4E88ABD4">
+          <AssociationSet Name="FK__CfBank__member__5165187F" Association="Self.FK__CfBank__member__5165187F">
             <End Role="CfMember" EntitySet="CfMember" />
             <End Role="CfBank" EntitySet="CfBank" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposal__bank__52593CB8" Association="Self.FK__CfProposal__bank__52593CB8">
+          <AssociationSet Name="FK__CfProposal__bank__5535A963" Association="Self.FK__CfProposal__bank__5535A963">
             <End Role="CfBank" EntitySet="CfBank" />
             <End Role="CfProposal" EntitySet="CfProposal" />
           </AssociationSet>
@@ -951,39 +1005,43 @@
             <End Role="CfFile" EntitySet="CfFile" />
             <End Role="CfImage" EntitySet="CfImage" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__filei__59063A47" Association="Self.FK__CfProposa__filei__59063A47">
+          <AssociationSet Name="FK__CfImageWe__filei__4316F928" Association="Self.FK__CfImageWe__filei__4316F928">
+            <End Role="CfFile" EntitySet="CfFile" />
+            <End Role="CfImageWebp" EntitySet="CfImageWebp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CfProposa__filei__5BE2A6F2" Association="Self.FK__CfProposa__filei__5BE2A6F2">
             <End Role="CfFile" EntitySet="CfFile" />
             <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfVideo__fileid__4316F928" Association="Self.FK__CfVideo__fileid__4316F928">
+          <AssociationSet Name="FK__CfVideo__fileid__45F365D3" Association="Self.FK__CfVideo__fileid__45F365D3">
             <End Role="CfFile" EntitySet="CfFile" />
             <End Role="CfVideo" EntitySet="CfVideo" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfInvestm__propo__6477ECF3" Association="Self.FK__CfInvestm__propo__6477ECF3">
+          <AssociationSet Name="FK__CfInvestm__propo__6754599E" Association="Self.FK__CfInvestm__propo__6754599E">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfInvestment" EntitySet="CfInvestment" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__membe__5165187F" Association="Self.FK__CfProposa__membe__5165187F">
+          <AssociationSet Name="FK__CfProposa__membe__5441852A" Association="Self.FK__CfProposa__membe__5441852A">
             <End Role="CfMember" EntitySet="CfMember" />
             <End Role="CfProposal" EntitySet="CfProposal" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5535A963" Association="Self.FK__CfProposa__propo__5535A963">
+          <AssociationSet Name="FK__CfProposa__propo__5812160E" Association="Self.FK__CfProposa__propo__5812160E">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalV" EntitySet="CfProposalV" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5812160E" Association="Self.FK__CfProposa__propo__5812160E">
+          <AssociationSet Name="FK__CfProposa__propo__5AEE82B9" Association="Self.FK__CfProposa__propo__5AEE82B9">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalPromotion" EntitySet="CfProposalPromotion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5BE2A6F2" Association="Self.FK__CfProposa__propo__5BE2A6F2">
+          <AssociationSet Name="FK__CfProposa__propo__5EBF139D" Association="Self.FK__CfProposa__propo__5EBF139D">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalGoal" EntitySet="CfProposalGoal" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__5EBF139D" Association="Self.FK__CfProposa__propo__5EBF139D">
+          <AssociationSet Name="FK__CfProposa__propo__619B8048" Association="Self.FK__CfProposa__propo__619B8048">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalVerify" EntitySet="CfProposalVerify" />
           </AssociationSet>
-          <AssociationSet Name="FK__CfProposa__propo__619B8048" Association="Self.FK__CfProposa__propo__619B8048">
+          <AssociationSet Name="FK__CfProposa__propo__6477ECF3" Association="Self.FK__CfProposa__propo__6477ECF3">
             <End Role="CfProposal" EntitySet="CfProposal" />
             <End Role="CfProposalComment" EntitySet="CfProposalComment" />
           </AssociationSet>
@@ -1078,6 +1136,18 @@
           <EntitySetMapping Name="CfImage">
             <EntityTypeMapping TypeName="CrowdfundingModel.CfImage">
               <MappingFragment StoreEntitySet="CfImage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="width" ColumnName="width" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="fileid" ColumnName="fileid" />
+                <ScalarProperty Name="makeTime" ColumnName="makeTime" />
+                <ScalarProperty Name="stEnable" ColumnName="stEnable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CfImageWebp">
+            <EntityTypeMapping TypeName="CrowdfundingModel.CfImageWebp">
+              <MappingFragment StoreEntitySet="CfImageWebp">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="width" ColumnName="width" />
                 <ScalarProperty Name="height" ColumnName="height" />

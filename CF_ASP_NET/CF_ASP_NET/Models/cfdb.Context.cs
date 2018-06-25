@@ -33,6 +33,7 @@ namespace CF_ASP_NET.Models
         public virtual DbSet<CfDirFile> CfDirFile { get; set; }
         public virtual DbSet<CfFile> CfFile { get; set; }
         public virtual DbSet<CfImage> CfImage { get; set; }
+        public virtual DbSet<CfImageWebp> CfImageWebp { get; set; }
         public virtual DbSet<CfInvestment> CfInvestment { get; set; }
         public virtual DbSet<CfMember> CfMember { get; set; }
         public virtual DbSet<CfProposal> CfProposal { get; set; }

@@ -19,6 +19,7 @@ namespace CF_ASP_NET.Models
         {
             this.CfDirFile = new HashSet<CfDirFile>();
             this.CfImage = new HashSet<CfImage>();
+            this.CfImageWebp = new HashSet<CfImageWebp>();
             this.CfProposalPromotion = new HashSet<CfProposalPromotion>();
             this.CfVideo = new HashSet<CfVideo>();
         }
@@ -33,6 +34,8 @@ namespace CF_ASP_NET.Models
         public virtual ICollection<CfDirFile> CfDirFile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CfImage> CfImage { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CfImageWebp> CfImageWebp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CfProposalPromotion> CfProposalPromotion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -10,6 +10,8 @@ namespace CF_ASP_NET.Controllers
     {
         public Models.HomeModel homemodel = new Models.HomeModel();
 
+        public string mUrl = "http://192.168.2.113/";
+
         public ActionResult Index()
         {
             return View();
@@ -66,6 +68,26 @@ namespace CF_ASP_NET.Controllers
             //ViewBag.Message = "Your application description page.";
 
             return Content(this.homemodel.ProposalContent(id));
+        }
+
+        public ActionResult ProposalImage(int id)
+        {
+            //ViewBag.Message = "Your application description page.";
+            String second_name = this.homemodel.ProposalImage(id);
+            String pimage_url = mUrl + "file/show/" + this.homemodel.lastid.ToString();
+            if (second_name == "webp")
+            {
+                pimage_url = mUrl+"file/webpshow/"+ this.homemodel.lastid.ToString();
+            }
+            
+
+            String sb = "";
+            sb = sb + "{";
+            sb = sb + "\"second_name\": \"" + second_name +"\" , ";
+            sb = sb + "\"url\":\"" + pimage_url + "\"";
+            sb = sb + "}";
+
+            return Content(sb);
         }
 
         public ActionResult InvestRun(int p_id, String name, String phone, decimal invest_money)
