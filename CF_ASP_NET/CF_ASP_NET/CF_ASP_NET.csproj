@@ -166,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BVerifyController.cs" />
     <Compile Include="Controllers\BHomeController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -772,6 +773,7 @@
     <Content Include="Views\BHome\Index.cshtml" />
     <Content Include="Views\Home\Draft.cshtml" />
     <Content Include="Views\Home\Invest.cshtml" />
+    <Content Include="Views\BVerify\proposal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,16 +22,16 @@
       <publishTime>06/15/2018 18:48:46</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/25/2018 22:12:52</publishTime>
+      <publishTime>06/26/2018 21:53:48</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/25/2018 22:12:52</publishTime>
+      <publishTime>06/26/2018 21:53:48</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.dll">
-      <publishTime>06/25/2018 22:12:43</publishTime>
+      <publishTime>06/26/2018 21:53:35</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.pdb">
-      <publishTime>06/25/2018 22:12:43</publishTime>
+      <publishTime>06/26/2018 21:53:35</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/29/2018 14:51:46</publishTime>
@@ -355,7 +355,7 @@
       <publishTime>06/25/2018 21:01:24</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/25/2018 22:12:46</publishTime>
+      <publishTime>06/26/2018 21:53:38</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>06/20/2018 19:02:30</publishTime>
@@ -1772,6 +1772,9 @@
     </File>
     <File Include="Views/BHome/Index.cshtml">
       <publishTime>06/15/2018 18:55:50</publishTime>
+    </File>
+    <File Include="Views/BVerify/proposal.cshtml">
+      <publishTime>06/26/2018 20:02:48</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>

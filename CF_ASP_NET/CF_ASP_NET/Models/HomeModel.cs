@@ -187,7 +187,7 @@ namespace CF_ASP_NET.Models
 
         public String ProposalImage(int id)
         {
-            var query = (from f in db.CfFile join i in db.CfProposalPromotion on f.id equals i.fileid into fileGroup from f2 in fileGroup where f.id == f2.fileid & f2.id == id select f);
+            var query = (from f in db.CfFile join i in db.CfProposalPromotion on f.id equals i.fileid into fileGroup from f2 in fileGroup where f.id == f2.fileid & f2.proposal== id select f);
             String tempstr = "";
 
             foreach (Models.CfFile filelist in query)

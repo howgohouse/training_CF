@@ -1,0 +1,99 @@
+﻿@using CF_ASP_NET.Models;
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<a id="murl" href="~/" style="display:none"></a>
+<div class="container">
+    @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
+    {
+        <p class="col-md-12">
+            <p id="pimage"></p>
+            <label>@a.title</label>
+            <p>@a.introduction</p>
+            <p id="content"></p>
+            <p id="p_id" style="display:none;">@a.proposal</p>
+        </p>
+    }
+    <p class="w3-padding w3-center">
+        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post(1)">通過</a>
+        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post(0)">不通過</a>
+        <a class="w3-button w3-round-large w3-green col-sm-12">返回</a>
+    </p>
+</div>
+
+<script>
+    function WebpIsSupported(callback) {
+        // If the browser doesn't has the method createImageBitmap, you can't display webp format
+        if (!window.createImageBitmap) {
+            callback(false);
+            return;
+        }
+
+        // Base64 representation of a white point image
+        var webpdata = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoCAAEAAQAcJaQAA3AA/v3AgAA=';
+
+        // Retrieve the Image in Blob Format
+        fetch(webpdata).then(function (response) {
+            return response.blob();
+        }).then(function (blob) {
+            // If the createImageBitmap method succeeds, return true, otherwise false
+            createImageBitmap(blob).then(function () {
+                callback(true);
+            }, function () {
+                callback(false);
+            });
+        });
+    }
+
+    function getContent() {
+        var array =
+            { "id": $("#p_id").html() }
+        $.post(document.getElementById("murl").href + 'bverify/proposalcontent', array,
+            function (data) {
+                $("#content").html(data);
+            }
+        );
+    }
+
+    function getImage() {
+        var array =
+            { "id": $("#p_id").html() }
+        $.post(document.getElementById("murl").href + 'bverify/proposalimage/' + $("#p_id").html(), array,
+            function (data) {
+                var obj = JSON.parse(data);
+                if (obj.second_name == "webp") {
+                    WebpIsSupported(function (isSupported) {
+                        if (isSupported) {
+                            $("#pimage").html('<img src="' + obj.url + '" />');
+                        } else {
+                            $("#pimage").html('瀏覽器不支援webp');
+                        }
+                    });
+                } else {
+                    $("#pimage").html('<img src="' + obj.url + '" />');
+                }
+                
+            }
+        );
+    }
+
+    //輸入欄位設置檢查動作
+    setTimeout(function () {
+        getContent();
+        getImage();
+    }, 100);
+
+    function post(value) {
+        if (confirm("是否要進行此操作?")) {
+            var array =
+                { "p_id": $("#p_id").html(), "value": value }
+            $.post(document.getElementById("murl").href + 'bverify/editrun', array,
+                function (data) {
+                    var obj = JSON.parse(data);
+                    alert(obj.ok);
+                }
+            );
+        }
+    }
+</script>
