@@ -17,6 +17,7 @@ namespace CF_ASP_NET.Models
         public int id { get; set; }
         public string title { get; set; }
         public string content { get; set; }
+        public int status { get; set; }
         public System.DateTime makeTime { get; set; }
         public System.DateTime lastTime { get; set; }
         public string stEnable { get; set; }

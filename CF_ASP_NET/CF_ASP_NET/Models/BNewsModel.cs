@@ -41,7 +41,7 @@ namespace CF_ASP_NET.Models
             return HttpUtility.HtmlDecode(tempstr);
         }
 
-        public String NewsAddRun(int id2, String title2, String content2)
+        public String NewsAddRun(String title2, String content2)
         {
             System.DateTime nowTime = System.DateTime.Now;
             var query = from d in db.CfBulletin select d;
@@ -50,6 +50,7 @@ namespace CF_ASP_NET.Models
                 id = new int(),
                 title = title2,
                 content = content2,
+                status = 0,
                 makeTime = nowTime,
                 lastTime = nowTime,
                 stEnable = "Y"
@@ -57,16 +58,7 @@ namespace CF_ASP_NET.Models
 
             db.CfBulletin.Add(bulletin);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                // Provide for exceptions.
-                return "error";
-            }
+            db.SaveChanges();
 
             return HttpUtility.HtmlDecode(content2);
         }
@@ -76,10 +68,10 @@ namespace CF_ASP_NET.Models
             this.list = (from d in db.CfBulletin where d.id == id select d).ToList();
         }
 
-        public String NewsEditRun(int id, String title, String content)
+        public void NewsEditRun(int n_id, String title, String content)
         {
             System.DateTime nowTime = System.DateTime.Now;
-            var query = from d in db.CfBulletin where d.id == id select d;
+            var query = from d in db.CfBulletin where d.id == n_id select d;
 
             foreach (Models.CfBulletin bulletin in query)
             {
@@ -89,18 +81,22 @@ namespace CF_ASP_NET.Models
                 // Insert any additional changes to column values.
             }
 
-            try
+            db.SaveChanges();
+        }
+
+        public void NewsChangeRun(int id, int value)
+        {
+            System.DateTime nowTime = System.DateTime.Now;
+            var query = from d in db.CfBulletin where d.id == id select d;
+
+            foreach (Models.CfBulletin bulletin in query)
             {
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                // Provide for exceptions.
-                return "error";
+                bulletin.status = value;
+                bulletin.lastTime = nowTime;
+                // Insert any additional changes to column values.
             }
 
-            return HttpUtility.HtmlDecode(content);
+            db.SaveChanges();
         }
 
         public void Add()
@@ -118,16 +114,7 @@ namespace CF_ASP_NET.Models
                 // Insert any additional changes to column values.
             }
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                // Provide for exceptions.
-                return "error";
-            }
+            db.SaveChanges();
 
             return HttpUtility.HtmlDecode("ok");
         }

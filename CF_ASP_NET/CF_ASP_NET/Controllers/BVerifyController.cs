@@ -64,7 +64,6 @@ namespace CF_ASP_NET.Controllers
             {
                 this.verifymodel.DeleteRun(p_id);
             }
-            
 
             String sb = "";
             sb = sb + "{";

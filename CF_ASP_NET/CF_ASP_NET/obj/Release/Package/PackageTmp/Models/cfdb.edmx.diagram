@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9407963bdb7d4a7eb6773b9e7af5ee6a" Name="Diagram1">
+      <Diagram DiagramId="979d7491219d43eea55327b4415312e9" Name="Diagram1">
         <EntityTypeShape EntityType="CrowdfundingModel.CfAccount" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CrowdfundingModel.CfAccount2" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CrowdfundingModel.CfBank" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />

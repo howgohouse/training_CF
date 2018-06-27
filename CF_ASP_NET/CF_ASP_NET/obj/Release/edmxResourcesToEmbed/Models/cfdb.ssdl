@@ -42,6 +42,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="content" Type="varchar" MaxLength="8000" />
+    <Property Name="status" Type="int" Nullable="false" />
     <Property Name="makeTime" Type="datetime" Nullable="false" />
     <Property Name="lastTime" Type="datetime" Nullable="false" />
     <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />

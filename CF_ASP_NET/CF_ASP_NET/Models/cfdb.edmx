@@ -47,6 +47,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="content" Type="varchar" MaxLength="8000" />
+          <Property Name="status" Type="int" Nullable="false" />
           <Property Name="makeTime" Type="datetime" Nullable="false" />
           <Property Name="lastTime" Type="datetime" Nullable="false" />
           <Property Name="stEnable" Type="varchar" MaxLength="2" Nullable="false" />
@@ -557,6 +558,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="content" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
           <Property Name="makeTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="lastTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="stEnable" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1096,6 +1098,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="makeTime" ColumnName="makeTime" />
                 <ScalarProperty Name="lastTime" ColumnName="lastTime" />
                 <ScalarProperty Name="stEnable" ColumnName="stEnable" />
