@@ -67,5 +67,17 @@ namespace CF_ASP_NET.Controllers
 
             return Content(sb);
         }
+
+        public ActionResult NewsDelete(int n_id)
+        {
+            this.newsmodel.NewsDelete(n_id);
+
+            String sb = "";
+            sb = sb + "{";
+            sb = sb + "\"ok\":\"ok\"";
+            sb = sb + "}";
+
+            return Content(sb);
+        }
     }
 }

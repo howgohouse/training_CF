@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<a id="murl" href="~/" style="display:none"></a>
+<div class="container">
+    <p class="col-md-12">
+        <label>管理密碼</label>
+        <input id="pword" class="w3-input w3-border w3-round-large" onkeyup="CheckPword()" onmouseup="CheckPword()" onchange="CheckPword()" type="password">
+    <p id="pword_check" style="height: 25px;"></p>
+    <p id="pword_check_value" style="display: none;">0</p>
+    </p>
+    <p class="w3-padding w3-center">
+        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post()">登入</a>
+    </p>
+</div>
+
+<script>
+    function checkAll() {
+        var num = 0;
+        num = Number($("#pword_check_value").html());
+        if (num == 1) {
+            $("#output").removeClass('w3-disabled');
+        } else {
+            $("#output").addClass('w3-disabled');
+        }
+    }
+
+    function CheckPword() {
+        if ($("#pword").val() != '' & $("#pword").val().length < 51) {
+            $("#pword_check").html("");
+            $("#pword").removeClass('w3-border-red');
+            $("#pword_check").removeClass('w3-text-red');
+            $("#pword_check").addClass('w3-text-green');
+            $("#pword_check_value").html('1');
+            checkAll();
+        } else if ($("#pword").val() != '' & $("#pword").val().length > 50) {
+            $("#pword_check").html("不得超過50個字");
+            $("#pword").addClass('w3-border-red');
+            $("#pword_check").removeClass('w3-text-green');
+            $("#pword_check").addClass('w3-text-red');
+            $("#pword_check_value").html('0');
+            checkAll();
+        } else {
+            $("#pword_check").html("請輸入");
+            $("#pword").addClass('w3-border-red');
+            $("#pword_check").removeClass('w3-text-green');
+            $("#pword_check").addClass('w3-text-red');
+            $("#pword_check_value").html('0');
+            checkAll();
+        }
+    }
+
+    var editor = CKEDITOR.replace('content', {
+        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
+    });
+    editor.on('change', function (evt) {
+        $("#content").html(evt.editor.getData());
+    });
+
+    //輸入欄位設置檢查動作
+    setTimeout(function () {
+        $("#pword").keypress(function (event) {
+            return setKeyEnter(event);
+        });
+
+        //按鈕狀態重設
+        $("#output").addClass('w3-disabled');
+    }, 100);
+
+    //設置Enter Key事件
+    function setKeyEnter(event) {
+        var keycode = event.keyCode || event.which;
+        if (keycode == '13') {
+            var num = 0;
+            num = Number($("#pword_check_value").html());
+            if (num == 1) {
+                post();
+            } else {
+                CheckPword();
+            }
+            return false;
+        }
+        return true;
+    }
+
+    function post() {
+        if (confirm("是否要進行此操作?")) {
+            var array =
+                { "pword": $("#pword").val() }
+            $.post(document.getElementById("murl").href + 'blogin/loginrun', array,
+                function (data) {
+                    var obj = JSON.parse(data);
+                    alert(obj.ok);
+                }
+            );
+        }
+    }
+
+</script>

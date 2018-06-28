@@ -166,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BLoginController.cs" />
     <Compile Include="Controllers\BNewsController.cs" />
     <Compile Include="Controllers\BVerifyController.cs" />
     <Compile Include="Controllers\BHomeController.cs" />
@@ -175,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BHomeModel.cs" />
+    <Compile Include="Models\BLoginModel.cs" />
     <Compile Include="Models\CfAccount.cs">
       <DependentUpon>cfdb.tt</DependentUpon>
     </Compile>
@@ -777,6 +779,7 @@
     <Content Include="Views\BVerify\proposal.cshtml" />
     <Content Include="Views\BNews\NewsEdit.cshtml" />
     <Content Include="Views\BNews\NewsAdd.cshtml" />
+    <Content Include="Views\BLogin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -104,7 +104,7 @@ namespace CF_ASP_NET.Models
             
         } 
 
-        public String NewsDelete(int id)
+        public void NewsDelete(int id)
         {
             var query = from d in db.CfBulletin where d.id == id select d;
 
@@ -115,8 +115,6 @@ namespace CF_ASP_NET.Models
             }
 
             db.SaveChanges();
-
-            return HttpUtility.HtmlDecode("ok");
         }
 
     }
