@@ -166,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BLodoutController.cs" />
     <Compile Include="Controllers\BLoginController.cs" />
     <Compile Include="Controllers\BNewsController.cs" />
     <Compile Include="Controllers\BVerifyController.cs" />
@@ -780,6 +781,8 @@
     <Content Include="Views\BNews\NewsEdit.cshtml" />
     <Content Include="Views\BNews\NewsAdd.cshtml" />
     <Content Include="Views\BLogin\Index.cshtml" />
+    <Content Include="Views\BLogout\Index.cshtml" />
+    <Content Include="Views\BVerify\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,8 @@ namespace CF_ASP_NET.Controllers
 
         public ActionResult Index()
         {
+            this.newsmodel.NewsList(0, "title", "asc", "");
+            ViewData["DataList"] = this.newsmodel.list;
             return View();
         }
 

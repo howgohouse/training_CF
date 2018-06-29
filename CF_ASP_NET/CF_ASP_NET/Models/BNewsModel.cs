@@ -17,9 +17,43 @@ namespace CF_ASP_NET.Models
 
         }
 
-        public void NewsList()
+        public void NewsList(int page, String order_by, String desc_or_asc, String keyword)
         {
-            this.list = (from d in db.CfBulletin orderby d.makeTime descending select d).ToList();
+            switch (order_by)
+            {
+                case "title":
+                    if (desc_or_asc=="asc")
+                    {
+                        this.list = (from d in db.CfBulletin orderby d.title ascending orderby d.id ascending select d).ToList();
+                    }
+                    else
+                    {
+                        this.list = (from d in db.CfBulletin orderby d.title descending orderby d.id ascending select d).ToList();
+                    }
+                    
+                    break;
+                default:
+                    if (desc_or_asc=="desc")
+                    {
+                        this.list = (from d in db.CfBulletin orderby d.makeTime descending orderby d.id ascending select d).ToList();
+                    }
+                    else
+                    {
+                        this.list = (from d in db.CfBulletin orderby d.makeTime ascending orderby d.id ascending select d).ToList();
+                    }
+                    
+                    break;
+            }
+
+            if (keyword != "")
+            {
+                this.list = this.list.Where(d => d.title == keyword).Skip((page * 10)).Take(10).ToList();
+            }
+            else
+            {
+                this.list = this.list.Skip((page * 10)).Take(10).ToList();
+            }
+            
         }
 
         public void News(int id)

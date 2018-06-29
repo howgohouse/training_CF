@@ -16,13 +16,15 @@ namespace CF_ASP_NET.Controllers
 
         public ActionResult Index()
         {
+            this.verifymodel.ProposalList(0, "title", "asc", "");
+            ViewData["DataList"] = this.verifymodel.list;
             return View();
         }
 
         public ActionResult Proposal(int id)
         {
             this.verifymodel.Proposal(id);
-            ViewData["DataList"] = this.verifymodel.list2;
+            ViewData["DataList"] = this.verifymodel.list;
             return View();
         }
 

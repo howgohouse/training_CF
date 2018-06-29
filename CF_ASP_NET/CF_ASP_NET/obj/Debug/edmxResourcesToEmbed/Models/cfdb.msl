@@ -45,6 +45,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="makeTime" ColumnName="makeTime" />
           <ScalarProperty Name="lastTime" ColumnName="lastTime" />
           <ScalarProperty Name="stEnable" ColumnName="stEnable" />

@@ -10,8 +10,7 @@ namespace CF_ASP_NET.Models
     public class BVerifyModel
     {
         CrowdfundingEntities db = new CrowdfundingEntities();
-        public List<Models.CfBulletin> list = null;
-        public List<Models.CfProposalV> list2 = null;
+        public List<Models.CfProposalV> list = null;
 
         public int lastid = 0;
 
@@ -20,14 +19,59 @@ namespace CF_ASP_NET.Models
 
         }
 
-        public void ProposalList()
+        public void ProposalList(int page, String order_by, String desc_or_asc, String keyword)
         {
-            this.list2 = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.makeTime descending select d).ToList();
+            switch (order_by)
+            {
+                case "title":
+                    if (desc_or_asc=="asc")
+                    {
+                        this.list = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.title ascending orderby d.id ascending select d).ToList();
+                    }
+                    else
+                    {
+                        this.list = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.title descending orderby d.id ascending select d).ToList();
+                    }
+                    
+                    break;
+                case "end_time":
+                    if (desc_or_asc=="asc")
+                    {
+                        this.list = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.endTime ascending orderby d.id ascending select d).ToList();
+                    }
+                    else
+                    {
+                        this.list = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.endTime descending orderby d.id ascending select d).ToList();
+                    }
+                    
+                    break;
+                default:
+                    if (desc_or_asc=="desc")
+                    {
+                        this.list = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.makeTime descending orderby d.id ascending select d).ToList();
+                    }
+                    else
+                    {
+                        this.list = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.makeTime ascending orderby d.id ascending select d).ToList();
+                    }
+                    
+                    break;
+            }
+
+            if(keyword != "")
+            {
+                this.list = this.list.Where(d => d.title == keyword).Skip((page * 10)).Take(10).ToList();
+            }
+            else
+            {
+                this.list = this.list.Skip((page * 10)).Take(10).ToList();
+            }
+            
         }
 
         public void Proposal(int id)
         {
-            this.list2 = (from d in db.CfProposalV where d.proposal == id select d).ToList();
+            this.list = (from d in db.CfProposalV where d.proposal == id select d).ToList();
         }
 
         public String ProposalContent(int id)

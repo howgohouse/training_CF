@@ -10,6 +10,13 @@ namespace CF_ASP_NET.Controllers
     {
         public ActionResult Index()
         {
+            String islogin = "false";
+            if (!string.IsNullOrEmpty(Session["islogin"] as string))
+            {
+                if(Session["islogin"].ToString() == "true") islogin = "true";
+            }
+            ViewData["islogin"] = islogin;
+
             return View();
         }
     }
