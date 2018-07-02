@@ -26,7 +26,7 @@
 			font-size: 48px;
 			background-color: rgb(0, 155, 180);
 		}
-		.web-bg-1{
+		.all{
 			top: 0px;
 			left: 0px;
 			position: absolute;
@@ -34,17 +34,12 @@
 			width: 100%;
 			height: 100%;
 		}
-		.web-bg-1-menu{
+		.header{
 			width: 100%;
 			height: 105px;
 			float: left;
 		}
-		.web-bg-1-bmenu{
-			width: 100%;
-			height: 96px;
-			float: left;
-		}
-		.table_area {
+		.main {
 			width: 100%;
 			height: calc(100% - 201px);
 		    overflow-x: scroll;
@@ -141,6 +136,80 @@
 		.table-list-right img{
 			margin-top: 10px;
 		}
+		.dialog {
+			top: 0px;
+			left: 0px;
+			position: fixed;
+			z-index: 200;
+			width: 100%;
+			height: 100%;
+			display: none;
+			background-color: white;
+		}
+		.dialog-header {
+			top: 0px;
+			left: 0px;
+			position: fixed;
+			z-index: 202;
+			width: calc(100% - 60px);
+			padding: 30px;
+			float: left;
+		}
+		.dialog-header img{
+			width: 48px;
+			height: 48px;
+			float: right;
+		}
+		.dialog-main {
+			top: 0px;
+			left: 0px;
+			position: fixed;
+			z-index: 201;
+			width: 100%;
+			height: 100%;
+			padding-top: 108px;
+		    overflow-y: scroll;
+		}
+		.dialog-main-top{
+			padding-left: 30px;
+			padding-right: 30px;
+			font-size: 48px;
+		}
+		.dialog-item{
+			width: 100%;
+			height: auto;
+		}
+		.dialog-main-mid{
+			padding: 30px;
+			font-size: 36px;
+		}
+		.dialog-main-mid label{
+			font-size: 48px;
+		}
+		.dialog-main-bottom{
+			padding: 30px;
+			font-size: 36px;
+		}
+		.dialog-main-bottom-button{
+
+		}
+		.dialog-main-bottom-button div{
+			padding-top: 30px;
+			padding-bottom: 30px;
+			float: left;
+		}
+		.dialog-main-bottom-button button{
+			width: 100%;
+			height: 77px;
+			font-size: 36px;
+			padding: 10px;
+			background-color: rgb(0,220,255);
+		}
+		.footer{
+			width: 100%;
+			height: 96px;
+			float: left;
+		}
 		.bottom-menu{
 			bottom: 0px;
 			left: 0px;
@@ -182,7 +251,7 @@
 	<script src="scripts/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="top-menu">
+	<div id="top-menu" class="top-menu">
 		<!-- Image and text -->
 		<nav class="navbar navbar-expand-lg navbar-dark">
 			<a class="navbar-brand" href="#">
@@ -197,14 +266,14 @@
 					<a class="nav-item nav-link" href="#"><font color="white">消息</font></a>
 				</div>
 			</div>
-			<a class="logout">
+			<a href="login.html" class="logout">
 				<img src="image/logout.png" width="72" height="72" class="d-inline-block align-top" alt="">
 			</a>
 		</nav>
 	</div>
-	<div class="web-bg-1">
-		<div class="web-bg-1-menu"></div>
-		<div id="table" class="table_area">
+	<div class="all">
+		<div class="header"></div>
+		<div class="main">
 			<div class="table">
 				<div class="table-header">
 					<div class="table-header-item"><font color="white">標題</font></div>
@@ -215,7 +284,7 @@
 					<div class="table-list-item">標題一二三</div>
 					<div class="d-none d-sm-block table-list-item-boot">標題一二三</div>
 					<div class="table-list-right">
-						<img src="image/edit.png" width="48" height="48" class="d-inline-block align-top" alt="">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
 					</div>
 				</div>
 				<div class="table-list">
@@ -283,8 +352,52 @@
 				</div>
 			</div>
 		</div>
-		<div class="web-bg-1-bmenu"></div>
-			<div class="bottom-menu">
+		<div id="dialog" class="dialog">
+			<div class="dialog-header">
+				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
+			</div>
+			<div id="dialog-main" class="dialog-main">
+				<div class="dialog-main-top">
+					<p>姓名</p>
+					<p>電話</p>
+					<p>銀行代碼</p>
+					<p>銀行名稱</p>
+					<p>帳戶代碼</p>
+					<p>帳戶名稱</p>
+					<p>目標金額</p>
+					<p>結束時間</p>
+					<p>宣傳圖片</p>
+				</div>
+				<div>
+					<img src="image/item.jpg" class="d-inline-block align-top dialog-item" alt="">
+				</div>
+				<div class="dialog-main-mid">
+		            <label>標題一二三</label>
+		            <p>簡介</p>
+		        </div>
+		        <div class="dialog-main-bottom">
+		        	<p>
+		        		<img src="image/item.jpg" width="100%">
+		        	</p>
+		            <p>
+		            	詳細內容
+		            </p>
+		        </div>
+		        <div class="col-md-12 dialog-main-bottom-button">
+		        	<div class="col-md-4">
+		        		<button class="w3-button">通過</button>
+		        	</div>
+		        	<div class="col-md-4">
+		        		<button class="w3-button">不通過</button>
+		        	</div>
+		        	<div class="col-md-4">
+		        		<button class="w3-button">返回</button>
+		        	</div>
+		        </div>
+			</div>
+		</div>
+		<div class="footer"></div>
+		<div class="bottom-menu">
 			<div class="previouspage">
 				<img src="image/Previous page.png" height="72">
 			</div>
@@ -299,4 +412,15 @@
 		</div>
 	</div>
 </body>
+<script>
+	function playDialog() {
+	    document.getElementById("dialog").style.display = "block";
+	    document.getElementById("top-menu").style.display = "none";
+	    $('#dialog-main').scrollTop(0);
+	}
+	function displayDialog() {
+	    document.getElementById("dialog").style.display = "none";
+	    document.getElementById("top-menu").style.display = "block";
+	}
+</script>
 </html>
