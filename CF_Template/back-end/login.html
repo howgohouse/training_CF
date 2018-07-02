@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登入</title>
+	<link rel="stylesheet" href="content/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style>
+		.web-bg-1{
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			z-index: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.logo-area{
+			top: 180px;
+			left: 0px;
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			height: 144px;
+		}
+		.form-area{
+			top: 445px;
+			left: 0px;
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+		}
+		
+		@media only screen and (max-width: 1035px) {
+			.form-area input{
+				width: 90%;
+				margin-bottom: 94px;
+			}
+		}
+		@media only screen and (min-width: 1036px) {
+			.form-area input{
+				width: 975px;
+				margin-bottom: 94px;
+			}
+		}
+		.form-area div{
+			width: 100%;
+			min-height: 10px;
+		}
+	</style>
+
+	<script src="scripts/jquery-3.3.1.js"></script>
+	<script src="scripts/jquery-3.3.1.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="web-bg-1">
+		<div class="logo-area">
+			<center>
+				<img src="image/logo.svg" width="144" height="144" class="d-inline-block align-top" alt="">
+			</center>
+		</div>
+		<div class="form-area">
+			<div>
+				<center>
+					<input type="text">
+				</center>
+			</div>
+			<div>
+				<center>
+					<img src="image/login.png" width="72" height="72" class="d-inline-block align-top" alt="">
+				</center>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
