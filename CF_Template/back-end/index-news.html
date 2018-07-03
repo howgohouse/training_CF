@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登入</title>
+	<link rel="stylesheet" href="content/bootstrap.min.css">
+	<link rel="stylesheet" href="content/w3.css">
+	<link rel="stylesheet" href="content/cf-index.css">
+
+	<script src="scripts/jquery-3.3.1.js"></script>
+	<script src="scripts/jquery-3.3.1.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+	<div id="top-menu" class="top-menu">
+		<!-- Image and text -->
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<a class="navbar-brand" href="#">
+				<img src="image/logo.svg" width="72" height="72" class="d-inline-block align-top" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<img src="image/menu.svg" width="72" height="72" class="d-inline-block align-top" alt="">
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="#"><font color="white">新聞</font></a>
+					<a class="nav-item nav-link" href="index.html"><font color="white">審核</font></a>
+				</div>
+			</div>
+			<a href="login.html" class="logout">
+				<img src="image/logout.png" width="72" height="72" class="d-inline-block align-top" alt="">
+			</a>
+		</nav>
+	</div>
+	<div class="all">
+		<div class="header"></div>
+		<div class="main">
+			<div class="table">
+				<div class="table-header">
+					<div class="table-header-item">標題</div>
+					<div class="table-header-item-sm">標題</div>
+					<div class="table-header-right"></div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+				<div class="table-list">
+					<div class="table-list-item">標題一二三</div>
+					<div class="table-list-item-sm">標題一二三</div>
+					<div class="table-list-right">
+						<img src="image/edit.png" onclick="playDialog()" width="48" height="48" class="d-inline-block align-top" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="bottom-menu">
+				<div class="previouspage">
+					<img src="image/Previous page.png" height="72">
+				</div>
+				<div class="nextpage">
+					<img src="image/next page.png" height="72">
+				</div>
+				<center>
+					<div class="numpage">
+						<div class="numpage-num">1</div>
+					</div>
+				</center>
+			</div>
+		</div>
+		<div id="dialog" class="dialog">
+			<div class="dialog-header">
+				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
+			</div>
+			<div id="dialog-main" class="dialog-main">
+				<div class="dialog-main-top">
+					<p>
+				        <label>標題</label>
+				        <input id="title" class="w3-input w3-border w3-round-large" onkeyup="CheckTitle()" onmouseup="CheckTitle()" onchange="CheckTitle()" type="text">
+				    <p id="title_check" class="dialog-main-top-check"></p>
+				    <p id="title_check_value" class="dialog-main-top-check-value">0</p>
+				    </p>
+				    <p>
+				        <label>詳細內容</label>
+				        <textarea name="content" id="content" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckContent()" onmouseup="CheckContent()" onchange="CheckContent()"></textarea>
+				    <p id="content_check" class="dialog-main-top-check"></p>
+				    <p id="content_check_value" class="dialog-main-top-check-value">1</p>
+				    </p>
+				</div>
+		        <div class="col-md-12 dialog-main-bottom-button">
+		        	<div class="col-md-4">
+		        		<button class="w3-button">儲存</button>
+		        	</div>
+		        	<div class="col-md-4">
+		        		<button class="w3-button">開放</button>
+		        	</div>
+		        	<div class="col-md-4">
+		        		<button class="w3-button">返回</button>
+		        	</div>
+		        </div>
+			</div>
+		</div>
+		<div class="footer"></div>
+		
+	</div>
+</body>
+<script>
+	function playDialog() {
+	    document.getElementById("dialog").style.display = "block";
+	    document.getElementById("top-menu").style.display = "none";
+	    $('#dialog-main').scrollTop(0);
+	}
+	function displayDialog() {
+	    document.getElementById("dialog").style.display = "none";
+	    document.getElementById("top-menu").style.display = "block";
+	}
+
+	function checkAll() {
+        var num = 0;
+        num = Number($("#title_check_value").html())
+            + Number($("#content_check_value").html());
+        if (num == 2) {
+            $("#output").removeClass('w3-disabled');
+        } else {
+            $("#output").addClass('w3-disabled');
+        }
+    }
+
+    function CheckTitle() {
+        if ($("#title").val() != '' & $("#title").val().length < 51) {
+            $("#title_check").html("");
+            $("#title").removeClass('w3-border-red');
+            $("#title_check").removeClass('w3-text-red');
+            $("#title_check").addClass('w3-text-green');
+            $("#title_check_value").html('1');
+            checkAll();
+        } else if ($("#title").val() != '' & $("#title").val().length > 50) {
+            $("#title_check").html("不得超過50個字");
+            $("#title").addClass('w3-border-red');
+            $("#title_check").removeClass('w3-text-green');
+            $("#title_check").addClass('w3-text-red');
+            $("#title_check_value").html('0');
+            checkAll();
+        } else {
+            $("#title_check").html("請輸入");
+            $("#title").addClass('w3-border-red');
+            $("#title_check").removeClass('w3-text-green');
+            $("#title_check").addClass('w3-text-red');
+            $("#title_check_value").html('0');
+            checkAll();
+        }
+    }
+
+    function CheckContent() {
+        if ($("#content").html().length < 4001) {
+            $("#content_check").html("");
+            $("#content").removeClass('w3-border-red');
+            $("#content_check").removeClass('w3-text-red');
+            $("#content_check").addClass('w3-text-green');
+            $("#content_check_value").html('1');
+            checkAll();
+        } else {
+            $("#content_check").html("不得超過4000個字");
+            $("#content").addClass('w3-border-red');
+            $("#content_check").removeClass('w3-text-green');
+            $("#content_check").addClass('w3-text-red');
+            $("#content_check_value").html('0');
+            checkAll();
+        }
+    }
+
+    //輸入欄位設置檢查動作
+    setTimeout(function () {
+        $("#title").keypress(function (event) {
+            return setKeyEnter(event);
+        });
+
+        //按鈕狀態重設
+        $("#output").addClass('w3-disabled');
+    }, 100);
+
+    var editor = CKEDITOR.replace('content', {
+	        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+	        filebrowserImageUploadUrl: 'http://127.0.0.1/'
+	    });
+	    editor.on('change', function (evt) {
+	        $("#content").html(evt.editor.getData());
+	    });
+
+    //設置Enter Key事件
+    function setKeyEnter(event) {
+        var keycode = event.keyCode || event.which;
+        if (keycode == '13') {
+            var num = 0;
+            num = Number($("#title_check_value").html())
+                + Number($("#content_check_value").html());
+            if (num == 2) {
+                post();
+            } else {
+                CheckTitle();
+                CheckContent();
+            }
+            return false;
+        }
+        return true;
+    }
+</script>
+</html>

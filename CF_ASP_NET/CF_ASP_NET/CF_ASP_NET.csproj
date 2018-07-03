@@ -262,12 +262,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cf-index.css" />
+    <Content Include="Content\cf-login.css" />
     <Content Include="Content\slide.css" />
     <Content Include="Content\w3.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\edit.png" />
+    <Content Include="image\item.jpg" />
+    <Content Include="image\login.png" />
+    <Content Include="image\logout.png" />
+    <Content Include="image\next page.png" />
+    <Content Include="image\Previous page.png" />
     <Content Include="Models\cfdb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>cfdb.edmx</DependentUpon>
@@ -296,6 +304,9 @@
     <Content Include="Models\cfdb.edmx.diagram">
       <DependentUpon>cfdb.edmx</DependentUpon>
     </Content>
+    <Content Include="image\cancel.svg" />
+    <Content Include="image\logo.svg" />
+    <Content Include="image\menu.svg" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -772,8 +783,6 @@
     <Content Include="Views\Home\NewsList.cshtml" />
     <Content Include="Views\Home\NewsContent.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\BHome\About.cshtml" />
-    <Content Include="Views\BHome\Contact.cshtml" />
     <Content Include="Views\BHome\Index.cshtml" />
     <Content Include="Views\Home\Draft.cshtml" />
     <Content Include="Views\Home\Invest.cshtml" />
@@ -783,6 +792,7 @@
     <Content Include="Views\BLogin\Index.cshtml" />
     <Content Include="Views\BLogout\Index.cshtml" />
     <Content Include="Views\BVerify\index.cshtml" />
+    <Content Include="Views\BNews\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

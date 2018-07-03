@@ -10,10 +10,12 @@ namespace CF_ASP_NET.Controllers
     {
         public Models.BNewsModel newsmodel = new Models.BNewsModel();
 
-        public ActionResult Index()
+        public ActionResult Index(int page, String order_by, String desc_or_asc, String keyword)
         {
-            this.newsmodel.NewsList(0, "title", "asc", "");
+            this.newsmodel.NewsList(page, order_by, desc_or_asc, keyword);
             ViewData["DataList"] = this.newsmodel.list;
+            ViewData["DataListLength"] = this.newsmodel.list.Count;
+            ViewData["Page"] = page;
             return View();
         }
 
@@ -22,7 +24,7 @@ namespace CF_ASP_NET.Controllers
             return Content(this.newsmodel.NewsContent(id));
         }
 
-        public ActionResult NewsAdd()
+        public ActionResult NewsAdd(int id)
         {
             return View();
         }

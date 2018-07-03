@@ -14,10 +14,13 @@ namespace CF_ASP_NET.Controllers
 
         public string mUrl = "http://192.168.2.113/";
 
-        public ActionResult Index()
+        public ActionResult Index(int page, String order_by, String desc_or_asc, String keyword)
         {
-            this.verifymodel.ProposalList(0, "title", "asc", "");
+            if (order_by == "") order_by = "title";
+            this.verifymodel.ProposalList(page, order_by, desc_or_asc, keyword);
             ViewData["DataList"] = this.verifymodel.list;
+            ViewData["DataListLength"] = this.verifymodel.list.Count;
+            ViewData["Page"] = page;
             return View();
         }
 

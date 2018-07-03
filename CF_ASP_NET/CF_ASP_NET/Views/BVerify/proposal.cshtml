@@ -4,22 +4,46 @@
 }
 
 <a id="murl" href="~/" style="display:none"></a>
-<div class="container">
+
+<div class="dialog-header">
+    <img src="~/image/cancel.svg" width="48" height="48" onclick="setMainPage('verify', 0, 'title', 'asc', '')" class="d-inline-block align-top" alt="">
+</div>
+<div id="dialog-main" class="dialog-main">
+    <div class="dialog-main-top">
+        <p>姓名</p>
+        <p>電話</p>
+        <p>銀行代碼</p>
+        <p>銀行名稱</p>
+        <p>帳戶代碼</p>
+        <p>帳戶名稱</p>
+        <p>目標金額</p>
+        <p>結束時間</p>
+        <p>宣傳圖片</p>
+    </div>
+
     @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
     {
-        <p class="col-md-12">
-            <p id="pimage"></p>
+        <div id="pimage">
+        </div>
+        <div class="dialog-main-mid">
             <label>@a.title</label>
             <p>@a.introduction</p>
-            <p id="content"></p>
-            <p id="p_id" style="display:none;">@a.proposal</p>
-        </p>
+        </div>
+        <div id="content" class="dialog-main-bottom">
+        </div>
+        <p id="p_id" style="display:none;">@a.proposal</p>
     }
-    <p class="w3-padding w3-center">
-        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post(1)">通過</a>
-        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post(0)">不通過</a>
-        <a class="w3-button w3-round-large w3-green col-sm-12">返回</a>
-    </p>
+    <div class="col-md-12 dialog-main-bottom-button">
+        <div class="col-md-4">
+            <button class="w3-button" onclick="post(1)">通過</button>
+        </div>
+        <div class="col-md-4">
+            <button class="w3-button" onclick="post(0)">不通過</button>
+        </div>
+        <div class="col-md-4">
+            <button class="w3-button" onclick="displayDialog()">返回</button>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -65,15 +89,15 @@
                 if (obj.second_name == "webp") {
                     WebpIsSupported(function (isSupported) {
                         if (isSupported) {
-                            $("#pimage").html('<img src="' + obj.url + '" />');
+                            $("#pimage").html('<img src="' + obj.url + '" style="width:100%;" />');
                         } else {
                             $("#pimage").html('瀏覽器不支援webp');
                         }
                     });
                 } else {
-                    $("#pimage").html('<img src="' + obj.url + '" />');
+                    $("#pimage").html('<img src="' + obj.url + '" style="width:100%;" />');
                 }
-                
+
             }
         );
     }
@@ -92,6 +116,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
+                    setMainPage('verify', 0, 'title', 'asc', '');
                 }
             );
         }

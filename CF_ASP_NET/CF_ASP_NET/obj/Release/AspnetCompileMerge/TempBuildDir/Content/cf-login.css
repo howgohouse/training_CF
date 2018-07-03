@@ -1,0 +1,58 @@
+.all{
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			z-index: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.main{
+
+		}
+		.logo-area{
+			top: calc(50% - 177px);
+			left: 0px;
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			height: 144px;
+		}
+		.form-area{
+			top: calc(50% + 2px);
+			left: 0px;
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+		}
+		
+		@media only screen and (max-width: 1035px) {
+			.form-area input{
+				width: 90%;
+			}
+			.form-area-check{
+				text-align: left;
+				width: 90%;
+				height: 25px;
+				margin-bottom: 37px;
+			}
+		}
+		@media only screen and (min-width: 1036px) {
+			.form-area input{
+				width: 975px;
+			}
+			.form-area-check{
+				text-align: left;
+				width: 975px;
+				height: 25px;
+				margin-bottom: 37px;
+			}
+		}
+
+		.form-area-check-value{
+			display: none;
+		}
+
+		.form-area div{
+			width: 100%;
+			min-height: 10px;
+		}

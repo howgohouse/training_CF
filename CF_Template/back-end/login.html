@@ -4,53 +4,8 @@
 	<meta charset="UTF-8">
 	<title>登入</title>
 	<link rel="stylesheet" href="content/bootstrap.min.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<style>
-		.all{
-			top: 0px;
-			left: 0px;
-			position: absolute;
-			z-index: 0;
-			width: 100%;
-			height: 100%;
-		}
-		.main{
-
-		}
-		.logo-area{
-			top: calc(50% - 263px);
-			left: 0px;
-			position: absolute;
-			z-index: 1;
-			width: 100%;
-			height: 144px;
-		}
-		.form-area{
-			top: calc(50% + 2px);
-			left: 0px;
-			position: absolute;
-			z-index: 1;
-			width: 100%;
-		}
-		
-		@media only screen and (max-width: 1035px) {
-			.form-area input{
-				width: 90%;
-				margin-bottom: 94px;
-			}
-		}
-		@media only screen and (min-width: 1036px) {
-			.form-area input{
-				width: 975px;
-				margin-bottom: 94px;
-			}
-		}
-
-		.form-area div{
-			width: 100%;
-			min-height: 10px;
-		}
-	</style>
+	<link rel="stylesheet" href="content/w3.css">
+	<link rel="stylesheet" href="content/cf-login.css">
 
 	<script src="scripts/jquery-3.3.1.js"></script>
 	<script src="scripts/jquery-3.3.1.min.js"></script>
@@ -67,8 +22,11 @@
 			<div class="form-area">
 				<div>
 					<center>
-						<input class="w3-input w3-border w3-round-large" type="password">
+						<input id="pword" onclick="CheckPword()" onkeyup="CheckPword()" onchange="CheckPword()" class="w3-input w3-border w3-round-large" type="password">
+						<p id="pword_check" class="form-area-check"></p>
+    					<p id="pword_check_value" class="form-area-check-value">0</p>
 					</center>
+					
 				</div>
 				<div>
 					<center>
@@ -81,5 +39,61 @@
 		</div>
 	</div>
 </body>
+
+<script>
+	function checkAll() {
+        var num = 0;
+        num = Number($("#pword_check_value").html());
+        if (num == 1) {
+            $("#output").removeClass('w3-disabled');
+        } else {
+            $("#output").addClass('w3-disabled');
+        }
+    }
+
+    function CheckPword() {
+        if ($("#pword").val() != '' & $("#pword").val().length > 0) {
+            $("#pword_check").html("");
+            $("#pword").removeClass('w3-border-red');
+            $("#pword_check").removeClass('w3-text-red');
+            $("#pword_check").addClass('w3-text-green');
+            $("#pword_check_value").html('1');
+            checkAll();
+        } else {
+            $("#pword_check").html("請輸入");
+            $("#pword").addClass('w3-border-red');
+            $("#pword_check").removeClass('w3-text-green');
+            $("#pword_check").addClass('w3-text-red');
+            $("#pword_check_value").html('0');
+            checkAll();
+        }
+    }
+
+    //輸入欄位設置檢查動作
+    setTimeout(function () {
+        $("#pword").keypress(function (event) {
+            return setKeyEnter(event);
+        });
+
+        //按鈕狀態重設
+        $("#output").addClass('w3-disabled');
+    }, 100);
+
+    //設置Enter Key事件
+    function setKeyEnter(event) {
+        var keycode = event.keyCode || event.which;
+        if (keycode == '13') {
+            var num = 0;
+            num = Number($("#pword_check_value").html());
+            if (num == 1) {
+                post();
+            } else {
+                CheckPword();
+            }
+            return false;
+        }
+        return true;
+    }
+</script>
 
 </html>

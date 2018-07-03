@@ -1,18 +1,36 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@Styles.Render("~/Content/cf-login.css")
+<div style="display:none">
+    <a id="murl" href="~/"></a>
+</div>
 
-<a id="murl" href="~/" style="display:none"></a>
-<div class="container">
-    <p class="col-md-12">
-        <label>管理密碼</label>
-        <input id="pword" class="w3-input w3-border w3-round-large" onkeyup="CheckPword()" onmouseup="CheckPword()" onchange="CheckPword()" type="password">
-    <p id="pword_check" style="height: 25px;"></p>
-    <p id="pword_check_value" style="display: none;">0</p>
-    </p>
-    <p class="w3-padding w3-center">
-        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post()">登入</a>
-    </p>
+<div class="all">
+    <div class="main">
+        <div class="logo-area">
+            <center>
+                <img src="~/image/logo.svg" width="144" height="144" class="d-inline-block align-top" alt="">
+            </center>
+        </div>
+        <div class="form-area">
+            <div>
+                <center>
+                    <input id="pword" onclick="CheckPword()" onkeyup="CheckPword()" onchange="CheckPword()" class="w3-input w3-border w3-round-large" type="password">
+                    <p id="pword_check" class="form-area-check"></p>
+                    <p id="pword_check_value" class="form-area-check-value">0</p>
+                </center>
+
+            </div>
+            <div>
+                <center>
+                    <a id="output" onclick="post()">
+                        <img src="~/image/login.png" width="72" height="72" class="d-inline-block align-top" alt="">
+                    </a>
+                </center>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

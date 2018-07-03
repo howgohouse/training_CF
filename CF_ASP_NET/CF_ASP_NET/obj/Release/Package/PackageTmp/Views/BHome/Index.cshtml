@@ -2,14 +2,98 @@
 @{
     ViewBag.Title = "Home Page";
 }
+@Styles.Render("~/Content/cf-index.css")
+<div style="display:none">
+    <a id="murl" href="~/"></a>
+</div>
+<div id="top-menu" class="top-menu">
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+            <img src="image/logo.svg" width="72" height="72" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="image/menu.svg" width="72" height="72" class="d-inline-block align-top" alt="">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" onclick="setMainPage('news', 0, 'title', 'asc', '')"><font color="white">新聞</font></a>
+                <a class="nav-item nav-link" onclick="setMainPage('verify', 0, 'title', 'asc', '')"><font color="white">審核</font></a>
+            </div>
+        </div>
+        <a href="~/blogout" class="logout">
+            <img src="~/image/logout.png" width="72" height="72" class="d-inline-block align-top" alt="">
+        </a>
+    </nav>
+</div>
+<div class="all">
+    <div class="header"></div>
+    <div id="main_page" class="main">
 
-<a id="murl" href="~/" style="display:none"></a>
+    </div>
+    <div id="dialog" class="dialog">
+        <div class="dialog-header">
+            <img src="~/image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
+        </div>
+        <div id="dialog_main_page" class="dialog-main">
+            
+        </div>
+    </div>
+    <div class="footer"></div>
+
+</div>
 
 @if (ViewData["islogin"] as string == "true")
 {
     <script>
 
-        //top.location.href = document.getElementById("murl").href + "bverify";
+        function setMainPage(function_name, page, order_by, desc_or_asc, keyword) {
+            $("#navbarNavAltMarkup").removeClass('show');
+            var array =
+                { "page": page, "order_by": order_by, "desc_or_asc": desc_or_asc, "keyword": keyword }
+            $.post(document.getElementById("murl").href + "b" + function_name, array,
+                function (data) {
+                    $("#main_page").html(data);
+                    displayDialog();
+                    $("#dialog_main_page").html("");
+                }
+            );
+        }
+
+        function setDialogPage(function_name, id) {
+            switch (function_name) {
+                case "verify":
+                    function_name = "verify/proposal";
+                    break;
+                case "news_add":
+                    function_name = "news/newsadd";
+                    break;
+                default:
+                    function_name = "news/newsedit";
+            }
+            var array =
+                { "id": id }
+            $.post(document.getElementById("murl").href + "b" + function_name, array,
+                function (data) {
+                    $("#dialog_main_page").html(data);
+                    playDialog();
+                }
+            );
+        }
+
+        function playDialog() {
+            document.getElementById("dialog").style.display = "block";
+            document.getElementById("top-menu").style.display = "none";
+            $('#dialog_main_page').scrollTop(0);
+        }
+
+        function displayDialog() {
+            document.getElementById("dialog").style.display = "none";
+            document.getElementById("top-menu").style.display = "block";
+            $("#dialog_main_page").html("");
+        }
+
+        setMainPage('verify', 0, 'title', 'asc', '');
 
     </script>
 }
