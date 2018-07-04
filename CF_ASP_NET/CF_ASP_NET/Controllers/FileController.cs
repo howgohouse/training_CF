@@ -205,7 +205,7 @@ namespace CF_ASP_NET.Controllers
             sb = sb + "\"CKEditorFuncNum\": 2 , ";
             sb = sb + "\"uploaded\":" + "true" + " , ";
             sb = sb + "\"fileName\":\"" + fileName + "\" , ";
-            sb = sb + "\"url\":\"" + this.mUrl + "file/show/" + lastid.ToString() + "\"";
+            sb = sb + "\"url\":\"" + "~/" + "file/show/" + lastid.ToString() + "\"";
             sb = sb + "}";
 
             return Content(sb);
@@ -269,13 +269,13 @@ namespace CF_ASP_NET.Controllers
                 sb = sb + "\"CKEditorFuncNum\": 2 , ";
                 sb = sb + "\"uploaded\":" + "true" + " , ";
                 sb = sb + "\"fileName\":\"" + fileName + "\" , ";
-                sb = sb + "\"url\":\"" + this.mUrl + "file/show/" + lastid.ToString() + "\"";
+                sb = sb + "\"url\":\"" + "" + "file/show/" + lastid.ToString() + "\"";
                 sb = sb + "}";
                 return Content(sb);
             }
             else
             {
-                return Content("<script>window.parent.CKEDITOR.tools.callFunction(1,'" + this.mUrl + "file/show/" + lastid.ToString() + "','');</script>");
+                return Content("<script>window.parent.CKEDITOR.tools.callFunction(1,'" + "" + "file/show/" + lastid.ToString() + "','');</script>");
             }
 
             return Content(sb);

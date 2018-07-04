@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="content/bootstrap.min.css">
+	<link rel="stylesheet" href="content/w3.css">
+	<style>
+		.top-menu{
+			top: 0px;
+			left: 0px;
+			position: fixed;
+			z-index: 100;
+			width: 100%;
+			height: 105px;
+			background-color: rgb(0, 110, 125);
+		}
+		.navbar-brand{
+			font-size: 48px;
+			background-color: rgb(0, 110, 125);
+		}
+		nav{
+			background-color: rgb(0, 110, 125);
+		}
+		.navbar-nav{
+			font-size: 48px;
+			background-color: rgb(0, 110, 125);
+			color: white;
+		}
+		.all{
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			z-index: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.header{
+			width: 100%;
+			height: 105px;
+			float: left;
+		}
+		.main {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		.main-interval{
+			width: 100%;
+			height: 30px;
+			float: left;
+		}
+		.main-promotional-map{
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+		.main-promotional-map img{
+			width: 100%;
+		}
+		.main-function-page{
+			width: 100%;
+			min-height: calc(100vh - 105px);
+			float: left;
+		}
+		.main-introduction{
+			background-color: rgb(80,120,125);
+		}
+		.main-introduction-button{
+			width: calc(100% - 60px);
+			height: calc(100% - 60px);
+			padding: 30px;
+			background-color: rgb(80,120,125);
+			display: none;
+		}
+		.main-introduction-button-item{
+			width: calc(50% + 241px);
+			padding-left: calc(50% - 241px);
+		}
+		.main-introduction-button-item button{
+			width: 483px;
+			height: 77px;
+			font-size: 36px;
+			padding: 10px;
+			background-color: rgb(0,175,205);
+		}
+		.main-introduction-button-interval{
+			width: 100%;
+			height: calc(50vh - 190px);
+		}
+		.main-introduction-explanation{
+			width: calc(100% - 60px);
+			height: calc(100% - 30px);
+			padding-left: 30px;
+			padding-right: 30px;
+			padding-top: 30px;
+			background-color: rgb(80,120,125);
+			display: block;
+		}
+		
+		.main-introduction-explanation > div{
+			width: 50%;
+			height: calc(100vh - 165px);
+			float: left;
+		}
+		.main-introduction-explanation-padding-top{
+			padding-top: 25vh;
+		}
+		.main-introduction-explanation > div > div{
+			width: 26%;
+			height: 50vh;
+			padding-left: 12%;
+			padding-right: 12%;
+			padding-top: 25vh;
+			padding-bottom: 25vh;
+			float: left;
+		}
+		.main-introduction-explanation > div > div > img{
+			width: 20vw;
+			height: auto;
+		}
+		.main-introduction-explanation > div > p{
+			font-size: 16px;
+			color: white;
+			text-align: justify;
+		}
+
+		.main-introduction-proposal{
+			width: calc(100%);
+			height: calc(100%);
+			background-color: rgb(0,175,205);
+			display: block;
+		}
+		.main-introduction-proposal > div{
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-left: 2vw;
+			padding-right: 2vw;
+		}
+		.main-introduction-proposal-img{
+			margin-top: 35%;
+			width: 60%;
+			height: auto;
+		}
+		.main-introduction-investment{
+			width: calc(100%);
+			height: calc(100%);
+			background-color: rgb(80,120,125);
+			display: block;
+		}
+		.main-introduction-investment > div{
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-left: 2vw;
+			padding-right: 2vw;
+		}
+		.main-introduction-investment-img{
+			margin-top: 35%;
+			width: 100%;
+			height: auto;
+		}
+
+		.main-introduction-dialog{
+			top: 0px;
+			left: 0px;
+			position: fixed;
+			z-index: 200;
+			width: calc(100%);
+			height: calc(100%);
+			padding-left: 30px;
+			padding-right: 30px;
+			padding-top: 30px;
+			background-color: rgb(80,120,125);
+			display: none;
+		}
+
+		@media only screen and (min-width: 1260px) {
+			.main-introduction-button{
+				width: calc(100% - 60px);
+				height: calc(100% - 60px);
+				padding: 30px;
+				background-color: rgb(80,120,125);
+				display: block;
+			}
+			
+			.main-introduction-explanation{
+				display: none;
+			}
+			.main-introduction-explanation-padding-top{
+				padding-top: 20vh;
+			}
+			.main-introduction-explanation > div > div{
+				width: 408px;
+				height: 408px;
+				padding-left: calc(50% - 204px);
+				padding-right: calc(50% - 204px);
+				padding-top: calc(50vh - 287px);
+				padding-bottom: calc(50vh - 287px);
+				float: left;
+			}
+			.main-introduction-explanation > div > div > img{
+				width: 407px;
+				height: 386px;
+			}
+			.main-introduction-explanation > div > p{
+				font-size: 36px;
+				color: white;
+				text-align: justify;
+			}
+
+			.main-introduction-proposal{
+				width: calc(100%);
+				height: calc(100%);
+				background-color: rgb(0,175,205);
+				display: none;
+			}
+			.main-introduction-proposal-img{
+				margin-top: 12%;
+				width: 500px;
+				height: auto;
+			}
+
+			.main-introduction-investment{
+				width: calc(100%);
+				height: calc(100%);
+				background-color: rgb(80,120,125);
+				display: none;
+			}
+			.main-introduction-investment-img{
+				margin-top: 12%;
+				width: 1000px;
+				height: auto;
+			}
+
+			.main-introduction-dialog{
+				top: 0px;
+				left: 0px;
+				position: fixed;
+				z-index: 200;
+				width: calc(100%);
+				height: calc(100%);
+				padding-left: 30px;
+				padding-right: 30px;
+				padding-top: 30px;
+				background-color: rgb(80,120,125);
+				display: none;
+			}
+			.main-introduction-dialog-header {
+				top: 0px;
+				left: 0px;
+				position: fixed;
+				z-index: 202;
+				width: calc(100% - 60px);
+				padding: 30px;
+				float: left;
+			}
+			.main-introduction-dialog-header img{
+				width: 48px;
+				height: 48px;
+				float: right;
+			}
+		}
+
+		.main-news{
+			background-color: rgb(75,230,255);
+		}
+		.main-news > div{
+			width: calc(100vw - 20vw);
+			height: calc(100vh - 165px);
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-left: 10vw;
+			padding-right: 10vw;
+			float: left;
+		}
+		.main-news > div > p{
+			font-size: 4vw;
+			margin-top: 5vh;
+			margin-bottom: 5vh;
+			text-align: left;
+			color: black;
+		}
+		@media only screen and (min-width: 800px) {
+			.main-news > div > p{
+				font-size: 4vh;
+				margin-top: 5vh;
+				margin-bottom: 5vh;
+				text-align: left;
+				color: black;
+			}
+		}
+		
+		.footer{
+			float: left;
+		}
+	</style>
+
+	<script src="scripts/jquery-3.3.1.js"></script>
+	<script src="scripts/jquery-3.3.1.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="top-menu" class="top-menu">
+		<!-- Image and text -->
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<a class="navbar-brand" href="#">
+				<img src="image/logo.svg" width="72" height="72" class="d-inline-block align-top" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<img src="image/menu.svg" width="72" height="72" class="d-inline-block align-top" alt="">
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="index-news.html"><font color="white">本站介紹</font></a>
+					<a class="nav-item nav-link" href="#"><font color="white">消息</font></a>
+					<a class="nav-item nav-link" href="#"><font color="white">提案</font></a>
+					<a class="nav-item nav-link" href="#"><font color="white">探索</font></a>
+				</div>
+			</div>
+			<div></div>
+		</nav>
+	</div>
+	<div class="all">
+		<div class="header"></div>
+		<div class="main">
+			<div class="main-promotional-map">
+				<img src="image/promotional map.svg" alt="">
+			</div>
+			<div class="main-interval"></div>
+			<div class="main-function-page main-introduction">
+				<div class="main-function-page main-introduction-button">
+					<div class="main-introduction-button-item">
+			        	<button onclick="playExplanationDialog(1)" class="w3-button">何謂CF</button>
+			        </div>
+			        <div class="main-introduction-button-interval"></div>
+			        <div class="main-introduction-button-item">
+			        	<button onclick="playExplanationDialog(2)" class="w3-button">如何募資</button>
+			        </div>
+			        <div class="main-introduction-button-interval"></div>
+			        <div class="main-introduction-button-item">
+			        	<button onclick="playExplanationDialog(3)" class="w3-button">如何投資</button>
+			        </div>
+				</div>
+				<div id="dialog-explanation-1" class="main-function-page main-introduction-explanation main-introduction-dialog">
+					<p class="main-introduction-dialog-header">
+						<img src="image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(1)" class="d-inline-block align-top" alt="">
+					</p>
+					<div>
+						<div>
+							<img src="image/crowd-funding.svg" alt="">
+						</div>
+					</div>
+					<div class="main-introduction-explanation-padding-top">
+						<p>
+							CF名稱為Crowd和funding,兩個英文字幕合併成的名稱,本站就如同Crowdfunding的意思,專為您的想法募集您所需要的資金,只要將您的計畫容,於本站提出,就能讓更多的投資者,看見您的計畫
+						</p>
+					</div>
+				</div>
+				<div class="main-function-page main-introduction-explanation">
+					<div>
+						<div>
+							<img src="image/crowd-funding.svg" alt="">
+						</div>
+					</div>
+					<div class="main-introduction-explanation-padding-top">
+						<p>
+							CF名稱為Crowd和funding,兩個英文字幕合併成的名稱,本站就如同Crowdfunding的意思,專為您的想法募集您所需要的資金,只要將您的計畫容,於本站提出,就能讓更多的投資者,看見您的計畫
+						</p>
+					</div>
+				</div>
+				<div id="dialog-explanation-2" class="main-function-page main-introduction-proposal main-introduction-dialog">
+					<p class="main-introduction-dialog-header">
+						<img src="image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(2)" class="d-inline-block align-top" alt="">
+					</p>
+					<div>
+						<center>
+							<img class="main-introduction-proposal-img" src="image/proposal.png" alt="">
+						</center>
+					</div>
+				</div>
+				<div class="main-function-page main-introduction-proposal">
+					<div>
+						<center>
+							<img class="main-introduction-proposal-img align-middle" src="image/proposal.png" alt="">
+						</center>
+					</div>
+				</div>
+				<div id="dialog-explanation-3" class="main-function-page main-introduction-investment main-introduction-dialog">
+					<p class="main-introduction-dialog-header">
+						<img src="image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(3)" class="d-inline-block align-top" alt="">
+					</p>
+					<div>
+						<center>
+							<img class="main-introduction-investment-img" src="image/investment.png" alt="">
+						</center>
+					</div>
+				</div>
+				<div class="main-function-page main-introduction-investment">
+					<div>
+						<center>
+							<img class="main-introduction-investment-img align-middle" src="image/investment.png" alt="">
+						</center>
+					</div>
+				</div>
+			</div>
+			<div class="main-interval"></div>
+			<div class="main-function-page main-news">
+				<div>
+					<p>2018/6/25新新聞準備中</p>
+					<p>2018/6/25新新聞準備中</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</div>
+</body>
+
+<script>
+	function playExplanationDialog(value) {
+	    document.getElementById("dialog-explanation-"+value).style.display = "block";
+	    document.getElementById("top-menu").style.display = "none";
+	    $('#dialog-main').scrollTop(0);
+	}
+	function displayExplanationDialog(value) {
+	    document.getElementById("dialog-explanation-"+value).style.display = "none";
+	    document.getElementById("top-menu").style.display = "block";
+	}
+</script>
+
+</html>
