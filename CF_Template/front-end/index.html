@@ -6,6 +6,10 @@
 	<link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
 	<style>
+		body{
+			margin:0;
+			padding: 0;
+		}
 		.top-menu{
 			top: 0px;
 			left: 0px;
@@ -28,10 +32,6 @@
 			color: white;
 		}
 		.all{
-			top: 0px;
-			left: 0px;
-			position: absolute;
-			z-index: 0;
 			width: 100%;
 			height: 100%;
 		}
@@ -63,6 +63,12 @@
 			min-height: calc(100vh - 105px);
 			float: left;
 		}
+		.main-function-page-half{
+			width: 100%;
+			min-height: calc(50vh - 105px);
+			float: left;
+		}
+
 		.main-introduction{
 			background-color: rgb(80,120,125);
 		}
@@ -289,10 +295,286 @@
 				color: black;
 			}
 		}
+		.main-proposal{
+			background-color: white;
+		}
+		.main-proposal > div{
+			width: 100%;
+			height: 50%;
+		}
+		.main-proposal > div > p{
+			width: 100%;
+			height: calc(100% - 50vh + 8vw - 105px);
+			padding-top: 40vh;
+			padding-bottom: 10vh;
+			font-size: 8vw;
+			text-align: center;
+		}
+		.main-proposal-button{
+		}
+		.main-proposal-button-item{
+		}
+		.main-proposal-button-item button{
+			width: 25vw;
+			height: 12vw;
+			font-size: 4vw;
+			padding: 2vw;
+			box-sizing: border-box;
+			background-color: rgb(75,230,255);
+		}
+		@media only screen and (min-width: 800px) {
+			.main-proposal > div > p{
+				width: 100%;
+				height: calc(100% - 45vh - 105px);
+				padding-top: 35vh;
+				padding-bottom: 10vh;
+				font-size: 5vh;
+				text-align: center;
+			}
+			.main-proposal-button-item button{
+				width: 242px;
+				height: 77px;
+				font-size: 30px;
+				padding: 10px;
+				box-sizing: border-box;
+				background-color: rgb(75,230,255);
+			}
+		}
+
+		.main-investment{
+		}
+		.main-investment > div{
+			width: 100%;
+			height: 50%;
+		}
+		.main-investment-slide-img{
+			width:100%;
+			height: calc(100vh - 105px);
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			box-sizing: border-box;
+			padding-top: 2vh;
+			padding-left: 20vw;
+			padding-right: 20vw;
+			box-sizing: border-box;
+		}
+		@media only screen and (min-width: 800px) {
+			.main-investment-slide-img{
+				width:100%;
+				height: calc(100vh - 105px);
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: fixed;
+				box-sizing: border-box;
+				padding-top: 2vh;
+				padding-left: 30vw;
+				padding-right: 20vw;
+				box-sizing: border-box;
+			}
+		}
+		.main-investment-slide-img-content-top{
+			width: 100%;
+			height: 60%;
+		}
+		.main-investment-slide-img-title{
+			width: 60vw;
+			font-size: 5vw;
+			color: white;
+			background-color: rgba(0,0,0,0.5);
+			margin-bottom: 5vh;
+		}
+		@media only screen and (min-width: 800px) {
+			.main-investment-slide-img-title{
+				width: 50vw;
+				font-size: 5vw;
+				color: white;
+				background-color: rgba(0,0,0,0.5);
+				margin-bottom: 5vh;
+			}
+		}
+		.main-investment-slide-img-introduction{
+			width: 60vw;
+			font-size: 4vw;
+			text-align: justify;
+			color: white;
+			background-color: rgba(0,0,0,0.5);
+		}
+		@media only screen and (min-width: 800px) {
+			.main-investment-slide-img-introduction{
+				width: 50vw;
+				font-size: 4vw;
+				text-align: justify;
+				color: white;
+				background-color: rgba(0,0,0,0.5);
+			}
+		}
+		.main-investment-slide-img-content-midle{
+			width: 100%;
+			height: 20%;
+		}
+		
+		.main-investment-slide-img-button{
+			width: 50vw;
+		}
+		.main-investment-slide-img-button button{
+			width: 35vw;
+			height: 12vw;
+			font-size: 4vw;
+			padding: 2vw;
+			margin-left: 12vw;
+			box-sizing: border-box;
+			color: white;
+			background-color: black;
+		}
+		@media only screen and (min-width: 800px) {
+			.main-investment-slide-img-button button{
+				width: 25vw;
+				height: 12vw;
+				font-size: 4vw;
+				padding: 2vw;
+				margin-left: 12vw;
+				box-sizing: border-box;
+				color: white;
+				background-color: black;
+			}
+		}
+		.main-investment-slide-img-content-bottom{
+			width: 100%;
+			height: 20%;
+		}
+		.main-investment-slide-img-content-bottom img{
+			height: 60%;
+			display: none;
+		}
+		.main-investment-slide-img-bottom{
+			width: 100vw;
+			height: 20vh;
+		}
+		.main-investment-slide-img-bottom img{
+			height: 60%;
+			display: none;
+		}
+		@media only screen and (min-width: 1000px) {
+			.main-investment-slide-img-title{
+				width: 50vw;
+				font-size: 48px;
+				color: white;
+				background-color: rgba(0,0,0,0.5);
+				margin-bottom: 5vh;
+			}
+			.main-investment-slide-img-introduction{
+				width: 50vw;
+				font-size: 36px;
+				text-align: justify;
+				color: white;
+				background-color: rgba(0,0,0,0.5);
+			}
+			.main-investment-slide-img-button button{
+				width: 242px;
+				height: 77px;
+				font-size: 30px;
+				padding: 10px;
+				margin-left: 0vw;
+				box-sizing: border-box;
+				color: white;
+				background-color: black;
+			}
+		}
+		@media only screen and (min-width: 800px) {
+			.main-investment-slide-img-content-bottom img{
+				height: 60%;
+				display: block;
+			}
+		}
+		.main-investment-slide-list{
+			padding-left: 5vw;
+			display: none;
+		}
+		@media only screen and (min-width: 800px) {
+			.main-investment-slide-list{
+				padding-left: 5vw;
+				display: block;
+			}
+		}
+		.main-investment-slide-list-item{
+			font-size: 24px;
+			color: white;
+			background-color: rgba(0,0,0,0.5);
+		}
+		.main-investment-bottom{
+			width: 100%;
+			height: 100%;
+			padding: 30px;
+			box-sizing: border-box;
+			display: block;
+			background-color: rgb(75,230,255);
+		}
+		@media only screen and (min-width: 800px) {
+			.main-investment-bottom{
+				width: 100%;
+				height: 100%;
+				padding: 30px;
+				box-sizing: border-box;
+				display: none;
+				background-color: rgb(75,230,255);
+			}
+		}
+		.main-investment-bottom-list{
+			padding-bottom: 30px;
+			width: 100%;
+			height: 50%;
+			box-sizing: border-box;
+			float: left;
+		}
+		.main-investment-bottom-list-item{
+			padding-top: 30px;
+			font-size: 24px;
+			float: left;
+		}
+		.main-investment-bottom-list-item-midel{
+			padding-top: 30px;
+			height: 24px;
+			font-size: 24px;
+		}
+		.main-investment-bottom-list-item-right{
+			font-size: 24px;
+			float: right;
+		}
+
+		.main-investment-bottom-img{
+			width: 100%;
+			height: 50%;
+		}
+		
+		.main-investment-bottom-img img{
+			width: 72px;
+		}
+
+		.img-float-left{
+			float: left;
+		}
+		.img-float-right{
+			float: right;
+		}
+
+		.text-align-left{
+			text-align: left;
+		}
+		.text-align-center{
+			text-align: center;
+		}
+		.text-align-right{
+			text-align: right;
+		}
 		
 		.footer{
 			float: left;
 		}
+		.mySlides {display:none}
+		.demo {cursor:pointer}
 	</style>
 
 	<script src="scripts/jquery-3.3.1.js"></script>
@@ -410,6 +692,103 @@
 					<p>2018/6/25新新聞準備中</p>
 				</div>
 			</div>
+			<div class="main-interval"></div>
+			<div class="main-function-page main-proposal">
+				<div>
+					<p>為您的想法,來此募資</p>
+				</div>
+				<div class="main-proposal-button">
+					<div class="main-proposal-button-item">
+						<center>
+							<button class="w3-button">提案</button>
+						</center>
+					</div>
+				</div>
+			</div>
+			<div class="main-interval"></div>
+			<div class="main-function-page main-investment">
+				<div class="w3-display-container">
+					<div>
+						<div class="mySlides main-investment-slide-img" style="background-image: url('image/slide-bg-01.jpg');">
+							<div class="main-investment-slide-img-content-top">
+								<div class="main-investment-slide-img-title">
+									標題一二三
+								</div>
+								<div class="main-investment-slide-img-introduction">
+									標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三
+								</div>
+							</div>
+							<div class="main-investment-slide-img-content-midle">
+								<div class="main-investment-slide-img-button">
+									<button class="w3-button">瀏覽</button>
+								</div>
+							</div>
+							<div class="main-investment-slide-img-content-bottom">
+								<img class="img-float-left" src="image/Previous page.png" alt="">
+								<img class="img-float-right" src="image/next page.png" alt="">
+							</div>
+						</div>
+						<div class="mySlides main-investment-slide-img" style="background-image: url('image/slide-bg-02.jpg');">
+							<div class="main-investment-slide-img-content-top">
+								<div class="main-investment-slide-img-title">
+									標題A二三
+								</div>
+								<div class="main-investment-slide-img-introduction">
+									標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三
+								</div>
+							</div>
+							<div class="main-investment-slide-img-content-midle">
+								<div class="main-investment-slide-img-button">
+									<button class="w3-button">瀏覽</button>
+								</div>
+							</div>
+							<div class="main-investment-slide-img-content-bottom">
+								<img class="img-float-left" src="image/Previous page.png" alt="">
+								<img class="img-float-right" src="image/next page.png" alt="">
+							</div>
+						</div>
+						<div class="mySlides main-investment-slide-img" style="background-image: url('image/slide-bg-03.jpg');">
+							<div class="main-investment-slide-img-content-top">
+								<div class="main-investment-slide-img-title">
+									標題B二三
+								</div>
+								<div class="main-investment-slide-img-introduction">
+									標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三標題一二三
+								</div>
+							</div>
+							<div class="main-investment-slide-img-content-midle">
+								<div class="main-investment-slide-img-button">
+									<button class="w3-button">瀏覽</button>
+								</div>
+							</div>
+							<div class="main-investment-slide-img-content-bottom">
+								<img class="img-float-left" src="image/Previous page.png" alt="">
+								<img class="img-float-right" src="image/next page.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="w3-display-left main-investment-slide-list">
+						<div class="main-investment-slide-list-item" onclick="currentDiv(1)" onmouseover="currentDiv(1)">01</div>
+						<div class="main-investment-slide-list-item" onclick="currentDiv(2)" onmouseover="currentDiv(2)">02</div>
+						<div class="main-investment-slide-list-item" onclick="currentDiv(3)" onmouseover="currentDiv(3)">03</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-function-page-half main-investment-bottom">
+				<div class="main-investment-bottom-list">
+					
+					<center>
+						<div class="main-investment-bottom-list-item text-align-left" onclick="currentDiv(1)" onmouseover="currentDiv(1)">01</div>
+						<div class="main-investment-bottom-list-item-midel text-align-center" onclick="currentDiv(2)" onmouseover="currentDiv(2)">02</div>
+						<div class="main-investment-bottom-list-item-right text-align-right" onclick="currentDiv(3)" onmouseover="currentDiv(3)">03</div>
+					</center>
+					
+				</div>
+				<div class="main-investment-bottom-img">
+					<img class="img-float-left" src="image/Previous page.png" alt="">
+					<img class="img-float-right" src="image/next page.png" alt="">
+				</div>
+			</div>
 		</div>
 		<div class="footer"></div>
 	</div>
@@ -425,6 +804,31 @@
 	    document.getElementById("dialog-explanation-"+value).style.display = "none";
 	    document.getElementById("top-menu").style.display = "block";
 	}
+	function plusDivs(n) {
+		showDivs(slideIndex += n);
+	}
+
+	function currentDiv(n) {
+		showDivs(slideIndex = n);
+	}
+
+	function showDivs(n) {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("demo");
+		if (n > x.length) {slideIndex = 1}
+		if (n < 1) {slideIndex = x.length}
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+		}
+		x[slideIndex-1].style.display = "block";
+		dots[slideIndex-1].className += " w3-opacity-off";
+	}
+	var slideIndex = 1;
+    showDivs(slideIndex);
 </script>
 
 </html>
