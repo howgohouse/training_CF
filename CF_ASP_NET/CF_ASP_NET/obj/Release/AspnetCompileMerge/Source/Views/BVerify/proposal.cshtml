@@ -10,14 +10,27 @@
 </div>
 <div id="dialog-main" class="dialog-main">
     <div class="dialog-main-top">
-        <p>姓名</p>
-        <p>電話</p>
-        <p>銀行代碼</p>
-        <p>銀行名稱</p>
-        <p>帳戶代碼</p>
-        <p>帳戶名稱</p>
-        <p>目標金額</p>
-        <p>結束時間</p>
+        @foreach (CfMember a in ViewData["DataListMem"] as List<CfMember>)
+        {
+            <p>姓名:@a.name</p>
+            <p>電話:@a.phone</p>
+        }
+        @foreach (CfBank a in ViewData["DataListBank"] as List<CfBank>)
+        {
+            <p>銀行代碼:@a.bankCdoe</p>
+            <p>銀行名稱:@a.bankName</p>
+            <p>帳戶代碼:@a.accountCdoe</p>
+            <p>帳戶名稱:@a.accountName</p>
+        }
+        @foreach (CfProposalGoal a in ViewData["DataListGoal"] as List<CfProposalGoal>)
+        {
+            <p>目標金額:@a.targetColumn.ToString("C")</p>
+        }
+        @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
+        {
+            <p>結束時間:@a.endTime</p>
+        }
+
         <p>宣傳圖片</p>
     </div>
 
@@ -33,6 +46,7 @@
         </div>
         <p id="p_id" style="display:none;">@a.proposal</p>
     }
+    <p class="col-md-12 dialog-line"></p>
     <div class="col-md-12 dialog-main-bottom-button">
         <div class="col-md-4">
             <button class="w3-button" onclick="post(1)">通過</button>

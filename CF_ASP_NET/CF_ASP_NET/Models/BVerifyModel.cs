@@ -11,6 +11,9 @@ namespace CF_ASP_NET.Models
     {
         CrowdfundingEntities db = new CrowdfundingEntities();
         public List<Models.CfProposalV> list = null;
+        public List<Models.CfMember> list2 = null;
+        public List<Models.CfBank> list3 = null;
+        public List<Models.CfProposalGoal> list4 = null;
 
         public int lastid = 0;
 
@@ -71,7 +74,18 @@ namespace CF_ASP_NET.Models
 
         public void Proposal(int id)
         {
+            int mem_id = 0;
+            int bank_id = 0;
             this.list = (from d in db.CfProposalV where d.proposal == id select d).ToList();
+            var query = (from d in db.CfProposal where d.id == id select d).ToList();
+            foreach (Models.CfProposal proposal in query)
+            {
+                mem_id = proposal.member.Value;
+                bank_id = proposal.bank.Value;
+            }
+            this.list2 = (from d in db.CfMember where d.id == mem_id select d).ToList();
+            this.list3 = (from d in db.CfBank where d.id == bank_id select d).ToList();
+            this.list4 = (from d in db.CfProposalGoal where d.proposal == id select d).ToList();
         }
 
         public String ProposalContent(int id)

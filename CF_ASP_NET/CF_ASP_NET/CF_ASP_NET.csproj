@@ -788,11 +788,11 @@
     <Content Include="Views\Home\Invest.cshtml" />
     <Content Include="Views\BVerify\proposal.cshtml" />
     <Content Include="Views\BNews\NewsEdit.cshtml" />
-    <Content Include="Views\BNews\NewsAdd.cshtml" />
     <Content Include="Views\BLogin\Index.cshtml" />
     <Content Include="Views\BLogout\Index.cshtml" />
     <Content Include="Views\BVerify\index.cshtml" />
     <Content Include="Views\BNews\index.cshtml" />
+    <Content Include="Views\BNews\NewsAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,6 +28,9 @@ namespace CF_ASP_NET.Controllers
         {
             this.verifymodel.Proposal(id);
             ViewData["DataList"] = this.verifymodel.list;
+            ViewData["DataListMem"] = this.verifymodel.list2;
+            ViewData["DataListBank"] = this.verifymodel.list3;
+            ViewData["DataListGoal"] = this.verifymodel.list4;
             return View();
         }
 

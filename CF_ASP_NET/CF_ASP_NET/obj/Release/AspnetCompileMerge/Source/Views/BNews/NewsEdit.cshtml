@@ -7,6 +7,7 @@
 </div>
 <div id="dialog-main" class="dialog-main">
     <div class="dialog-main-top">
+        <p class="col-md-12 dialog-line"></p>
         @foreach (CfBulletin a in ViewData["DataList"] as List<CfBulletin>)
         {
             <p>
@@ -24,6 +25,7 @@
             <p id="n_id" style="display:none;">@a.id</p>
             <p id="n_status" style="display:none;">@a.status</p>
         }
+        <p class="col-md-12 dialog-line"></p>
     </div>
     <div class="col-md-12 dialog-main-bottom-button">
         <div class="col-md-4">

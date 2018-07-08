@@ -1,28 +1,51 @@
-﻿@{
+﻿@using CF_ASP_NET.Models;
+@{
     ViewBag.Title = "Home Page";
 }
-
-<a id="murl" href="~/" style="display:none"></a>
-<div class="container">
-    <p class="col-md-12">
-        <label>方案的標題</label>
-        <input id="title" class="w3-input w3-border w3-round-large" onkeyup="CheckTitle()" onmouseup="CheckTitle()" onchange="CheckTitle()" type="text">
-    <p id="title_check" style="height: 25px;"></p>
-    <p id="title_check_value" style="display: none;">0</p>
-    </p>
-    <p class="col-md-12">
-        <label>詳細內容</label>
-        <textarea name="content" id="content" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckContent()" onmouseup="CheckContent()" onchange="CheckContent()"></textarea>
-    <p id="content_check" style="height: 25px;"></p>
-    <p id="content_check_value" style="display: none;">1</p>
-    </p>
-    <p class="w3-padding w3-center">
-        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post()">儲存</a>
-        <a class="w3-button w3-round-large w3-green col-sm-12">返回</a>
-    </p>
+<div class="dialog-header">
+    <img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
+</div>
+<div id="dialog-main" class="dialog-main">
+    <div class="dialog-main-top">
+        <p class="col-md-12 dialog-line"></p>
+        @foreach (CfBulletin a in ViewData["DataList"] as List<CfBulletin>)
+        {
+            <p>
+                <label>標題</label>
+                <input id="title" class="w3-input w3-border w3-round-large" onkeyup="CheckTitle()" onmouseup="CheckTitle()" onchange="CheckTitle()" type="text" value="@a.title">
+            <p id="title_check" class="dialog-main-top-check"></p>
+            <p id="title_check_value" class="dialog-main-top-check-value">0</p>
+            </p>
+            <p>
+                <label>詳細內容</label>
+                <textarea name="content" id="content" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckContent()" onmouseup="CheckContent()" onchange="CheckContent()"></textarea>
+            <p id="content_check" class="dialog-main-top-check"></p>
+            <p id="content_check_value" class="dialog-main-top-check-value">1</p>
+            </p>
+            <p id="n_id" style="display:none;">@a.id</p>
+            <p id="n_status" style="display:none;">@a.status</p>
+        }
+        <p class="col-md-12 dialog-line"></p>
+    </div>
+    <div class="col-md-12 dialog-main-bottom-button">
+        <div class="col-md-4">
+            <button class="w3-button" onclick="post()">儲存</button>
+        </div>
+        <div id="resetbtn" class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <button class="w3-button" onclick="setMainPage('news', 0, 'title', 'asc', '')">返回</button>
+        </div>
+    </div>
 </div>
 
 <script>
+    if ($("#n_status").html() == "0") {
+        $("#resetbtn").html('<button class="w3-button" onclick="postOpen()">開放</button>');
+    } else {
+        $("#resetbtn").html('<button class="w3-button" onclick="postClose()">關閉</button>');
+    }
+
     function checkAll() {
         var num = 0;
         num = Number($("#title_check_value").html())
@@ -77,13 +100,38 @@
         }
     }
 
-    var editor = CKEDITOR.replace('content', {
-        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
-    });
-    editor.on('change', function (evt) {
-        $("#content").html(evt.editor.getData());
-    });
+    function getContent() {
+        var array =
+            { "id": $("#n_id").html() }
+        if (screen.width <= 768) {
+            $.post(document.getElementById("murl").href + 'bnews/newscontent', array,
+                function (data) {
+                    $("#content").html(data);
+                    var editor = CKEDITOR.replace('content', {
+                        extraPlugins: 'uploadimage,image2',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+                        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
+                    });
+                    editor.on('change', function (evt) {
+                        $("#content").html(evt.editor.getData());
+                    });
+                }
+            );
+        } else {
+            $.post(document.getElementById("murl").href + 'bnews/newscontent', array,
+                function (data) {
+                    $("#content").html(data);
+                    var editor = CKEDITOR.replace('content', {
+                        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+                        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
+                    });
+                    editor.on('change', function (evt) {
+                        $("#content").html(evt.editor.getData());
+                    });
+                }
+            );
+        }
+        
+    }
 
     //輸入欄位設置檢查動作
     setTimeout(function () {
@@ -91,8 +139,7 @@
             return setKeyEnter(event);
         });
 
-        //按鈕狀態重設
-        $("#output").addClass('w3-disabled');
+        getContent();
     }, 100);
 
     //設置Enter Key事件
@@ -118,10 +165,41 @@
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "n_id": $("#n_id").html(), "title": $("#title").val(), "content": $("#content").html() }
-            $.post(document.getElementById("murl").href + 'bnews/newsaddrun', array,
+            $.post(document.getElementById("murl").href + 'bnews/newseditrun', array,
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
+                    setMainPage('news', 0, 'title', 'asc', '');
+                }
+            );
+        }
+    }
+
+    function postOpen() {
+        if (confirm("是否要進行此操作?")) {
+            $("#content").html(CKEDITOR.instances['content'].getData());
+            var array =
+                { "n_id": $("#n_id").html(), "value": "1" }
+            $.post(document.getElementById("murl").href + 'bnews/newschangerun', array,
+                function (data) {
+                    var obj = JSON.parse(data);
+                    alert(obj.ok);
+                    setMainPage('news', 0, 'title', 'asc', '');
+                }
+            );
+        }
+    }
+
+    function postClose() {
+        if (confirm("是否要進行此操作?")) {
+            $("#content").html(CKEDITOR.instances['content'].getData());
+            var array =
+                { "n_id": $("#n_id").html(), "value": "0" }
+            $.post(document.getElementById("murl").href + 'bnews/newschangerun', array,
+                function (data) {
+                    var obj = JSON.parse(data);
+                    alert(obj.ok);
+                    setMainPage('news', 0, 'title', 'asc', '');
                 }
             );
         }

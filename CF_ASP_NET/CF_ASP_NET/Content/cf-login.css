@@ -10,7 +10,7 @@
 
 		}
 		.logo-area{
-			top: calc(50% - 177px);
+			top: calc(50% - 137px);
 			left: 0px;
 			position: absolute;
 			z-index: 1;
@@ -33,7 +33,7 @@
 				text-align: left;
 				width: 90%;
 				height: 25px;
-				margin-bottom: 37px;
+				margin-bottom: 18px;
 			}
 		}
 		@media only screen and (min-width: 1036px) {
@@ -44,7 +44,7 @@
 				text-align: left;
 				width: 975px;
 				height: 25px;
-				margin-bottom: 37px;
+				margin-bottom: 18px;
 			}
 		}
 
