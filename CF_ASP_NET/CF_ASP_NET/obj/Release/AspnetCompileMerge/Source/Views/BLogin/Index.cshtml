@@ -2,10 +2,34 @@
     ViewBag.Title = "Home Page";
 }
 @Styles.Render("~/Content/cf-login.css")
+@Styles.Render("~/Content/load-be-control.css")
 <div style="display:none">
     <a id="murl" href="~/"></a>
 </div>
-
+<div id="load-all" class="load-all">
+    <div class="load-main">
+        <div class="load8">
+            <div class="load8-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="load8-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="load8-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="all">
     <div class="main">
         <div class="logo-area">
@@ -34,6 +58,31 @@
 </div>
 
 <script>
+    function playLoad() {
+        var element = document.getElementById("load-all");
+        element.classList.add("load-all-animation-start");
+    }
+    function displayLoad() {
+        var element = document.getElementById("load-all");
+        element.classList.remove("load-all-animation-end-first");
+        element.classList.remove("load-all-animation-start");
+        element.classList.add("load-all-animation-end");
+        setTimeout(function () {
+            element.classList.remove("load-all-animation-end-first");
+            element.classList.remove("load-all-animation-start");
+            element.classList.remove("load-all-animation-end");
+        }, 1000);
+    }
+    function displayLoadFirst() {
+        var element = document.getElementById("load-all");
+        element.classList.add("load-all-animation-end-first");
+        setTimeout(function () {
+            displayLoad();
+        }, 1000);
+    }
+
+    displayLoadFirst();
+
     function checkAll() {
         var num = 0;
         num = Number($("#pword_check_value").html());
@@ -90,6 +139,7 @@
 
     function post() {
         if (confirm("是否要進行此操作?")) {
+            playLoad();
             var array =
                 { "pword": $("#pword").val() }
             $.post(document.getElementById("murl").href + 'blogin/loginrun', array,
@@ -99,6 +149,7 @@
                         top.location.href = document.getElementById("murl").href + "bhome";
                     } else {
                         alert("管理碼錯誤");
+                        displayLoad()
                     }
                 }
             );

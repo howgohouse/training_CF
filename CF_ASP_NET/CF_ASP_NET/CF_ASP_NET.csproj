@@ -264,6 +264,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cf-index.css" />
     <Content Include="Content\cf-login.css" />
+    <Content Include="Content\load-be-control.css" />
+    <Content Include="Content\load.css" />
     <Content Include="Content\slide.css" />
     <Content Include="Content\w3.css" />
     <Content Include="favicon.ico" />

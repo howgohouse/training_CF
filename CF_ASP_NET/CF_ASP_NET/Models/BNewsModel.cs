@@ -11,6 +11,7 @@ namespace CF_ASP_NET.Models
     {
         CrowdfundingEntities db = new CrowdfundingEntities();
         public List<Models.CfBulletin> list = null;
+        public int data_count = 0;
 
         public void Index()
         {
@@ -48,10 +49,12 @@ namespace CF_ASP_NET.Models
             if (keyword != "")
             {
                 this.list = this.list.Where(d => d.title == keyword).Skip((page * 10)).Take(10).ToList();
+                this.data_count = (from d in db.CfBulletin orderby d.makeTime ascending orderby d.id ascending select d).Where(d => d.title == keyword).Count();
             }
             else
             {
                 this.list = this.list.Skip((page * 10)).Take(10).ToList();
+                this.data_count = (from d in db.CfBulletin orderby d.makeTime ascending orderby d.id ascending select d).Count();
             }
             
         }

@@ -1,0 +1,63 @@
+.load-all{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:300;
+    width:100%;
+    height:100%;
+    padding-top: calc(50vh - 10px);
+    padding-bottom: calc(50vh - 10px);
+    padding-left: calc(50% - 10px);
+    padding-right: calc(50% - 10px);
+    background-color: orange;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+}
+.load-all-animation-start{
+    animation: gotoleft 1s ease 0s forwards
+}
+@keyframes gotoleft{
+    from{
+        transform: translateX(-100%);
+    }
+    to
+    {
+        transform: translateX(0%);
+    }
+}
+.load-all-animation-end{
+    animation: gotoright 1s ease 0s forwards
+}
+.load-all-animation-end-first{
+    animation: gotorightfirst 2s ease 0s forwards
+}
+@keyframes gotoright{
+    from{
+        transform: translateX(0%);
+    }
+    to
+    {
+        transform: translateX(-100%);
+    }
+}
+@keyframes gotorightfirst{
+    0%
+    {
+        transform: translateX(0%);
+    }
+    50%
+    {
+        transform: translateX(0%);
+    }
+    100%
+    {
+        transform: translateX(0%);
+    }
+}
+.load-main{
+    width:100%;
+    height:100%;
+}
+.load8{
+    margin: 0;
+}

@@ -6,668 +6,49 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
-	<style>
-		body{
-			margin:0;
-			padding: 0;
-		}
-		.top-menu{
-			top: 0px;
-			left: 0px;
-			position: fixed;
-			z-index: 100;
-			width: 100%;
-			height: 76px;
-			background-color: rgb(0, 110, 125);
-		}
-		.navbar-brand{
-			font-size: 24px;
-			background-color: rgb(0, 110, 125);
-		}
-		nav{
-			background-color: rgb(0, 110, 125);
-		}
-		.navbar-nav{
-			font-size: 24px;
-			background-color: rgb(0, 110, 125);
-			color: white;
-		}
-		.all{
-			width: 100%;
-			height: 100%;
-		}
-		.header{
-			width: 100%;
-			height: 76px;
-			float: left;
-		}
-		.main {
-			width: 100%;
-			height: auto;
-			float: left;
-		}
-		.main-interval{
-			width: 100%;
-			height: 15px;
-			float: left;
-		}
-		.main-promotional-map{
-			width: 100%;
-			height: auto;
-			float: left;
-		}
-		.main-promotional-map img{
-			width: 100%;
-		}
-		.main-function-page{
-			width: 100%;
-			min-height: calc(100vh - 76px);
-			float: left;
-		}
-		.main-function-page-onethird{
-			width: 100%;
-			min-height: calc(34vh - 76px);
-			float: left;
-		}
-
-		.main-introduction{
-			background-color: rgb(80,120,125);
-		}
-		.main-introduction-button{
-			width: calc(100% - 60px);
-			height: calc(100% - 60px);
-			padding: 30px;
-			background-color: rgb(80,120,125);
-			display: none;
-		}
-		.main-introduction-button-item{
-			width: calc(50% + 241px);
-			padding-left: calc(50% - 241px);
-		}
-		.main-introduction-button-item button{
-			width: 483px;
-			height: 77px;
-			font-size: 36px;
-			padding: 10px;
-			background-color: rgb(0,175,205);
-		}
-		.main-introduction-button-interval{
-			width: 100%;
-			height: calc(50vh - 190px);
-		}
-		.main-introduction-explanation{
-			width: calc(100% - 60px);
-			height: calc(100% - 30px);
-			padding-left: 30px;
-			padding-right: 30px;
-			padding-top: 30px;
-			background-color: rgb(80,120,125);
-			display: block;
-		}
-		
-		.main-introduction-explanation > div{
-			width: 50%;
-			min-height: calc(100vh - 189px);
-			float: left;
-		}
-		.main-introduction-explanation-padding-top{
-			padding-top: 25vh;
-		}
-		.main-introduction-explanation > div > div{
-			width: 26%;
-			height: 50vh;
-			padding-left: 12%;
-			padding-right: 12%;
-			padding-top: 25vh;
-			padding-bottom: 25vh;
-			float: left;
-		}
-		.main-introduction-explanation > div > div > img{
-			width: 20vw;
-			height: auto;
-		}
-		.main-introduction-explanation > div > p{
-			font-size: 12px;
-			color: white;
-			text-align: justify;
-		}
-		@media only screen and (min-width: 320px) {
-			.main-introduction-explanation > div > p{
-				font-size: 16px;
-				color: white;
-				text-align: justify;
-			}
-		}
-
-		.main-introduction-proposal{
-			width: calc(100%);
-			height: calc(100%);
-			background-color: rgb(0,175,205);
-			display: block;
-		}
-		.main-introduction-proposal > div{
-			padding-top: 30px;
-			padding-bottom: 30px;
-			padding-left: 2vw;
-			padding-right: 2vw;
-		}
-		.main-introduction-proposal-img{
-			margin-top: 35%;
-			width: 60%;
-			height: auto;
-		}
-		.main-introduction-investment{
-			width: calc(100%);
-			height: calc(100%);
-			background-color: rgb(80,120,125);
-			display: block;
-		}
-		.main-introduction-investment > div{
-			padding-top: 30px;
-			padding-bottom: 30px;
-			padding-left: 2vw;
-			padding-right: 2vw;
-		}
-		.main-introduction-investment-img{
-			margin-top: 35%;
-			width: 100%;
-			height: auto;
-		}
-
-		.main-introduction-dialog{
-			top: 0px;
-			left: 0px;
-			position: fixed;
-			z-index: 200;
-			width: calc(100%);
-			height: calc(100%);
-			padding-left: 30px;
-			padding-right: 30px;
-			padding-top: 30px;
-			background-color: rgb(80,120,125);
-			display: none;
-		}
-
-		@media only screen and (min-width: 1260px) {
-			.main-introduction-button{
-				width: calc(100% - 60px);
-				height: calc(100% - 60px);
-				padding: 30px;
-				background-color: rgb(80,120,125);
-				display: block;
-			}
-			
-			.main-introduction-explanation{
-				display: none;
-			}
-			.main-introduction-explanation-padding-top{
-				padding-top: 20vh;
-			}
-			.main-introduction-explanation > div > div{
-				width: 408px;
-				height: 408px;
-				padding-left: calc(50% - 204px);
-				padding-right: calc(50% - 204px);
-				padding-top: calc(50vh - 287px);
-				padding-bottom: calc(50vh - 287px);
-				float: left;
-			}
-			.main-introduction-explanation > div > div > img{
-				width: 407px;
-				height: 386px;
-			}
-			.main-introduction-explanation > div > p{
-				font-size: 36px;
-				color: white;
-				text-align: justify;
-			}
-
-			.main-introduction-proposal{
-				width: calc(100%);
-				height: calc(100%);
-				background-color: rgb(0,175,205);
-				display: none;
-			}
-			.main-introduction-proposal-img{
-				margin-top: 12%;
-				width: 500px;
-				height: auto;
-			}
-
-			.main-introduction-investment{
-				width: calc(100%);
-				height: calc(100%);
-				background-color: rgb(80,120,125);
-				display: none;
-			}
-			.main-introduction-investment-img{
-				margin-top: 12%;
-				width: 1000px;
-				height: auto;
-			}
-
-			.main-introduction-dialog{
-				top: 0px;
-				left: 0px;
-				position: fixed;
-				z-index: 200;
-				width: calc(100%);
-				height: calc(100%);
-				padding-left: 30px;
-				padding-right: 30px;
-				padding-top: 30px;
-				background-color: rgb(80,120,125);
-				display: none;
-			}
-			.main-introduction-dialog-header {
-				top: 0px;
-				left: 0px;
-				position: fixed;
-				z-index: 202;
-				width: calc(100% - 60px);
-				padding: 30px;
-				float: left;
-			}
-			.main-introduction-dialog-header img{
-				width: 48px;
-				height: 48px;
-				float: right;
-			}
-		}
-
-		.main-news{
-			background-color: rgb(75,230,255);
-		}
-		.main-news > div{
-			width: calc(100vw);
-			height: calc(100vh - 76px);
-			box-sizing: border-box;
-			padding-top: 30px;
-			padding-bottom: 30px;
-			padding-left: 10vw;
-			padding-right: 10vw;
-			float: left;
-		}
-		.main-news > div > p{
-			font-size: 4vw;
-			margin-top: 5vh;
-			margin-bottom: 5vh;
-			text-align: left;
-			color: black;
-		}
-		@media only screen and (min-width: 800px) {
-			.main-news > div > p{
-				font-size: 4vh;
-				margin-top: 5vh;
-				margin-bottom: 5vh;
-				text-align: left;
-				color: black;
-			}
-		}
-		.main-proposal{
-			background-color: white;
-		}
-		.main-proposal > div{
-			width: 100%;
-			height: 50%;
-		}
-		.main-proposal > div > p{
-			width: 100%;
-			height: calc(100% - 50vh + 8vw - 105px);
-			padding-top: 40vh;
-			padding-bottom: 10vh;
-			font-size: 8vw;
-			text-align: center;
-		}
-		.main-proposal-button{
-		}
-		.main-proposal-button-item{
-		}
-		.main-proposal-button-item button{
-			width: 25vw;
-			height: 12vw;
-			font-size: 4vw;
-			padding: 2vw;
-			box-sizing: border-box;
-			background-color: rgb(75,230,255);
-		}
-		@media only screen and (min-width: 800px) {
-			.main-proposal > div > p{
-				width: 100%;
-				height: calc(100% - 45vh - 105px);
-				padding-top: 35vh;
-				padding-bottom: 10vh;
-				font-size: 5vh;
-				text-align: center;
-			}
-			.main-proposal-button-item button{
-				width: 242px;
-				height: 77px;
-				font-size: 30px;
-				padding: 10px;
-				box-sizing: border-box;
-				background-color: rgb(75,230,255);
-			}
-		}
-
-		.main-investment{
-		}
-		.main-investment > div{
-			width: 100%;
-			height: 50%;
-		}
-		.main-investment-slide-img{
-			width:100%;
-			height: calc(100vh - 76px);
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-attachment: fixed;
-			box-sizing: border-box;
-			padding-top: 2vh;
-			padding-left: 20vw;
-			padding-right: 20vw;
-			box-sizing: border-box;
-		}
-		@media only screen and (min-width: 800px) {
-			.main-investment-slide-img{
-				width:100%;
-				height: calc(100vh - 76px);
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-attachment: fixed;
-				box-sizing: border-box;
-				padding-top: 2vh;
-				padding-left: 30vw;
-				padding-right: 20vw;
-				box-sizing: border-box;
-			}
-		}
-		.main-investment-slide-img-content-top{
-			width: 100%;
-			height: 60%;
-		}
-		.main-investment-slide-img-title{
-			width: 60vw;
-			font-size: 5vw;
-			color: white;
-			background-color: rgba(0,0,0,0.5);
-			margin-bottom: 5vh;
-		}
-		@media only screen and (min-width: 800px) {
-			.main-investment-slide-img-title{
-				width: 50vw;
-				font-size: 5vw;
-				color: white;
-				background-color: rgba(0,0,0,0.5);
-				margin-bottom: 5vh;
-			}
-		}
-		.main-investment-slide-img-introduction{
-			width: 60vw;
-			font-size: 4vw;
-			text-align: justify;
-			color: white;
-			background-color: rgba(0,0,0,0.5);
-		}
-		@media only screen and (min-width: 800px) {
-			.main-investment-slide-img-introduction{
-				width: 50vw;
-				font-size: 4vw;
-				text-align: justify;
-				color: white;
-				background-color: rgba(0,0,0,0.5);
-			}
-		}
-		.main-investment-slide-img-content-midle{
-			width: 100%;
-			height: 20%;
-		}
-		
-		.main-investment-slide-img-button{
-			width: 50vw;
-		}
-		.main-investment-slide-img-button button{
-			width: 35vw;
-			height: 12vw;
-			font-size: 4vw;
-			padding: 2vw;
-			margin-left: 12vw;
-			box-sizing: border-box;
-			color: white;
-			background-color: black;
-		}
-		@media only screen and (min-width: 800px) {
-			.main-investment-slide-img-button button{
-				width: 25vw;
-				height: 12vw;
-				font-size: 4vw;
-				padding: 2vw;
-				margin-left: 12vw;
-				box-sizing: border-box;
-				color: white;
-				background-color: black;
-			}
-		}
-		.main-investment-slide-img-content-bottom{
-			width: 100%;
-			height: 20%;
-		}
-		.main-investment-slide-img-content-bottom img{
-			height: 60%;
-			display: none;
-		}
-		.main-investment-slide-img-bottom{
-			width: 100vw;
-			height: 20vh;
-		}
-		.main-investment-slide-img-bottom img{
-			height: 60%;
-			display: none;
-		}
-		@media only screen and (min-width: 1000px) {
-			.main-investment-slide-img-title{
-				width: 50vw;
-				font-size: 36px;
-				color: white;
-				background-color: rgba(0,0,0,0.5);
-				margin-bottom: 5vh;
-			}
-			.main-investment-slide-img-introduction{
-				width: 50vw;
-				font-size: 24px;
-				text-align: justify;
-				color: white;
-				background-color: rgba(0,0,0,0.5);
-			}
-			.main-investment-slide-img-button button{
-				width: 121px;
-				height: auto;
-				font-size: 16px;
-				padding: 10px;
-				margin-left: 0vw;
-				box-sizing: border-box;
-				color: white;
-				background-color: black;
-			}
-		}
-		@media only screen and (min-width: 800px) {
-			.main-investment-slide-img-content-bottom img{
-				height: 60%;
-				display: block;
-			}
-		}
-		.main-investment-slide-list{
-			padding-left: 5vw;
-			display: none;
-		}
-		@media only screen and (min-width: 800px) {
-			.main-investment-slide-list{
-				padding-left: 5vw;
-				display: block;
-			}
-		}
-		.main-investment-slide-list-item{
-			font-size: 24px;
-			color: white;
-			background-color: rgba(0,0,0,0.5);
-		}
-		.main-investment-bottom{
-			width: 100%;
-			height: 100%;
-			padding: 30px;
-			box-sizing: border-box;
-			display: block;
-			background-color: rgb(75,230,255);
-		}
-		@media only screen and (min-width: 800px) {
-			.main-investment-bottom{
-				width: 100%;
-				height: 100%;
-				padding: 30px;
-				box-sizing: border-box;
-				display: none;
-				background-color: rgb(75,230,255);
-			}
-		}
-		.main-investment-bottom-list{
-			padding-bottom: 30px;
-			width: 100%;
-			height: 50%;
-			box-sizing: border-box;
-			float: left;
-		}
-		.main-investment-bottom-list-item{
-			width: calc(100% / 3);
-			box-sizing: border-box;
-			font-size: 24px;
-			float:left;
-		}
-
-		.main-investment-bottom-img{
-			width: 100%;
-			height: 50%;
-		}
-		
-		.main-investment-bottom-img img{
-			width: 36px;
-		}
-
-		.img-float-left{
-			float: left;
-		}
-		.img-float-right{
-			float: right;
-		}
-
-		.text-align-left{
-			text-align: left;
-		}
-		.text-align-center{
-			text-align: center;
-		}
-		.text-align-right{
-			text-align: right;
-		}
-
-		.dialog {
-			top: 0px;
-			left: 0px;
-			position: fixed;
-			z-index: 200;
-			width: 100%;
-			height: 100%;
-			display: none;
-			background-color: white;
-		}
-		.dialog-header {
-			top: 0px;
-			left: 0px;
-			position: fixed;
-			z-index: 202;
-			width: 100%;
-			padding: 15px;
-			box-sizing: border-box;
-			float: left;
-		}
-		.dialog-header img{
-			width: 24px;
-			height: 24px;
-			float: right;
-		}
-		.dialog-main {
-			top: 0px;
-			left: 0px;
-			position: fixed;
-			z-index: 201;
-			width: 100%;
-			height: 100%;
-		    overflow-y: scroll;
-		}
-		.dialog-main-top{
-			padding-top: 74px;
-			padding-left: 30px;
-			padding-right: 30px;
-			font-size: 24px;
-		}
-		.dialog-main-top-check{
-			height: 25px;
-			font-size: 24px;
-		}
-		.dialog-main-top-check-value{
-			display: none;
-		}
-		.dialog-item{
-			width: 100%;
-			height: auto;
-		}
-		.dialog-main-mid{
-			background-color: grey;
-			color: white;
-			padding: 30px;
-			font-size: 16px;
-		}
-		.dialog-main-mid label{
-			font-size: 24px;
-		}
-		.dialog-main-bottom{
-			padding: 30px;
-			font-size: 16px;
-		}
-		.dialog-main-bottom-button{
-
-		}
-		.dialog-main-bottom-button div{
-			padding-top: 10px;
-			padding-bottom: 10px;
-			float: left;
-		}
-		.dialog-main-bottom-button button{
-			width: 100%;
-			height: 47px;
-			font-size: 16px;
-			padding: 10px;
-			background-color: rgb(0,220,255);
-		}
-		.dialog-line{
-			height: 10px;
-			background: black;
-		}
-		
-		.footer{
-			float: left;
-		}
-		.mySlides {display:none}
-		.demo {cursor:pointer}
-	</style>
+	<link rel="stylesheet" href="content/fe-index.css">
+	<link rel="stylesheet" href="content/main.css">
+	<link rel="stylesheet" href="content/main-introduction.css">
+	<link rel="stylesheet" href="content/main-news.css">
+	<link rel="stylesheet" href="content/main-proposal.css">
+	<link rel="stylesheet" href="content/main-investment.css">
+	<link rel="stylesheet" href="content/dialog.css">
+	<link rel="stylesheet" href="content/load.css">
+	<link rel="stylesheet" href="content/load-fe-control.css">
 
 	<script src="scripts/jquery-3.3.1.js"></script>
 	<script src="scripts/jquery-3.3.1.min.js"></script>
 	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/ckeditor/ckeditor.js"></script>
+	<script src="scripts/scroll-fe-control.js"></script>
+
+	
 </head>
 <body>
+	<div id="load-all" class="load-all">
+		<div class="load-main">
+			<div class="load8">
+				<div class="load8-container container1">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="load8-container container2">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="load8-container container3">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+			</div>
+		</div>		
+	</div>
 	<div id="top-menu" class="top-menu">
 		<!-- Image and text -->
 		<nav class="navbar navbar-expand-lg navbar-dark">
@@ -679,10 +60,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link" href="index-news.html"><font color="white">本站介紹</font></a>
-					<a class="nav-item nav-link" href="#"><font color="white">消息</font></a>
-					<a class="nav-item nav-link" href="#"><font color="white">提案</font></a>
-					<a class="nav-item nav-link" href="#"><font color="white">探索</font></a>
+					<a class="nav-item nav-link" href="#introduction"><font color="white">本站介紹</font></a>
+					<a class="nav-item nav-link" href="#news"><font color="white">消息</font></a>
+					<a class="nav-item nav-link" href="#proposal"><font color="white">提案</font></a>
+					<a class="nav-item nav-link" href="#investment"><font color="white">探索</font></a>
 				</div>
 			</div>
 			<div></div>
@@ -694,7 +75,7 @@
 			<div class="main-promotional-map">
 				<img src="image/promotional map.svg" alt="">
 			</div>
-			<div class="main-interval"></div>
+			<div id="introduction" class="main-interval"></div>
 			<div class="main-function-page main-introduction">
 				<div class="main-function-page main-introduction-button">
 					<div class="main-introduction-button-item">
@@ -771,14 +152,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="main-interval"></div>
+			<div id="news" class="main-interval"></div>
 			<div class="main-function-page main-news">
 				<div>
 					<p onclick="playDialog()">2018/6/25新新聞準備中</p>
 					<p onclick="playDialog()">2018/6/25新新聞準備中</p>
 				</div>
 			</div>
-			<div class="main-interval"></div>
+			<div id="proposal" class="main-interval"></div>
 			<div class="main-function-page main-proposal">
 				<div>
 					<p>為您的想法,來此募資</p>
@@ -791,7 +172,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="main-interval"></div>
+			<div id="investment" class="main-interval"></div>
 			<div class="main-function-page main-investment">
 				<div class="w3-display-container">
 					<div>
@@ -875,6 +256,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="dialog-cover" class="dialog-cover"></div>
 		<div id="dialog" class="dialog">
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
@@ -906,7 +288,7 @@
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main" class="dialog-main">
+			<div id="dialog-main2" class="dialog-main">
 				<div class="dialog-main-top">
 					<p class="col-md-12 dialog-line"></p>
 					<p class="col-md-12">
@@ -999,7 +381,7 @@
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main" class="dialog-main">
+			<div id="dialog-main3" class="dialog-main">
 				<div>
 					<img src="image/item.jpg" class="d-inline-block align-top dialog-item" alt="">
 				</div>
@@ -1039,12 +421,39 @@
 		        </div>
 		        <div class="col-md-12 dialog-main-bottom-button">
 		        	<div class="col-md-4">
-		        		<button class="w3-button">確定</button>
+		        		<button class="w3-button" onclick="playDialog4()">確定</button>
 		        	</div>
 		        	<div class="col-md-4">
 		        	</div>
 		        	<div class="col-md-4">
 		        		<button class="w3-button">返回</button>
+		        	</div>
+		        </div>
+			</div>
+		</div>
+		<div id="dialog-4" class="dialog">
+			<div class="dialog-header">
+				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
+			</div>
+			<div id="dialog-main4" class="dialog-main">
+				<div class="dialog-main-top">
+				</div>
+		        <div class="dialog-main-bottom">
+						<p>銀行代碼</p>
+						<p>銀行名稱</p>
+						<p>帳戶代碼</p>
+						<p>帳戶名稱</p>
+						<p></p>
+						<p>請於七日內完成匯款</p>
+				    <p class="col-md-12 dialog-line"></p>
+		        </div>
+		        <div class="col-md-12 dialog-main-bottom-button">
+		        	<div class="col-md-4">
+		        	</div>
+		        	<div class="col-md-4">
+						<button class="w3-button">關閉</button>
+		        	</div>
+		        	<div class="col-md-4">
 		        	</div>
 		        </div>
 			</div>
@@ -1056,12 +465,21 @@
 <script>
 	function playExplanationDialog(value) {
 	    document.getElementById("dialog-explanation-"+value).style.display = "block";
-	    document.getElementById("top-menu").style.display = "none";
+		document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-show');
+	    setTimeout(function () {
+			document.getElementById("top-menu").style.display = "none";
+		},500);
 	    $('#dialog-main').scrollTop(0);
 	}
 	function displayExplanationDialog(value) {
-	    document.getElementById("dialog-explanation-"+value).style.display = "none";
+	    
+		document.getElementById("dialog-explanation-"+value).classList.remove('main-introduction-dialog-animation-show');
+		document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-notshow');
 	    document.getElementById("top-menu").style.display = "block";
+		setTimeout(function () {
+			document.getElementById("dialog-explanation-"+value).style.display = "none";
+			document.getElementById("dialog-explanation-"+value).classList.remove('main-introduction-dialog-animation-notshow');
+		},500);
 	}
 	function plusDivs(n) {
 		showDivs(slideIndex += n);
@@ -1078,50 +496,112 @@
 		if (n > x.length) {slideIndex = 1}
 		if (n < 1) {slideIndex = x.length}
 		for (i = 0; i < x.length; i++) {
-			x[i].style.display = "none";
+			x[i].classList.add('main-investment-slide-img-notshow');
 		}
-		for (i = 0; i < dots.length; i++) {
-			dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-		}
-		x[slideIndex-1].style.display = "block";
-		dots[slideIndex-1].className += " w3-opacity-off";
+		
+		setTimeout(function () {
+			for (i = 0; i < x.length; i++) {
+				x[i].classList.remove('main-investment-slide-img-notshow');
+				x[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+			}
+			x[slideIndex-1].style.display = "block";
+			x[slideIndex-1].classList.add('main-investment-slide-img-show');
+			dots[slideIndex-1].className += " w3-opacity-off";
+		},1000);
 	}
 	var slideIndex = 1;
     showDivs(slideIndex);
 
     function playDialog() {
-	    document.getElementById("dialog").style.display = "block";
-	    document.getElementById("top-menu").style.display = "none";
-	    $('#dialog-main').scrollTop(0);
-
-	    var editor = CKEDITOR.replace('content', {
-	        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-	        filebrowserImageUploadUrl: 'http://127.0.0.1'
-	    });
+		playLoad();
+		setTimeout(function () {
+			document.getElementById("dialog").style.display = "block";
+			document.getElementById("dialog-cover").style.display = "block";
+			document.getElementById("top-menu").style.display = "none";
+			$('#dialog-main').scrollTop(0);
+			
+			setTimeout(function () {displayLoad();}, 1000);
+		}, 1000);
+	    
 	}
     function playDialog2() {
-	    document.getElementById("dialog-2").style.display = "block";
-	    document.getElementById("top-menu").style.display = "none";
-	    $('#dialog-main').scrollTop(0);
+		playLoad();
+		setTimeout(function () {
+			document.getElementById("dialog-2").style.display = "block";
+			document.getElementById("dialog-cover").style.display = "block";
+			document.getElementById("top-menu").style.display = "none";
+			$('#dialog-main2').scrollTop(0);
 
-	    var editor = CKEDITOR.replace('content', {
-	        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-	        filebrowserImageUploadUrl: 'http://127.0.0.1'
-	    });
+			try {
+				var editor = CKEDITOR.replace('content', {
+					extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+					filebrowserImageUploadUrl: 'http://127.0.0.1'
+				});
+			} catch (error) {
+				
+			}
+			setTimeout(function () {displayLoad();}, 1000);
+		}, 1000);
 	}
 	function playDialog3() {
-	    document.getElementById("dialog-3").style.display = "block";
-	    document.getElementById("top-menu").style.display = "none";
-	    $('#dialog-main').scrollTop(0);
+		playLoad();
+		setTimeout(function () {
+			document.getElementById("dialog-3").style.display = "block";
+			document.getElementById("dialog-cover").style.display = "block";
+			document.getElementById("top-menu").style.display = "none";
+			$('#dialog-main3').scrollTop(0);
+			setTimeout(function () {displayLoad();}, 1000);
+		}, 1000);
+	}
+	function playDialog4() {
+		playLoad();
+		setTimeout(function () {
+			document.getElementById("dialog-4").style.display = "block";
+			document.getElementById("dialog-cover").style.display = "block";
+			document.getElementById("top-menu").style.display = "none";
+			$('#dialog-main4').scrollTop(0);
+			setTimeout(function () {displayLoad();}, 1000);
+		}, 1000);
 	}
 	function displayDialog() {
-		document.getElementById("dialog").style.display = "none";
-	    document.getElementById("dialog-2").style.display = "none";
-	    document.getElementById("dialog-3").style.display = "none";
-	    document.getElementById("top-menu").style.display = "block";
+		playLoad();
+		setTimeout(function () {
+			document.getElementById("dialog").style.display = "none";
+			document.getElementById("dialog-2").style.display = "none";
+			document.getElementById("dialog-3").style.display = "none";
+			document.getElementById("dialog-4").style.display = "none";
+			document.getElementById("dialog-cover").style.display = "none";
+			document.getElementById("top-menu").style.display = "block";
+			setTimeout(function () {displayLoad();}, 1000);
+		}, 1000);
 	}
 
+	function playLoad() {
+		var element = document.getElementById("load-all");
+		element.classList.add("load-all-animation-start");
+	}
+	function displayLoad() {
+		var element = document.getElementById("load-all");
+		element.classList.remove("load-all-animation-start");
+		element.classList.add("load-all-animation-end");
+		setTimeout(function () {
+			element.classList.remove("load-all-animation-start");
+			element.classList.remove("load-all-animation-end");
+		}, 1000);
+	}
+	function displayLoadFirst() {
+		var element = document.getElementById("load-all");
+		element.classList.add("load-all-animation-end-first");
+		setTimeout(function () {
+			element.classList.remove("load-all-animation-end-first");
+		}, 2000);
+	}
+
+	displayLoadFirst();
 	
-</script>
+	</script>
 
 </html>

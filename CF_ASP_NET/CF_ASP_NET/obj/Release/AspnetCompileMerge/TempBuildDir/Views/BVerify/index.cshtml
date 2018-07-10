@@ -35,11 +35,11 @@
     }
 </div>
 <div class="bottom-menu">
-    <div class="previouspage">
-        <img src="image/Previous page.png" height="36">
+    <div class="previouspage @ViewData["disable_str1"]">
+        <img src="image/Previous page.png" onclick="setMainPage('verify', @ViewData["prev_page"], '@ViewData["OrderBy"]', '@ViewData["DescAsc"]', '@ViewData["Keyword"]')" height="36">
     </div>
-    <div class="nextpage">
-        <img src="image/next page.png" height="36">
+    <div class="nextpage @ViewData["disable_str2"]">
+        <img src="image/next page.png" onclick="setMainPage('verify', @ViewData["next_page"], '@ViewData["OrderBy"]', '@ViewData["DescAsc"]', '@ViewData["Keyword"]')" height="36">
     </div>
     <center>
         <div class="numpage">

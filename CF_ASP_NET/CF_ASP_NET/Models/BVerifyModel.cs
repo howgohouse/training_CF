@@ -14,6 +14,7 @@ namespace CF_ASP_NET.Models
         public List<Models.CfMember> list2 = null;
         public List<Models.CfBank> list3 = null;
         public List<Models.CfProposalGoal> list4 = null;
+        public int data_count = 0;
 
         public int lastid = 0;
 
@@ -64,10 +65,12 @@ namespace CF_ASP_NET.Models
             if(keyword != "")
             {
                 this.list = this.list.Where(d => d.title == keyword).Skip((page * 10)).Take(10).ToList();
+                this.data_count = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.makeTime ascending orderby d.id ascending select d).Count();
             }
             else
             {
                 this.list = this.list.Skip((page * 10)).Take(10).ToList();
+                this.data_count = (from d in db.CfProposalV join p in db.CfProposal on d.proposal equals p.id into pGroup from d2 in pGroup orderby d.makeTime ascending orderby d.id ascending select d).Count();
             }
             
         }

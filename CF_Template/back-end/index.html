@@ -7,12 +7,38 @@
 	<link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
 	<link rel="stylesheet" href="content/cf-index.css">
+	<link rel="stylesheet" href="content/load.css">
+	<link rel="stylesheet" href="content/load-be-control.css">
 
 	<script src="scripts/jquery-3.3.1.js"></script>
 	<script src="scripts/jquery-3.3.1.min.js"></script>
 	<script src="scripts/bootstrap.min.js"></script>
 </head>
 <body>
+	<div id="load-all" class="load-all">
+		<div class="load-main">
+			<div class="load8">
+				<div class="load8-container container1">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="load8-container container2">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+				<div class="load8-container container3">
+					<div class="circle1"></div>
+					<div class="circle2"></div>
+					<div class="circle3"></div>
+					<div class="circle4"></div>
+				</div>
+			</div>
+		</div>		
+	</div>
 	<div id="top-menu" class="top-menu">
 		<!-- Image and text -->
 		<nav class="navbar navbar-expand-lg navbar-dark">
@@ -197,5 +223,30 @@
 	    document.getElementById("dialog").style.display = "none";
 	    document.getElementById("top-menu").style.display = "block";
 	}
+
+	function playLoad() {
+		var element = document.getElementById("load-all");
+		element.classList.add("load-all-animation-start");
+	}
+	function displayLoad() {
+		var element = document.getElementById("load-all");
+		element.classList.remove("load-all-animation-end-first");
+		element.classList.remove("load-all-animation-start");
+		element.classList.add("load-all-animation-end");
+		setTimeout(function () {
+			element.classList.remove("load-all-animation-end-first");
+			element.classList.remove("load-all-animation-start");
+			element.classList.remove("load-all-animation-end");
+		}, 1000);
+	}
+	function displayLoadFirst() {
+		var element = document.getElementById("load-all");
+		element.classList.add("load-all-animation-end-first");
+		setTimeout(function () {
+			displayLoad();
+		}, 1000);
+	}
+
+	displayLoadFirst();
 </script>
 </html>

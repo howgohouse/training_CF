@@ -22,16 +22,16 @@
       <publishTime>06/15/2018 18:48:46</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/07/2018 13:04:36</publishTime>
+      <publishTime>07/10/2018 22:00:54</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/07/2018 13:04:36</publishTime>
+      <publishTime>07/10/2018 22:00:54</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.dll">
-      <publishTime>07/07/2018 13:04:25</publishTime>
+      <publishTime>07/10/2018 22:00:43</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.pdb">
-      <publishTime>07/07/2018 13:04:25</publishTime>
+      <publishTime>07/10/2018 22:00:43</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/29/2018 14:51:46</publishTime>
@@ -325,10 +325,16 @@
       <publishTime>06/20/2018 19:03:17</publishTime>
     </File>
     <File Include="Content/cf-index.css">
-      <publishTime>07/07/2018 10:59:38</publishTime>
+      <publishTime>07/09/2018 18:36:57</publishTime>
     </File>
     <File Include="Content/cf-login.css">
       <publishTime>07/07/2018 10:44:32</publishTime>
+    </File>
+    <File Include="Content/load-be-control.css">
+      <publishTime>07/10/2018 20:30:07</publishTime>
+    </File>
+    <File Include="Content/load.css">
+      <publishTime>07/10/2018 19:00:52</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>06/20/2018 19:03:17</publishTime>
@@ -340,7 +346,7 @@
       <publishTime>06/20/2018 19:03:17</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>06/15/2018 18:48:27</publishTime>
+      <publishTime>07/09/2018 18:27:15</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/15/2018 18:48:33</publishTime>
@@ -388,7 +394,7 @@
       <publishTime>06/27/2018 19:23:12</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/07/2018 13:04:28</publishTime>
+      <publishTime>07/10/2018 22:00:45</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>06/20/2018 19:02:30</publishTime>
@@ -1804,28 +1810,28 @@
       <publishTime>06/15/2018 18:55:20</publishTime>
     </File>
     <File Include="Views/BHome/Index.cshtml">
-      <publishTime>07/07/2018 13:03:20</publishTime>
+      <publishTime>07/10/2018 21:42:03</publishTime>
     </File>
     <File Include="Views/BLogin/Index.cshtml">
-      <publishTime>07/07/2018 10:49:28</publishTime>
+      <publishTime>07/10/2018 19:12:19</publishTime>
     </File>
     <File Include="Views/BLogout/Index.cshtml">
       <publishTime>06/29/2018 12:59:36</publishTime>
     </File>
     <File Include="Views/BNews/index.cshtml">
-      <publishTime>07/07/2018 10:51:46</publishTime>
+      <publishTime>07/10/2018 20:35:32</publishTime>
     </File>
     <File Include="Views/BNews/NewsAdd.cshtml">
-      <publishTime>07/06/2018 14:01:55</publishTime>
+      <publishTime>07/10/2018 21:59:57</publishTime>
     </File>
     <File Include="Views/BNews/NewsEdit.cshtml">
-      <publishTime>07/06/2018 13:49:35</publishTime>
+      <publishTime>07/10/2018 22:00:20</publishTime>
     </File>
     <File Include="Views/BVerify/index.cshtml">
-      <publishTime>07/07/2018 10:51:19</publishTime>
+      <publishTime>07/09/2018 12:23:31</publishTime>
     </File>
     <File Include="Views/BVerify/proposal.cshtml">
-      <publishTime>07/07/2018 11:05:46</publishTime>
+      <publishTime>07/10/2018 22:00:29</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>
@@ -1852,7 +1858,7 @@
       <publishTime>06/15/2018 18:48:27</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/07/2018 12:52:56</publishTime>
+      <publishTime>07/10/2018 19:11:12</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>06/15/2018 18:48:27</publishTime>

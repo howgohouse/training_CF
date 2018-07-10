@@ -14,7 +14,7 @@
                 <label>標題</label>
                 <input id="title" class="w3-input w3-border w3-round-large" onkeyup="CheckTitle()" onmouseup="CheckTitle()" onchange="CheckTitle()" type="text" value="@a.title">
             <p id="title_check" class="dialog-main-top-check"></p>
-            <p id="title_check_value" class="dialog-main-top-check-value">0</p>
+            <p id="title_check_value" class="dialog-main-top-check-value">1</p>
             </p>
             <p>
                 <label>詳細內容</label>
@@ -29,12 +29,12 @@
     </div>
     <div class="col-md-12 dialog-main-bottom-button">
         <div class="col-md-4">
-            <button class="w3-button" onclick="post()">儲存</button>
+            <button id="output" class="w3-button" onclick="post()">儲存</button>
         </div>
         <div id="resetbtn" class="col-md-4">
         </div>
         <div class="col-md-4">
-            <button class="w3-button" onclick="setMainPage('news', 0, 'title', 'asc', '')">返回</button>
+            <button class="w3-button" onclick="closeDialog()">返回</button>
         </div>
     </div>
 </div>
@@ -107,26 +107,40 @@
             $.post(document.getElementById("murl").href + 'bnews/newscontent', array,
                 function (data) {
                     $("#content").html(data);
-                    var editor = CKEDITOR.replace('content', {
-                        extraPlugins: 'uploadimage,image2',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-                        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
-                    });
-                    editor.on('change', function (evt) {
-                        $("#content").html(evt.editor.getData());
-                    });
+                    try {
+                        var editor = CKEDITOR.replace('content', {
+                            extraPlugins: 'uploadimage,image2',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+                            filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
+                        });
+                        editor.on('change', function (evt) {
+                            $("#content").html(evt.editor.getData());
+                        });
+                    }
+                    catch (err) {
+
+                    }
+                    displayLoad();
                 }
             );
         } else {
             $.post(document.getElementById("murl").href + 'bnews/newscontent', array,
                 function (data) {
                     $("#content").html(data);
-                    var editor = CKEDITOR.replace('content', {
-                        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-                        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
-                    });
-                    editor.on('change', function (evt) {
-                        $("#content").html(evt.editor.getData());
-                    });
+                    try {
+                        var editor = CKEDITOR.replace('content', {
+                            extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+                            uploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?',
+                            filebrowserUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?',
+                            filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
+                        });
+                        editor.on('change', function (evt) {
+                            $("#content").html(evt.editor.getData());
+                        });
+                    }
+                    catch (err) {
+
+                    }
+                    displayLoad();
                 }
             );
         }
@@ -162,6 +176,7 @@
 
     function post() {
         if (confirm("是否要進行此操作?")) {
+            playLoad();
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "n_id": $("#n_id").html(), "title": $("#title").val(), "content": $("#content").html() }
@@ -169,7 +184,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
-                    setMainPage('news', 0, 'title', 'asc', '');
+                    setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
         }
@@ -177,6 +192,7 @@
 
     function postOpen() {
         if (confirm("是否要進行此操作?")) {
+            playLoad();
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "n_id": $("#n_id").html(), "value": "1" }
@@ -184,7 +200,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
-                    setMainPage('news', 0, 'title', 'asc', '');
+                    setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
         }
@@ -192,6 +208,7 @@
 
     function postClose() {
         if (confirm("是否要進行此操作?")) {
+            playLoad();
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "n_id": $("#n_id").html(), "value": "0" }
@@ -199,7 +216,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
-                    setMainPage('news', 0, 'title', 'asc', '');
+                    setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
         }
