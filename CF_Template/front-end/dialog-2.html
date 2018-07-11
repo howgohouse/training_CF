@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="content/bootstrap.min.css">
+	<link rel="stylesheet" href="content/w3.css">
+	<link rel="stylesheet" href="content/fe-index.css">
+	<link rel="stylesheet" href="content/main.css">
+	<link rel="stylesheet" href="content/main-introduction.css">
+	<link rel="stylesheet" href="content/main-news.css">
+	<link rel="stylesheet" href="content/main-proposal.css">
+	<link rel="stylesheet" href="content/main-investment.css">
+	<link rel="stylesheet" href="content/dialog.css">
+	<link rel="stylesheet" href="content/load.css">
+	<link rel="stylesheet" href="content/load-fe-control.css">
+
+	<script src="scripts/jquery-3.3.1.js"></script>
+	<script src="scripts/jquery-3.3.1.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/ckeditor/ckeditor.js"></script>
+	<script src="scripts/scroll-fe-control.js"></script>
+</head>
+<body>
+    <div class="dialog-main-top">
+        <p class="col-md-12 dialog-line"></p>
+        <p class="col-md-12">
+            <label>姓名</label>
+            <input id="name" class="w3-input w3-border w3-round-large" onKeyUp="CheckName()" onMouseUp="CheckName()" onChange="CheckName()" type="text">
+        <p id="name_check" style="height: 25px;"></p>
+        <p id="name_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>連絡電話</label>
+            <input id="phone" class="w3-input w3-border w3-round-large" onkeyup="CheckPhone()" onmouseup="CheckPhone()" onchange="CheckPhone()" type="text">
+        <p id="phone_check" style="height: 25px;"></p>
+        <p id="phone_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>銀行代碼</label>
+            <input id="bank_code" class="w3-input w3-border w3-round-large" onkeyup="CheckBankCode()" onmouseup="CheckBankCode()" onchange="CheckBankCode()" type="text">
+        <p id="bank_code_check" style="height: 25px;"></p>
+        <p id="bank_code_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>銀行名稱</label>
+            <input id="bank_name" class="w3-input w3-border w3-round-large" onkeyup="CheckBankName()" onmouseup="CheckBankName()" onchange="CheckBankName()" type="text">
+        <p id="bank_name_check" style="height: 25px;"></p>
+        <p id="bank_name_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>帳戶代碼</label>
+            <input id="account_code" class="w3-input w3-border w3-round-large" onkeyup="CheckAccountCode()" onmouseup="CheckAccountCode()" onchange="CheckAccountCode()" type="text">
+        <p id="account_code_check" style="height: 25px;"></p>
+        <p id="account_code_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>帳戶名稱</label>
+            <input id="account_name" class="w3-input w3-border w3-round-large" onkeyup="CheckAccountName()" onmouseup="CheckAccountName()" onchange="CheckAccountName()" type="text">
+        <p id="account_name_check" style="height: 25px;"></p>
+        <p id="account_name_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>目標金額</label>
+            <input id="target_money" class="w3-input w3-border w3-round-large" onkeyup="CheckTargetMoney()" onmouseup="CheckTargetMoney()" onchange="CheckTargetMoney()" type="number">
+        <p id="target_money_check" style="height: 25px;"></p>
+        <p id="target_money_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>募資結束日期時間</label>
+            <input id="end_datetime" class="w3-input w3-border w3-round-large" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text">
+        <p id="end_datetime_check" style="height: 25px;"></p>
+        <p id="end_datetime_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>方案的宣傳圖片</label>
+            <input id="propaganda_image" class="w3-input w3-border w3-round-large" onchange="CheckPropagandaImage()" type="file">
+        <p id="propaganda_image_check" style="height: 25px;"></p>
+        <p id="propaganda_image_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>方案的標題</label>
+            <input id="title" class="w3-input w3-border w3-round-large" onkeyup="CheckTitle()" onmouseup="CheckTitle()" onchange="CheckTitle()" type="text">
+        <p id="title_check" style="height: 25px;"></p>
+        <p id="title_check_value" style="display: none;">0</p>
+        </p>
+        <p class="col-md-12">
+            <label>方案的簡介</label>
+            <textarea name="introduction" id="introduction" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckIntroduction()" onmouseup="CheckIntroduction()" onchange="CheckIntroduction()"></textarea>
+        <p id="introduction_check" style="height: 25px;"></p>
+        <p id="introduction_check_value" style="display: none;">1</p>
+        </p>
+        <p class="col-md-12">
+            <label>方案的詳細內容</label>
+            <textarea name="content" id="content" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckContent()" onmouseup="CheckContent()" onchange="CheckContent()"></textarea>
+        <p id="content_check" style="height: 25px;"></p>
+        <p id="content_check_value" style="display: none;">1</p>
+        </p>
+        <p class="col-md-12 dialog-line"></p>
+    </div>
+    <div class="col-md-12 dialog-main-bottom-button">
+        <div class="col-md-4">
+            <button class="w3-button" onclick="post()">確定</button>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <button class="w3-button">返回</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    try {
+			var editor = CKEDITOR.replace('content', {
+				extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+				filebrowserImageUploadUrl: 'http://127.0.0.1'
+			});
+		} catch (error) {
+				
+		}
+</script>

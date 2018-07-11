@@ -22,16 +22,16 @@
       <publishTime>06/15/2018 18:48:46</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/10/2018 22:00:54</publishTime>
+      <publishTime>07/11/2018 22:49:39</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/10/2018 22:00:54</publishTime>
+      <publishTime>07/11/2018 22:49:39</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.dll">
-      <publishTime>07/10/2018 22:00:43</publishTime>
+      <publishTime>07/11/2018 22:49:31</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.pdb">
-      <publishTime>07/10/2018 22:00:43</publishTime>
+      <publishTime>07/11/2018 22:49:31</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/29/2018 14:51:46</publishTime>
@@ -325,16 +325,40 @@
       <publishTime>06/20/2018 19:03:17</publishTime>
     </File>
     <File Include="Content/cf-index.css">
-      <publishTime>07/09/2018 18:36:57</publishTime>
+      <publishTime>07/11/2018 09:53:11</publishTime>
     </File>
     <File Include="Content/cf-login.css">
       <publishTime>07/07/2018 10:44:32</publishTime>
     </File>
+    <File Include="Content/dialog.css">
+      <publishTime>07/11/2018 09:53:11</publishTime>
+    </File>
+    <File Include="Content/fe-index.css">
+      <publishTime>07/11/2018 12:58:46</publishTime>
+    </File>
     <File Include="Content/load-be-control.css">
       <publishTime>07/10/2018 20:30:07</publishTime>
     </File>
+    <File Include="Content/load-fe-control.css">
+      <publishTime>07/11/2018 12:58:46</publishTime>
+    </File>
     <File Include="Content/load.css">
       <publishTime>07/10/2018 19:00:52</publishTime>
+    </File>
+    <File Include="Content/main-introduction.css">
+      <publishTime>07/11/2018 12:58:46</publishTime>
+    </File>
+    <File Include="Content/main-investment.css">
+      <publishTime>07/11/2018 12:58:46</publishTime>
+    </File>
+    <File Include="Content/main-news.css">
+      <publishTime>07/11/2018 12:58:46</publishTime>
+    </File>
+    <File Include="Content/main-proposal.css">
+      <publishTime>07/11/2018 12:58:46</publishTime>
+    </File>
+    <File Include="Content/main.css">
+      <publishTime>07/11/2018 12:58:46</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>06/20/2018 19:03:17</publishTime>
@@ -366,8 +390,14 @@
     <File Include="image/cancel.svg">
       <publishTime>07/03/2018 14:49:16</publishTime>
     </File>
+    <File Include="image/crowd-funding.svg">
+      <publishTime>07/11/2018 20:03:41</publishTime>
+    </File>
     <File Include="image/edit.png">
       <publishTime>07/03/2018 14:49:16</publishTime>
+    </File>
+    <File Include="image/investment.png">
+      <publishTime>07/11/2018 20:03:41</publishTime>
     </File>
     <File Include="image/item.jpg">
       <publishTime>07/03/2018 14:49:16</publishTime>
@@ -390,11 +420,17 @@
     <File Include="image/Previous page.png">
       <publishTime>07/03/2018 14:49:16</publishTime>
     </File>
+    <File Include="image/promotional map.svg">
+      <publishTime>07/11/2018 20:03:41</publishTime>
+    </File>
+    <File Include="image/proposal.png">
+      <publishTime>07/11/2018 20:03:41</publishTime>
+    </File>
     <File Include="Models/cfdb.edmx.diagram">
       <publishTime>06/27/2018 19:23:12</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/10/2018 22:00:45</publishTime>
+      <publishTime>07/11/2018 22:49:33</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>06/20/2018 19:02:30</publishTime>
@@ -1788,6 +1824,9 @@
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>06/20/2018 19:02:33</publishTime>
     </File>
+    <File Include="Scripts/modernizr.min.js">
+      <publishTime>07/11/2018 22:13:19</publishTime>
+    </File>
     <File Include="Scripts/slide.js">
       <publishTime>06/20/2018 19:02:33</publishTime>
     </File>
@@ -1810,7 +1849,7 @@
       <publishTime>06/15/2018 18:55:20</publishTime>
     </File>
     <File Include="Views/BHome/Index.cshtml">
-      <publishTime>07/10/2018 21:42:03</publishTime>
+      <publishTime>07/11/2018 10:13:07</publishTime>
     </File>
     <File Include="Views/BLogin/Index.cshtml">
       <publishTime>07/10/2018 19:12:19</publishTime>
@@ -1822,16 +1861,16 @@
       <publishTime>07/10/2018 20:35:32</publishTime>
     </File>
     <File Include="Views/BNews/NewsAdd.cshtml">
-      <publishTime>07/10/2018 21:59:57</publishTime>
+      <publishTime>07/11/2018 09:55:13</publishTime>
     </File>
     <File Include="Views/BNews/NewsEdit.cshtml">
-      <publishTime>07/10/2018 22:00:20</publishTime>
+      <publishTime>07/11/2018 09:55:35</publishTime>
     </File>
     <File Include="Views/BVerify/index.cshtml">
       <publishTime>07/09/2018 12:23:31</publishTime>
     </File>
     <File Include="Views/BVerify/proposal.cshtml">
-      <publishTime>07/10/2018 22:00:29</publishTime>
+      <publishTime>07/11/2018 09:55:05</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>
@@ -1840,13 +1879,16 @@
       <publishTime>06/15/2018 18:48:27</publishTime>
     </File>
     <File Include="Views/Home/draft.cshtml">
-      <publishTime>06/23/2018 20:33:40</publishTime>
+      <publishTime>07/11/2018 19:32:32</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/15/2018 18:48:27</publishTime>
+      <publishTime>07/11/2018 21:44:00</publishTime>
     </File>
     <File Include="Views/Home/Invest.cshtml">
-      <publishTime>06/25/2018 22:12:21</publishTime>
+      <publishTime>07/11/2018 19:32:26</publishTime>
+    </File>
+    <File Include="Views/Home/News.cshtml">
+      <publishTime>07/11/2018 16:25:38</publishTime>
     </File>
     <File Include="Views/Home/NewsContent.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>
@@ -1854,11 +1896,17 @@
     <File Include="Views/Home/NewsList.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>
     </File>
+    <File Include="Views/Home/ProposalList .cshtml">
+      <publishTime>07/11/2018 19:43:28</publishTime>
+    </File>
+    <File Include="Views/Home/ProposalList.cshtml">
+      <publishTime>07/11/2018 22:45:19</publishTime>
+    </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/10/2018 19:11:12</publishTime>
+      <publishTime>07/11/2018 22:49:20</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>06/15/2018 18:48:27</publishTime>

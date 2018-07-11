@@ -1,0 +1,29 @@
+.main-news{
+    background-color: rgb(75,230,255);
+}
+.main-news > div{
+    width: calc(100vw);
+    height: calc(100vh - 76px);
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    float: left;
+}
+.main-news > div > p{
+    font-size: 4vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    text-align: left;
+    color: black;
+}
+@media only screen and (min-width: 800px) {
+    .main-news > div > p{
+        font-size: 4vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        text-align: left;
+        color: black;
+    }
+}

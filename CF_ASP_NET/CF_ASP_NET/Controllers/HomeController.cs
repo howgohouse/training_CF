@@ -14,6 +14,8 @@ namespace CF_ASP_NET.Controllers
 
         public ActionResult Index()
         {
+            this.homemodel.NewsList();
+            ViewData["DataListNews"] = this.homemodel.list;
             return View();
         }
 
@@ -60,6 +62,60 @@ namespace CF_ASP_NET.Controllers
         {
             this.homemodel.Proposal(id);
             ViewData["DataList"] = this.homemodel.list2;
+            return View();
+        }
+
+        public ActionResult ProposalList(int page)
+        {
+            this.homemodel.ProposalList(page);
+            ViewData["DataList"] = this.homemodel.list2;
+            ViewData["DataList1Class"] = "";
+            ViewData["DataList1Title"] = "";
+            ViewData["DataList1Title5"] = "";
+            ViewData["DataList1id"] = 0;
+            ViewData["DataList2Class"] = "";
+            ViewData["DataList2Title"] = "";
+            ViewData["DataList2Title5"] = "";
+            ViewData["DataList2id"] = 0;
+            ViewData["DataList3Class"] = "";
+            ViewData["DataList3Title"] = "";
+            ViewData["DataList3Title5"] = "";
+            ViewData["DataList3id"] = 0;
+            int i = 0;
+            foreach (CF_ASP_NET.Models.CfProposalV a in ViewData["DataList"] as List<CF_ASP_NET.Models.CfProposalV >)
+            {
+                i++;
+                switch (i)
+                {
+                    case 1:
+                        ViewData["DataList" + (i.ToString()) + "Class"] = "text-align-left";
+                        break;
+                    case 2:
+                        ViewData["DataList" + (i.ToString()) + "Class"] = "text-align-center";
+                        break;
+                    case 3:
+                        ViewData["DataList" + (i.ToString()) + "Class"] = "text-align-right";
+                        break;
+                }
+
+                if (a.title.Length > 3)
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title"] = a.title.Substring(0, 3) + "...";
+                }
+                else
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title"] = a.title;
+                }
+                if (a.title.Length > 5)
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title5"] = a.title.Substring(0, 5) + "...";
+                }
+                else
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title5"] = a.title;
+                }
+                ViewData["DataList" + (i.ToString()) + "id"] = i;
+            }
             return View();
         }
 
@@ -110,18 +166,16 @@ namespace CF_ASP_NET.Controllers
             return View();
         }
 
-        public ActionResult News()
+        public ActionResult News(int id)
         {
-            ViewBag.Message = "Your contact page.";
+            this.homemodel.News(id);
 
             return View();
         }
 
-        public ActionResult NewsContent()
+        public ActionResult NewsContent(int id)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return Content("");
+            return Content(this.homemodel.NewsContent(id));
         }
     }
 }

@@ -264,20 +264,32 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cf-index.css" />
     <Content Include="Content\cf-login.css" />
+    <Content Include="Content\dialog.css" />
+    <Content Include="Content\fe-index.css" />
     <Content Include="Content\load-be-control.css" />
+    <Content Include="Content\load-fe-control.css" />
     <Content Include="Content\load.css" />
+    <Content Include="Content\main-introduction.css" />
+    <Content Include="Content\main-investment.css" />
+    <Content Include="Content\main-news.css" />
+    <Content Include="Content\main-proposal.css" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\slide.css" />
     <Content Include="Content\w3.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\crowd-funding.svg" />
     <Content Include="image\edit.png" />
+    <Content Include="image\investment.png" />
     <Content Include="image\item.jpg" />
     <Content Include="image\login.png" />
     <Content Include="image\logout.png" />
     <Content Include="image\next page.png" />
     <Content Include="image\Previous page.png" />
+    <Content Include="image\promotional map.svg" />
+    <Content Include="image\proposal.png" />
     <Content Include="Models\cfdb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>cfdb.edmx</DependentUpon>
@@ -770,6 +782,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\modernizr.min.js" />
     <Content Include="Scripts\slide.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -795,6 +808,8 @@
     <Content Include="Views\BVerify\index.cshtml" />
     <Content Include="Views\BNews\index.cshtml" />
     <Content Include="Views\BNews\NewsAdd.cshtml" />
+    <Content Include="Views\Home\ProposalList.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

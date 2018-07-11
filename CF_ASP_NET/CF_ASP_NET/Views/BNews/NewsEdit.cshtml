@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "Home Page";
 }
+@Styles.Render("~/Content/cf-index.css")
+@Styles.Render("~/Content/load-be-control.css")
+<a id="murl" href="~/" style="display:none"></a>
 <div class="dialog-header">
     <img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 </div>
@@ -119,7 +122,7 @@
                     catch (err) {
 
                     }
-                    displayLoad();
+                    window.parent.displayLoad();
                 }
             );
         } else {
@@ -140,11 +143,11 @@
                     catch (err) {
 
                     }
-                    displayLoad();
+                    window.parent.displayLoad();
                 }
             );
         }
-        
+
     }
 
     //輸入欄位設置檢查動作
@@ -184,7 +187,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
-                    setMainPageCloseDialog('news', 0, 'title', 'asc', '');
+                    window.parent.setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
         }
@@ -200,7 +203,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
-                    setMainPageCloseDialog('news', 0, 'title', 'asc', '');
+                    window.parent.setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
         }
@@ -216,7 +219,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
-                    setMainPageCloseDialog('news', 0, 'title', 'asc', '');
+                    window.parent.setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
         }

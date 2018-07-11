@@ -1,0 +1,28 @@
+.main {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.main-interval{
+    width: 100%;
+    height: 76px;
+    float: left;
+}
+.main-promotional-map{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.main-promotional-map img{
+    width: 100%;
+}
+.main-function-page{
+    width: 100%;
+    min-height: calc(100vh - 76px);
+    float: left;
+}
+.main-function-page-onethird{
+    width: 100%;
+    min-height: calc(34vh - 76px);
+    float: left;
+}

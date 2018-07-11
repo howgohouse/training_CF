@@ -1,0 +1,45 @@
+.main-proposal{
+    background-color: white;
+}
+.main-proposal > div{
+    width: 100%;
+    height: 50%;
+}
+.main-proposal > div > p{
+    width: 100%;
+    height: calc(100% - 50vh + 8vw - 105px);
+    padding-top: 40vh;
+    padding-bottom: 10vh;
+    font-size: 8vw;
+    text-align: center;
+}
+.main-proposal-button{
+}
+.main-proposal-button-item{
+}
+.main-proposal-button-item button{
+    width: 25vw;
+    height: 12vw;
+    font-size: 4vw;
+    padding: 2vw;
+    box-sizing: border-box;
+    background-color: rgb(75,230,255);
+}
+@media only screen and (min-width: 800px) {
+    .main-proposal > div > p{
+        width: 100%;
+        height: calc(100% - 45vh - 105px);
+        padding-top: 35vh;
+        padding-bottom: 10vh;
+        font-size: 5vh;
+        text-align: center;
+    }
+    .main-proposal-button-item button{
+        width: 242px;
+        height: 77px;
+        font-size: 30px;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgb(75,230,255);
+    }
+}

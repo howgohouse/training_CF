@@ -22,7 +22,7 @@ namespace CF_ASP_NET.Models
 
         public void NewsList()
         {
-            this.list = (from d in db.CfBulletin orderby d.makeTime descending select d).ToList();
+            this.list = (from d in db.CfBulletin orderby d.makeTime descending select d).Take(4).ToList();
         }
 
         public void News(int id)
@@ -161,9 +161,9 @@ namespace CF_ASP_NET.Models
 
         /*前台 探索*/
 
-        public void ProposalList()
+        public void ProposalList(int page)
         {
-            this.list2 = (from d in db.CfProposalV where d.used == 1 orderby d.makeTime descending select d).ToList();
+            this.list2 = (from d in db.CfProposalV where d.used == 1 orderby d.makeTime descending select d).Skip((page*3)).Take(3).ToList();
         }
 
         public void Proposal(int id)

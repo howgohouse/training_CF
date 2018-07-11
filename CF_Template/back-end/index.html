@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
 	<link rel="stylesheet" href="content/cf-index.css">
+	<link rel="stylesheet" href="content/dialog.css">
 	<link rel="stylesheet" href="content/load.css">
 	<link rel="stylesheet" href="content/load-be-control.css">
 
@@ -164,50 +165,14 @@
 				</center>
 			</div>
 		</div>
+		<div id="dialog-cover" class="dialog-cover"></div>
 		<div id="dialog" class="dialog">
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main" class="dialog-main">
-				<div class="dialog-main-top">
-					<p>姓名</p>
-					<p>電話</p>
-					<p>銀行代碼</p>
-					<p>銀行名稱</p>
-					<p>帳戶代碼</p>
-					<p>帳戶名稱</p>
-					<p>目標金額</p>
-					<p>結束時間</p>
-					<p>宣傳圖片</p>
-				</div>
-				<div>
-					<img src="image/item.jpg" class="d-inline-block align-top dialog-item" alt="">
-				</div>
-				<div class="dialog-main-mid">
-		            <label>標題一二三</label>
-		            <p>簡介</p>
-		        </div>
-		        <div class="dialog-main-bottom">
-		        	<p>
-		        		<img src="image/item.jpg" width="100%">
-		        	</p>
-		            <p>
-		            	詳細內容
-		            </p>
-		            <p class="col-md-12 dialog-line"></p>
-		        </div>
-		        <div class="col-md-12 dialog-main-bottom-button">
-		        	<div class="col-md-4">
-		        		<button class="w3-button">通過</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        		<button class="w3-button">不通過</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        		<button class="w3-button">返回</button>
-		        	</div>
-		        </div>
-			</div>
+			<iframe src="proposal.html" frameborder="0" id="dialog-main" class="dialog-main">
+
+			</iframe>
 		</div>
 		<div class="footer"></div>
 		

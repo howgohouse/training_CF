@@ -2,41 +2,58 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+@Styles.Render("~/Content/fe-index.css")
+@Styles.Render("~/Content/load-fe-control.css")
+@Styles.Render("~/Content/main-introduction.css")
+@Styles.Render("~/Content/main-investment.css")
+@Styles.Render("~/Content/main-news.css")
+@Styles.Render("~/Content/main-proposal.css")
+@Styles.Render("~/Content/main.css")
 <a id="murl" href="~/" style="display:none"></a>
-<div class="container">
+<div id="pimage">
+</div>
+<div class="dialog-main-mid">
     @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
     {
-        <p class="col-md-12">
-            <p id="pimage"></p>
-            <label>@a.title</label>
-            <p>@a.introduction</p>
-            <p id="content"></p>
-            <p id="p_id" style="display:none;">@a.proposal</p>
-        </p>
+        <label>@a.title</label>
+        <p>@a.introduction</p>
+        <p id="p_id" style="display:none;">@a.proposal</p>
     }
-    <p class="col-md-6">
+
+</div>
+<div class="dialog-main-bottom">
+    <p id="content">
+    </p>
+    <p class="col-md-12 dialog-line"></p>
+    <p class="col-md-12">
         <label>姓名</label>
         <input id="name" class="w3-input w3-border w3-round-large" onKeyUp="CheckName()" onMouseUp="CheckName()" onChange="CheckName()" type="text">
     <p id="name_check" style="height: 25px;"></p>
     <p id="name_check_value" style="display: none;">0</p>
     </p>
-    <p class="col-md-6">
+    <p class="col-md-12">
         <label>連絡電話</label>
         <input id="phone" class="w3-input w3-border w3-round-large" onkeyup="CheckPhone()" onmouseup="CheckPhone()" onchange="CheckPhone()" type="text">
     <p id="phone_check" style="height: 25px;"></p>
     <p id="phone_check_value" style="display: none;">0</p>
     </p>
-    <p class="col-md-6">
+    <p class="col-md-12">
         <label>金額</label>
         <input id="invest_money" class="w3-input w3-border w3-round-large" onkeyup="CheckInvestMoney()" onmouseup="CheckInvestMoney()" onchange="CheckInvestMoney()" type="number">
     <p id="invest_money_check" style="height: 25px;"></p>
     <p id="invest_money_check_value" style="display: none;">0</p>
     </p>
-    <p class="w3-padding w3-center">
-        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post()">確定</a>
-        <a class="w3-button w3-round-large w3-green col-sm-12">返回</a>
-    </p>
+    <p class="col-md-12 dialog-line"></p>
+</div>
+<div class="col-md-12 dialog-main-bottom-button">
+    <div class="col-md-4">
+        <button id="output" class="w3-button" onclick="post()">確定</button>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <button class="w3-button">返回</button>
+    </div>
 </div>
 
 <script>
@@ -90,7 +107,7 @@
                 } else {
                     $("#pimage").html('<img src="' + obj.url + '" />');
                 }
-                
+
             }
         );
     }
@@ -108,28 +125,28 @@
     }
 
     function CheckName() {
-		if ($("#name").val()!='' & $("#name").val().length<51) {
-			$("#name_check").html("");
-			$("#name").removeClass('w3-border-red');
-			$("#name_check").removeClass('w3-text-red');
-			$("#name_check").addClass('w3-text-green');
-			$("#name_check_value").html('1');
-			checkAll();
-		} else if ($("#name").val()!='' & $("#name").val().length>50) {
-			$("#name_check").html("不得超過50個字");
-			$("#name").addClass('w3-border-red');
-			$("#name_check").removeClass('w3-text-green');
-			$("#name_check").addClass('w3-text-red');
-			$("#name_check_value").html('0');
-			checkAll();
-		} else {
-			$("#name_check").html("請輸入");
-			$("#name").addClass('w3-border-red');
-			$("#name_check").removeClass('w3-text-green');
-			$("#name_check").addClass('w3-text-red');
-			$("#name_check_value").html('0');
-			checkAll();
-		}
+        if ($("#name").val() != '' & $("#name").val().length < 51) {
+            $("#name_check").html("");
+            $("#name").removeClass('w3-border-red');
+            $("#name_check").removeClass('w3-text-red');
+            $("#name_check").addClass('w3-text-green');
+            $("#name_check_value").html('1');
+            checkAll();
+        } else if ($("#name").val() != '' & $("#name").val().length > 50) {
+            $("#name_check").html("不得超過50個字");
+            $("#name").addClass('w3-border-red');
+            $("#name_check").removeClass('w3-text-green');
+            $("#name_check").addClass('w3-text-red');
+            $("#name_check_value").html('0');
+            checkAll();
+        } else {
+            $("#name_check").html("請輸入");
+            $("#name").addClass('w3-border-red');
+            $("#name_check").removeClass('w3-text-green');
+            $("#name_check").addClass('w3-text-red');
+            $("#name_check_value").html('0');
+            checkAll();
+        }
     }
 
     function CheckPhone() {
@@ -243,13 +260,17 @@
 
     function post() {
         if (confirm("是否要進行此操作?")) {
-            var array =
-                { "p_id": $("#p_id").html(), "name": $("#name").val(), "phone": $("#phone").val(), "invest_money": $("#invest_money").val() }
-            $.post(document.getElementById("murl").href + 'home/investrun', array,
-                function (data) {
-                    alert(data);
-                }
-            );
+            playLoad();
+            setTimeout(function () {
+                var array =
+                    { "p_id": $("#p_id").html(), "name": $("#name").val(), "phone": $("#phone").val(), "invest_money": $("#invest_money").val() }
+                $.post(document.getElementById("murl").href + 'home/investrun', array,
+                    function (data) {
+                        alert(data);
+                        window.parent.changeDialog('invest_result', $("#p_id").html());
+                    }
+                );
+            }, 1000);
         }
     }
 </script>

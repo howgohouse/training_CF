@@ -1,0 +1,52 @@
+﻿@using CF_ASP_NET.Models;
+@{
+    ViewBag.Title = "Home Page";
+}
+@Styles.Render("~/Content/fe-index.css")
+@Styles.Render("~/Content/load-fe-control.css")
+@Styles.Render("~/Content/main-introduction.css")
+@Styles.Render("~/Content/main-investment.css")
+@Styles.Render("~/Content/main-news.css")
+@Styles.Render("~/Content/main-proposal.css")
+@Styles.Render("~/Content/main.css")
+<a id="murl" href="~/" style="display:none"></a>
+<div class="dialog-main-top">
+</div>
+<div class="dialog-main-mid">
+    @foreach (CfBulletin a in ViewData["DataList"] as List<CfBulletin>)
+    {
+        <label>@a.title</label>
+        <p id="n_id" style="display:none;">@a.id</p>
+    }
+
+</div>
+<div class="dialog-main-bottom">
+    <p id="content">
+    </p>
+    <p class="col-md-12 dialog-line"></p>
+</div>
+<div class="col-md-12 dialog-main-bottom-button">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <button class="w3-button">返回</button>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+<script>
+    window.parent.displayLoad();
+
+    function getContent() {
+        var array =
+            { "id": $("#n_id").html() }
+        $.post(document.getElementById("murl").href + 'home/newscontent', array,
+            function (data) {
+                $("#content").html(data);
+                window.parent.displayLoad();
+            }
+        );
+
+    }
+</script>

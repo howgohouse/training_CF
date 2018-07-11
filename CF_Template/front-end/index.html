@@ -52,7 +52,7 @@
 	<div id="top-menu" class="top-menu">
 		<!-- Image and text -->
 		<nav class="navbar navbar-expand-lg navbar-dark">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" onclick="GoPage()" href="#toppage">
 				<img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,17 +60,17 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link" href="#introduction"><font color="white">本站介紹</font></a>
-					<a class="nav-item nav-link" href="#news"><font color="white">消息</font></a>
-					<a class="nav-item nav-link" href="#proposal"><font color="white">提案</font></a>
-					<a class="nav-item nav-link" href="#investment"><font color="white">探索</font></a>
+					<a class="nav-item nav-link" onclick="GoPage()" href="#introduction"><font color="white">本站介紹</font></a>
+					<a class="nav-item nav-link" onclick="GoPage()" href="#news"><font color="white">消息</font></a>
+					<a class="nav-item nav-link" onclick="GoPage()" href="#proposal"><font color="white">提案</font></a>
+					<a class="nav-item nav-link" onclick="GoPage()" href="#investment"><font color="white">探索</font></a>
 				</div>
 			</div>
 			<div></div>
 		</nav>
 	</div>
 	<div class="all">
-		<div class="header"></div>
+		<div id="toppage" class="header"></div>
 		<div class="main">
 			<div class="main-promotional-map">
 				<img src="image/promotional map.svg" alt="">
@@ -261,202 +261,33 @@
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main" class="dialog-main">
-				<div class="dialog-main-top">
-				</div>
-				<div class="dialog-main-mid">
-		            <label>標題一二三</label>
-		        </div>
-		        <div class="dialog-main-bottom">
-		            <p>
-		            	詳細內容
-		            </p>
-		            <p class="col-md-12 dialog-line"></p>
-		        </div>
-		        <div class="col-md-12 dialog-main-bottom-button">
-		        	<div class="col-md-4">
-		        	</div>
-		        	<div class="col-md-4">
-		        		<button class="w3-button">返回</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        	</div>
-		        </div>
-			</div>
+			<iframe src="dialog.html" frameborder="0" id="dialog-main" class="dialog-main">
+
+			</iframe>
 		</div>
 		<div id="dialog-2" class="dialog">
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main2" class="dialog-main">
-				<div class="dialog-main-top">
-					<p class="col-md-12 dialog-line"></p>
-					<p class="col-md-12">
-				        <label>姓名</label>
-				        <input id="name" class="w3-input w3-border w3-round-large" onKeyUp="CheckName()" onMouseUp="CheckName()" onChange="CheckName()" type="text">
-				    <p id="name_check" style="height: 25px;"></p>
-				    <p id="name_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>連絡電話</label>
-				        <input id="phone" class="w3-input w3-border w3-round-large" onkeyup="CheckPhone()" onmouseup="CheckPhone()" onchange="CheckPhone()" type="text">
-				    <p id="phone_check" style="height: 25px;"></p>
-				    <p id="phone_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>銀行代碼</label>
-				        <input id="bank_code" class="w3-input w3-border w3-round-large" onkeyup="CheckBankCode()" onmouseup="CheckBankCode()" onchange="CheckBankCode()" type="text">
-				    <p id="bank_code_check" style="height: 25px;"></p>
-				    <p id="bank_code_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>銀行名稱</label>
-				        <input id="bank_name" class="w3-input w3-border w3-round-large" onkeyup="CheckBankName()" onmouseup="CheckBankName()" onchange="CheckBankName()" type="text">
-				    <p id="bank_name_check" style="height: 25px;"></p>
-				    <p id="bank_name_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>帳戶代碼</label>
-				        <input id="account_code" class="w3-input w3-border w3-round-large" onkeyup="CheckAccountCode()" onmouseup="CheckAccountCode()" onchange="CheckAccountCode()" type="text">
-				    <p id="account_code_check" style="height: 25px;"></p>
-				    <p id="account_code_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>帳戶名稱</label>
-				        <input id="account_name" class="w3-input w3-border w3-round-large" onkeyup="CheckAccountName()" onmouseup="CheckAccountName()" onchange="CheckAccountName()" type="text">
-				    <p id="account_name_check" style="height: 25px;"></p>
-				    <p id="account_name_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>目標金額</label>
-				        <input id="target_money" class="w3-input w3-border w3-round-large" onkeyup="CheckTargetMoney()" onmouseup="CheckTargetMoney()" onchange="CheckTargetMoney()" type="number">
-				    <p id="target_money_check" style="height: 25px;"></p>
-				    <p id="target_money_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>募資結束日期時間</label>
-				        <input id="end_datetime" class="w3-input w3-border w3-round-large" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text">
-				    <p id="end_datetime_check" style="height: 25px;"></p>
-				    <p id="end_datetime_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>方案的宣傳圖片</label>
-				        <input id="propaganda_image" class="w3-input w3-border w3-round-large" onchange="CheckPropagandaImage()" type="file">
-				    <p id="propaganda_image_check" style="height: 25px;"></p>
-				    <p id="propaganda_image_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>方案的標題</label>
-				        <input id="title" class="w3-input w3-border w3-round-large" onkeyup="CheckTitle()" onmouseup="CheckTitle()" onchange="CheckTitle()" type="text">
-				    <p id="title_check" style="height: 25px;"></p>
-				    <p id="title_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>方案的簡介</label>
-				        <textarea name="introduction" id="introduction" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckIntroduction()" onmouseup="CheckIntroduction()" onchange="CheckIntroduction()"></textarea>
-				    <p id="introduction_check" style="height: 25px;"></p>
-				    <p id="introduction_check_value" style="display: none;">1</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>方案的詳細內容</label>
-				        <textarea name="content" id="content" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckContent()" onmouseup="CheckContent()" onchange="CheckContent()"></textarea>
-				    <p id="content_check" style="height: 25px;"></p>
-				    <p id="content_check_value" style="display: none;">1</p>
-				    </p>
-				    <p class="col-md-12 dialog-line"></p>
-				</div>
-		        <div class="col-md-12 dialog-main-bottom-button">
-		        	<div class="col-md-4">
-		        		<button class="w3-button" onclick="post()">確定</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        	</div>
-		        	<div class="col-md-4">
-		        		<button class="w3-button">返回</button>
-		        	</div>
-		        </div>
-			</div>
+			<iframe src="dialog-2.html" frameborder="0" id="dialog-main2" class="dialog-main">
+
+			</iframe>
 		</div>
 		<div id="dialog-3" class="dialog">
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main3" class="dialog-main">
-				<div>
-					<img src="image/item.jpg" class="d-inline-block align-top dialog-item" alt="">
-				</div>
-				<div class="dialog-main-mid">
-		            <label>標題一二三</label>
-		            <p>簡介</p>
-		        </div>
-		        <div class="dialog-main-bottom">
-		        	<p>
-		        		<p>
-		        			<img src="image/item.jpg" width="100%">
-			        	</p>
-			            <p>
-			            	詳細內容
-			            </p>
-		        	</p>
-		        	<p class="col-md-12 dialog-line"></p>
-		            <p class="col-md-12">
-				        <label>姓名</label>
-				        <input id="name" class="w3-input w3-border w3-round-large" onKeyUp="CheckName()" onMouseUp="CheckName()" onChange="CheckName()" type="text">
-				    <p id="name_check" style="height: 25px;"></p>
-				    <p id="name_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>連絡電話</label>
-				        <input id="phone" class="w3-input w3-border w3-round-large" onkeyup="CheckPhone()" onmouseup="CheckPhone()" onchange="CheckPhone()" type="text">
-				    <p id="phone_check" style="height: 25px;"></p>
-				    <p id="phone_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12">
-				        <label>金額</label>
-				        <input id="invest_money" class="w3-input w3-border w3-round-large" onkeyup="CheckInvestMoney()" onmouseup="CheckInvestMoney()" onchange="CheckInvestMoney()" type="number">
-				    <p id="invest_money_check" style="height: 25px;"></p>
-				    <p id="invest_money_check_value" style="display: none;">0</p>
-				    </p>
-				    <p class="col-md-12 dialog-line"></p>
-		        </div>
-		        <div class="col-md-12 dialog-main-bottom-button">
-		        	<div class="col-md-4">
-		        		<button class="w3-button" onclick="playDialog4()">確定</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        	</div>
-		        	<div class="col-md-4">
-		        		<button class="w3-button">返回</button>
-		        	</div>
-		        </div>
-			</div>
+			<iframe src="dialog-3.html" frameborder="0" id="dialog-main3" class="dialog-main">
+
+			</iframe>
 		</div>
 		<div id="dialog-4" class="dialog">
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main4" class="dialog-main">
-				<div class="dialog-main-top">
-				</div>
-		        <div class="dialog-main-bottom">
-						<p>銀行代碼</p>
-						<p>銀行名稱</p>
-						<p>帳戶代碼</p>
-						<p>帳戶名稱</p>
-						<p></p>
-						<p>請於七日內完成匯款</p>
-				    <p class="col-md-12 dialog-line"></p>
-		        </div>
-		        <div class="col-md-12 dialog-main-bottom-button">
-		        	<div class="col-md-4">
-		        	</div>
-		        	<div class="col-md-4">
-						<button class="w3-button">關閉</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        	</div>
-		        </div>
-			</div>
+			<iframe src="dialog-4.html" frameborder="0" id="dialog-main4" class="dialog-main">
+
+			</iframe>
 		</div>
 		<div class="footer"></div>
 	</div>
@@ -534,15 +365,6 @@
 			document.getElementById("dialog-cover").style.display = "block";
 			document.getElementById("top-menu").style.display = "none";
 			$('#dialog-main2').scrollTop(0);
-
-			try {
-				var editor = CKEDITOR.replace('content', {
-					extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-					filebrowserImageUploadUrl: 'http://127.0.0.1'
-				});
-			} catch (error) {
-				
-			}
 			setTimeout(function () {displayLoad();}, 1000);
 		}, 1000);
 	}
@@ -601,6 +423,10 @@
 	}
 
 	displayLoadFirst();
+
+	function GoPage() {
+		$("#navbarNavAltMarkup").removeClass('show');
+    }
 	
 	</script>
 

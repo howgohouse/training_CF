@@ -1,0 +1,233 @@
+.main-investment{
+}
+.main-investment > div{
+    width: 100%;
+    height: 50%;
+}
+.main-investment-slide-img{
+    width:100%;
+    height: calc(100vh - 76px);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    padding-top: 2vh;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    box-sizing: border-box;
+}
+.main-investment-slide-img-show{
+	animation: slide-img-show 1s linear 0s forwards;
+}
+
+@keyframes slide-img-show{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
+
+.main-investment-slide-img-notshow{
+	animation: slide-img-notshow 1s linear 0s forwards;
+}
+
+@keyframes slide-img-notshow{
+	from
+	{
+		opacity: 1;
+	}
+	to
+	{
+		opacity: 0;
+	}
+}
+
+@media only screen and (min-width: 800px) {
+    .main-investment-slide-img{
+        width:100%;
+        height: calc(100vh - 76px);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        box-sizing: border-box;
+        padding-top: 2vh;
+        padding-left: 30vw;
+        padding-right: 20vw;
+        box-sizing: border-box;
+    }
+}
+.main-investment-slide-img-content-top{
+    width: 100%;
+    height: 60%;
+}
+.main-investment-slide-img-title{
+    width: 60vw;
+    font-size: 5vw;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    margin-bottom: 5vh;
+}
+@media only screen and (min-width: 800px) {
+    .main-investment-slide-img-title{
+        width: 50vw;
+        font-size: 5vw;
+        color: white;
+        background-color: rgba(0,0,0,0.5);
+        margin-bottom: 5vh;
+    }
+}
+.main-investment-slide-img-introduction{
+    width: 60vw;
+    font-size: 4vw;
+    text-align: justify;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+}
+@media only screen and (min-width: 800px) {
+    .main-investment-slide-img-introduction{
+        width: 50vw;
+        font-size: 4vw;
+        text-align: justify;
+        color: white;
+        background-color: rgba(0,0,0,0.5);
+    }
+}
+.main-investment-slide-img-content-midle{
+    width: 100%;
+    height: 20%;
+}
+
+.main-investment-slide-img-button{
+    width: 50vw;
+}
+.main-investment-slide-img-button button{
+    width: 35vw;
+    height: 12vw;
+    font-size: 4vw;
+    padding: 2vw;
+    margin-left: 12vw;
+    box-sizing: border-box;
+    color: white;
+    background-color: black;
+}
+@media only screen and (min-width: 800px) {
+    .main-investment-slide-img-button button{
+        width: 25vw;
+        height: 12vw;
+        font-size: 4vw;
+        padding: 2vw;
+        margin-left: 12vw;
+        box-sizing: border-box;
+        color: white;
+        background-color: black;
+    }
+}
+.main-investment-slide-img-content-bottom{
+    width: 100%;
+    height: 20%;
+}
+.main-investment-slide-img-content-bottom img{
+    height: 60%;
+    display: none;
+}
+.main-investment-slide-img-bottom{
+    width: 100vw;
+    height: 20vh;
+}
+.main-investment-slide-img-bottom img{
+    height: 60%;
+    display: none;
+}
+@media only screen and (min-width: 1000px) {
+    .main-investment-slide-img-title{
+        width: 50vw;
+        font-size: 36px;
+        color: white;
+        background-color: rgba(0,0,0,0.5);
+        margin-bottom: 5vh;
+    }
+    .main-investment-slide-img-introduction{
+        width: 50vw;
+        font-size: 24px;
+        text-align: justify;
+        color: white;
+        background-color: rgba(0,0,0,0.5);
+    }
+    .main-investment-slide-img-button button{
+        width: 121px;
+        height: auto;
+        font-size: 16px;
+        padding: 10px;
+        margin-left: 0vw;
+        box-sizing: border-box;
+        color: white;
+        background-color: black;
+    }
+}
+@media only screen and (min-width: 800px) {
+    .main-investment-slide-img-content-bottom img{
+        height: 60%;
+        display: block;
+    }
+}
+.main-investment-slide-list{
+    padding-left: 5vw;
+    display: none;
+}
+@media only screen and (min-width: 800px) {
+    .main-investment-slide-list{
+        padding-left: 5vw;
+        display: block;
+    }
+}
+.main-investment-slide-list-item{
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+}
+.main-investment-bottom{
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    display: block;
+    background-color: rgb(75,230,255);
+}
+@media only screen and (min-width: 800px) {
+    .main-investment-bottom{
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        display: none;
+        background-color: rgb(75,230,255);
+    }
+}
+.main-investment-bottom-list{
+    padding-bottom: 30px;
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+    float: left;
+}
+.main-investment-bottom-list-item{
+    width: calc(100% / 3);
+    box-sizing: border-box;
+    font-size: 24px;
+    float:left;
+}
+
+.main-investment-bottom-img{
+    width: 100%;
+    height: 50%;
+}
+
+.main-investment-bottom-img img{
+    width: 36px;
+}

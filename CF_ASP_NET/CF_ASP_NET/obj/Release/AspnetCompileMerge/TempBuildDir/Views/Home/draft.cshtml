@@ -1,7 +1,13 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+@Styles.Render("~/Content/fe-index.css")
+@Styles.Render("~/Content/load-fe-control.css")
+@Styles.Render("~/Content/main-introduction.css")
+@Styles.Render("~/Content/main-investment.css")
+@Styles.Render("~/Content/main-news.css")
+@Styles.Render("~/Content/main-proposal.css")
+@Styles.Render("~/Content/main.css")
 <a id="murl" href="~/" style="display:none"></a>
 <div class="container">
     <p class="col-md-6">
@@ -78,7 +84,7 @@
     </p>
     <p class="w3-padding w3-center">
         <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post()">確定</a>
-        <a class="w3-button w3-round-large w3-green col-sm-12" >返回</a>
+        <a class="w3-button w3-round-large w3-green col-sm-12">返回</a>
     </p>
 </div>
 
@@ -105,28 +111,28 @@
     }
 
     function CheckName() {
-		if ($("#name").val()!='' & $("#name").val().length<51) {
-			$("#name_check").html("");
-			$("#name").removeClass('w3-border-red');
-			$("#name_check").removeClass('w3-text-red');
-			$("#name_check").addClass('w3-text-green');
-			$("#name_check_value").html('1');
-			checkAll();
-		} else if ($("#name").val()!='' & $("#name").val().length>50) {
-			$("#name_check").html("不得超過50個字");
-			$("#name").addClass('w3-border-red');
-			$("#name_check").removeClass('w3-text-green');
-			$("#name_check").addClass('w3-text-red');
-			$("#name_check_value").html('0');
-			checkAll();
-		} else {
-			$("#name_check").html("請輸入");
-			$("#name").addClass('w3-border-red');
-			$("#name_check").removeClass('w3-text-green');
-			$("#name_check").addClass('w3-text-red');
-			$("#name_check_value").html('0');
-			checkAll();
-		}
+        if ($("#name").val() != '' & $("#name").val().length < 51) {
+            $("#name_check").html("");
+            $("#name").removeClass('w3-border-red');
+            $("#name_check").removeClass('w3-text-red');
+            $("#name_check").addClass('w3-text-green');
+            $("#name_check_value").html('1');
+            checkAll();
+        } else if ($("#name").val() != '' & $("#name").val().length > 50) {
+            $("#name_check").html("不得超過50個字");
+            $("#name").addClass('w3-border-red');
+            $("#name_check").removeClass('w3-text-green');
+            $("#name_check").addClass('w3-text-red');
+            $("#name_check_value").html('0');
+            checkAll();
+        } else {
+            $("#name_check").html("請輸入");
+            $("#name").addClass('w3-border-red');
+            $("#name_check").removeClass('w3-text-green');
+            $("#name_check").addClass('w3-text-red');
+            $("#name_check_value").html('0');
+            checkAll();
+        }
     }
 
     function CheckPhone() {
@@ -360,7 +366,7 @@
             files = input.files[0];
             var filename = files.name;
             var res = filename.split('.');
-            if (files.type == 'image/jpg' | files.type == 'image/jpeg' | files.type == 'image/png' | files.type == 'image/gif' | res[(res.length-1)] == 'webp') {
+            if (files.type == 'image/jpg' | files.type == 'image/jpeg' | files.type == 'image/png' | files.type == 'image/gif' | res[(res.length - 1)] == 'webp') {
                 $("#propaganda_image_check").html("");
                 $("#propaganda_image").removeClass('w3-border-red');
                 $("#propaganda_image_check").removeClass('w3-text-red');
@@ -376,7 +382,7 @@
                 checkAll();
             }
         }
-        
+
     }
 
     function CheckTitle() {
@@ -548,7 +554,7 @@
         var fd = new FormData();
         var xhr = new XMLHttpRequest();
         //var up_progress = document.getElementById('up_progress');
-        xhr.open('POST', document.getElementById("murl").href + 'file/upload/?p_id='+p_id);//上傳到upload.php
+        xhr.open('POST', document.getElementById("murl").href + 'file/upload/?p_id=' + p_id);//上傳到upload.php
         xhr.onload = function () {
             //上傳完成
             //up_progress.innerHTML = '100 %, 上傳完成';

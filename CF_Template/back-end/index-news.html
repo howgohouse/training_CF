@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
 	<link rel="stylesheet" href="content/cf-index.css">
+	<link rel="stylesheet" href="content/dialog.css">
 	<link rel="stylesheet" href="content/load.css">
 	<link rel="stylesheet" href="content/load-be-control.css">
 
@@ -65,7 +66,7 @@
 		<div class="main">
 			<div class="up-button">
 				<div>
-					<button class="w3-button">新增</button>
+					<button class="w3-button" onclick="playDialog()">新增</button>
 				</div>
 			</div>
 			<div class="table">
@@ -159,39 +160,14 @@
 				</center>
 			</div>
 		</div>
+		<div id="dialog-cover" class="dialog-cover"></div>
 		<div id="dialog" class="dialog">
 			<div class="dialog-header">
 				<img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
 			</div>
-			<div id="dialog-main" class="dialog-main">
-				<div class="dialog-main-top">
-					<p class="col-md-12 dialog-line"></p>
-					<p>
-				        <label>標題</label>
-				        <input id="title" class="w3-input w3-border w3-round-large" onkeyup="CheckTitle()" onmouseup="CheckTitle()" onchange="CheckTitle()" type="text">
-				    <p id="title_check" class="dialog-main-top-check"></p>
-				    <p id="title_check_value" class="dialog-main-top-check-value">0</p>
-				    </p>
-				    <p>
-				        <label>詳細內容</label>
-				        <textarea name="content" id="content" class="w3-input w3-border w3-round-large" rows="10" cols="80" onkeyup="CheckContent()" onmouseup="CheckContent()" onchange="CheckContent()"></textarea>
-				    <p id="content_check" class="dialog-main-top-check"></p>
-				    <p id="content_check_value" class="dialog-main-top-check-value">1</p>
-				    </p>
-				    <p class="col-md-12 dialog-line"></p>
-				</div>
-		        <div class="col-md-12 dialog-main-bottom-button">
-		        	<div class="col-md-4">
-		        		<button class="w3-button">儲存</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        		<button class="w3-button">開放</button>
-		        	</div>
-		        	<div class="col-md-4">
-		        		<button class="w3-button">返回</button>
-		        	</div>
-		        </div>
-			</div>
+			<iframe src="news.html" frameborder="0" id="dialog-main" class="dialog-main">
+
+			</iframe>
 		</div>
 		<div class="footer"></div>
 		

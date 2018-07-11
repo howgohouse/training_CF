@@ -60,9 +60,9 @@
         <div class="dialog-header">
             <img src="~/image/cancel.svg" width="48" height="48" onclick="closeDialog()" class="d-inline-block align-top" alt="">
         </div>
-        <div id="dialog_main_page" class="dialog-main">
+        <iframe id="dialog_main_page" class="dialog-main">
 
-        </div>
+        </iframe>
     </div>
     <div class="footer"></div>
 
@@ -134,14 +134,15 @@
                     default:
                         function_name = "news/newsedit";
                 }
-                var array =
+                /*var array =
                     { "id": id }
                 $.post(document.getElementById("murl").href + "b" + function_name, array,
                     function (data) {
                         $("#dialog_main_page").html(data);
                         playDialog();
                     }
-                );
+                );*/
+                document.getElementById('dialog_main_page').src = document.getElementById("murl").href + "b" + function_name + "/" + id;
             }, 1000);
         }
 
@@ -161,7 +162,8 @@
         function displayDialog() {
             document.getElementById("dialog").style.display = "none";
             document.getElementById("top-menu").style.display = "block";
-            $("#dialog_main_page").html("");
+            //$("#dialog_main_page").html("");
+            document.getElementById('dialog_main_page').src = "";
             displayLoad();
         }
 
@@ -194,6 +196,30 @@
 else
 {
     <script>
+
+        function playLoad() {
+            var element = document.getElementById("load-all");
+            element.classList.remove("load-all-animation-end-first");
+            element.classList.remove("load-all-animation-start");
+            element.classList.add("load-all-animation-start");
+        }
+        function displayLoad() {
+            var element = document.getElementById("load-all");
+            element.classList.remove("load-all-animation-end-first");
+            element.classList.remove("load-all-animation-start");
+            element.classList.add("load-all-animation-end");
+            setTimeout(function () {
+                element.classList.remove("load-all-animation-end-first");
+                element.classList.remove("load-all-animation-start");
+                element.classList.remove("load-all-animation-end");
+            }, 1000);
+        }
+        function displayLoadFirst() {
+            var element = document.getElementById("load-all");
+            element.classList.add("load-all-animation-end-first");
+        }
+
+        displayLoadFirst();
 
         top.location.href = document.getElementById("murl").href + "blogin";
 

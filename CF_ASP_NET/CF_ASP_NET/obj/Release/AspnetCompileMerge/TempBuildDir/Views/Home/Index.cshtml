@@ -1,31 +1,339 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+@Styles.Render("~/Content/fe-index.css")
+@Styles.Render("~/Content/load-fe-control.css")
+@Styles.Render("~/Content/main-introduction.css")
+@Styles.Render("~/Content/main-investment.css")
+@Styles.Render("~/Content/main-news.css")
+@Styles.Render("~/Content/main-proposal.css")
+@Styles.Render("~/Content/main.css")
+<div style="display:none">
+    <a id="murl" href="~/"></a>
+</div>
+<div id="load-all" class="load-all">
+    <div class="load-main">
+        <div class="load8">
+            <div class="load8-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="load8-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="load8-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="top-menu" class="top-menu">
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" onclick="GoPage()" href="#toppage">
+            <img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="image/menu.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" onclick="GoPage()" href="#introduction"><font color="white">本站介紹</font></a>
+                <a class="nav-item nav-link" onclick="GoPage()" href="#news"><font color="white">消息</font></a>
+                <a class="nav-item nav-link" onclick="GoPage()" href="#proposal"><font color="white">提案</font></a>
+                <a class="nav-item nav-link" onclick="GoPage()" href="#investment"><font color="white">探索</font></a>
+            </div>
+        </div>
+        <div></div>
+    </nav>
+</div>
+<div class="all">
+    <div id="toppage" class="header"></div>
+    <div class="main">
+        <div class="main-promotional-map">
+            <img src="~/image/promotional map.svg" alt="">
+        </div>
+        <div id="introduction" class="main-interval"></div>
+        <div class="main-function-page main-introduction">
+            <div class="main-function-page main-introduction-button">
+                <div class="main-introduction-button-item">
+                    <button onclick="playExplanationDialog(1)" class="w3-button">何謂CF</button>
+                </div>
+                <div class="main-introduction-button-interval"></div>
+                <div class="main-introduction-button-item">
+                    <button onclick="playExplanationDialog(2)" class="w3-button">如何募資</button>
+                </div>
+                <div class="main-introduction-button-interval"></div>
+                <div class="main-introduction-button-item">
+                    <button onclick="playExplanationDialog(3)" class="w3-button">如何投資</button>
+                </div>
+            </div>
+            <div id="dialog-explanation-1" class="main-function-page main-introduction-explanation main-introduction-dialog">
+                <p class="main-introduction-dialog-header">
+                    <img src="~/image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(1)" class="d-inline-block align-top" alt="">
+                </p>
+                <div>
+                    <div>
+                        <img src="~/image/crowd-funding.svg" alt="">
+                    </div>
+                </div>
+                <div class="main-introduction-explanation-padding-top">
+                    <p>
+                        CF名稱為Crowd和funding,兩個英文字幕合併成的名稱,本站就如同Crowdfunding的意思,專為您的想法募集您所需要的資金,只要將您的計畫容,於本站提出,就能讓更多的投資者,看見您的計畫
+                    </p>
+                </div>
+            </div>
+            <div class="main-function-page main-introduction-explanation">
+                <div>
+                    <div>
+                        <img src="~/image/crowd-funding.svg" alt="">
+                    </div>
+                </div>
+                <div class="main-introduction-explanation-padding-top">
+                    <p>
+                        CF名稱為Crowd和funding,兩個英文字幕合併成的名稱,本站就如同Crowdfunding的意思,專為您的想法募集您所需要的資金,只要將您的計畫容,於本站提出,就能讓更多的投資者,看見您的計畫
+                    </p>
+                </div>
+            </div>
+            <div id="dialog-explanation-2" class="main-function-page main-introduction-proposal main-introduction-dialog">
+                <p class="main-introduction-dialog-header">
+                    <img src="~/image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(2)" class="d-inline-block align-top" alt="">
+                </p>
+                <div>
+                    <center>
+                        <img class="main-introduction-proposal-img" src="~/image/proposal.png" alt="">
+                    </center>
+                </div>
+            </div>
+            <div class="main-function-page main-introduction-proposal">
+                <div>
+                    <center>
+                        <img class="main-introduction-proposal-img align-middle" src="~/image/proposal.png" alt="">
+                    </center>
+                </div>
+            </div>
+            <div id="dialog-explanation-3" class="main-function-page main-introduction-investment main-introduction-dialog">
+                <p class="main-introduction-dialog-header">
+                    <img src="~/image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(3)" class="d-inline-block align-top" alt="">
+                </p>
+                <div>
+                    <center>
+                        <img class="main-introduction-investment-img" src="~/image/investment.png" alt="">
+                    </center>
+                </div>
+            </div>
+            <div class="main-function-page main-introduction-investment">
+                <div>
+                    <center>
+                        <img class="main-introduction-investment-img align-middle" src="~/image/investment.png" alt="">
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div id="news" class="main-interval"></div>
+        <div class="main-function-page main-news">
+            <div>
+                <p onclick="playDialog('news',0)">2018/6/25新新聞準備中</p>
+                <p onclick="playDialog('news',0)">2018/6/25新新聞準備中</p>
+            </div>
+        </div>
+        <div id="proposal" class="main-interval"></div>
+        <div class="main-function-page main-proposal">
+            <div>
+                <p>為您的想法,來此募資</p>
+            </div>
+            <div class="main-proposal-button">
+                <div class="main-proposal-button-item">
+                    <center>
+                        <button class="w3-button" onclick="playDialog('draft',0)">提案</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div id="investment" class="main-interval"></div>
+        <div id="slide_image_page"></div>
+    </div>
+    <div id="dialog-cover" class="dialog-cover"></div>
+    <div id="dialog" class="dialog">
+        <div class="dialog-header">
+            <img src="~/image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
+        </div>
+        <iframe src="" frameborder="0" id="dialog-main" class="dialog-main"></iframe>
+    </div>
+    <div class="footer"></div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<script>
+    function WebpIsSupported(callback) {
+        // If the browser doesn't has the method createImageBitmap, you can't display webp format
+        if (!window.createImageBitmap) {
+            callback(false);
+            return;
+        }
+
+        // Base64 representation of a white point image
+        var webpdata = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoCAAEAAQAcJaQAA3AA/v3AgAA=';
+
+        // Retrieve the Image in Blob Format
+        fetch(webpdata).then(function (response) {
+            return response.blob();
+        }).then(function (blob) {
+            // If the createImageBitmap method succeeds, return true, otherwise false
+            createImageBitmap(blob).then(function () {
+                callback(true);
+            }, function () {
+                callback(false);
+            });
+        });
+    }
+
+    function playExplanationDialog(value) {
+        document.getElementById("dialog-explanation-" + value).style.display = "block";
+        document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-show');
+        setTimeout(function () {
+            document.getElementById("top-menu").style.display = "none";
+        }, 500);
+        $('#dialog-main').scrollTop(0);
+    }
+    function displayExplanationDialog(value) {
+
+        document.getElementById("dialog-explanation-" + value).classList.remove('main-introduction-dialog-animation-show');
+        document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-notshow');
+        document.getElementById("top-menu").style.display = "block";
+        setTimeout(function () {
+            document.getElementById("dialog-explanation-" + value).style.display = "none";
+            document.getElementById("dialog-explanation-" + value).classList.remove('main-introduction-dialog-animation-notshow');
+        }, 500);
+    }
+
+    function playDialog(function_name, id) {
+        playLoad();
+        setTimeout(function () {
+            switch (function_name) {
+                case "draft":
+                    function_name = "home/draft";
+                    break;
+                case "invest":
+                    function_name = "home/invest";
+                    break;
+                case "invest_result":
+                    function_name = "home/investresult";
+                    break;
+                default:
+                    function_name = "home/news";
+            }
+            /*var array =
+                { "id": id }
+            $.post(document.getElementById("murl").href + "b" + function_name, array,
+                function (data) {
+                    $("#dialog_main_page").html(data);
+                    playDialog();
+                }
+            );*/
+            document.getElementById('dialog_main').src = document.getElementById("murl").href + "b" + function_name + "/" + id;
+            document.getElementById("dialog").style.display = "block";
+            document.getElementById("dialog-cover").style.display = "block";
+            document.getElementById("top-menu").style.display = "none";
+            $('#dialog-main').scrollTop(0);
+        }, 1000);
+
+    }
+    function changeDialog(function_name, id) {
+        setTimeout(function () {
+            switch (function_name) {
+                case "draft":
+                    function_name = "home/draft";
+                    break;
+                case "invest":
+                    function_name = "home/invest";
+                    break;
+                case "invest_result":
+                    function_name = "home/investresult";
+                    break;
+                default:
+                    function_name = "home/news";
+            }
+            /*var array =
+                { "id": id }
+            $.post(document.getElementById("murl").href + "b" + function_name, array,
+                function (data) {
+                    $("#dialog_main_page").html(data);
+                    playDialog();
+                }
+            );*/
+            document.getElementById('dialog_main').src = document.getElementById("murl").href + "b" + function_name + "/" + id;
+            document.getElementById("dialog").style.display = "block";
+            document.getElementById("dialog-cover").style.display = "block";
+            document.getElementById("top-menu").style.display = "none";
+            $('#dialog-main').scrollTop(0);
+        }, 1000);
+
+    }
+
+    function setSlidePage(page) {
+        playLoad();
+        var array =
+            { "page": page }
+        $.post(document.getElementById("murl").href + 'home/proposallist', array,
+            function (data) {
+                $("#slide_image_page").html(data);
+            }
+        );
+    }
+
+    function setSlidePageFirst(page) {
+        playLoadFirst();
+        var array =
+            { "page": page }
+        $.post(document.getElementById("murl").href + 'home/proposallist', array,
+            function (data) {
+                $("#slide_image_page").html(data);
+            }
+        );
+    }
+
+    function displayDialog() {
+        playLoad();
+        setTimeout(function () {
+            document.getElementById("dialog").style.display = "none";
+            document.getElementById("dialog-cover").style.display = "none";
+            document.getElementById("top-menu").style.display = "block";
+            document.getElementById('dialog_main').src = "";
+            setTimeout(function () { displayLoad(); }, 1000);
+        }, 1000);
+    }
+
+    function playLoad() {
+        var element = document.getElementById("load-all");
+        element.classList.add("load-all-animation-start");
+    }
+    function displayLoad() {
+        var element = document.getElementById("load-all");
+        element.classList.remove("load-all-animation-end-first");
+        element.classList.remove("load-all-animation-start");
+        element.classList.add("load-all-animation-end");
+        setTimeout(function () {
+            element.classList.remove("load-all-animation-end-first");
+            element.classList.remove("load-all-animation-start");
+            element.classList.remove("load-all-animation-end");
+        }, 1000);
+    }
+    function playLoadFirst() {
+        var element = document.getElementById("load-all");
+        element.classList.add("load-all-animation-end-first");
+    }
+
+    function GoPage() {
+        $("#navbarNavAltMarkup").removeClass('show');
+    }
+
+    setSlidePageFirst(0);
+</script>

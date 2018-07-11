@@ -2,11 +2,11 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+@Styles.Render("~/Content/cf-index.css")
+@Styles.Render("~/Content/load-be-control.css")
 <a id="murl" href="~/" style="display:none"></a>
-
 <div class="dialog-header">
-    <img src="~/image/cancel.svg" width="48" height="48" onclick="setMainPage('verify', 0, 'title', 'asc', '')" class="d-inline-block align-top" alt="">
+    <img src="~/image/cancel.svg" width="48" height="48" onclick="window.parent.setMainPage('verify', 0, 'title', 'asc', '')" class="d-inline-block align-top" alt="">
 </div>
 <div id="dialog-main" class="dialog-main">
     <div class="dialog-main-top">
@@ -90,7 +90,7 @@
         $.post(document.getElementById("murl").href + 'bverify/proposalcontent', array,
             function (data) {
                 $("#content").html(data);
-                displayLoad();
+                window.parent.displayLoad();
             }
         );
     }
@@ -131,7 +131,7 @@
                 function (data) {
                     var obj = JSON.parse(data);
                     alert(obj.ok);
-                    setMainPageCloseDialog('verify', 0, 'title', 'asc', '');
+                    window.parent.setMainPageCloseDialog('verify', 0, 'title', 'asc', '');
                 }
             );
         }
