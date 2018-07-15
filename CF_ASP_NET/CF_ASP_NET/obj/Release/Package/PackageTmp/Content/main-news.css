@@ -3,12 +3,10 @@
 }
 .main-news > div{
     width: calc(100vw);
-    height: calc(100vh - 76px);
+    height: 100%;
     box-sizing: border-box;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    margin: 0 0;
+    padding: 10px 20px;
     float: left;
 }
 .main-news > div > p{
@@ -19,10 +17,19 @@
     color: black;
 }
 @media only screen and (min-width: 800px) {
+    .main-news > div{
+        width: calc(800px);
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0 calc(50% - 400px);
+        padding: 0 20px;
+        overflow: hidden;
+        float: left;
+    }
     .main-news > div > p{
-        font-size: 4vh;
-        margin-top: 5vh;
-        margin-bottom: 5vh;
+        font-size: 24px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         text-align: left;
         color: black;
     }

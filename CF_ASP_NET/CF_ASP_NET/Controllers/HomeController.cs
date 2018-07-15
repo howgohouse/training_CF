@@ -19,7 +19,7 @@ namespace CF_ASP_NET.Controllers
             return View();
         }
 
-        public ActionResult Draft()
+        public ActionResult Draft(int id)
         {
             return View();
         }
@@ -116,6 +116,32 @@ namespace CF_ASP_NET.Controllers
                 }
                 ViewData["DataList" + (i.ToString()) + "id"] = i;
             }
+            ViewData["DataListLength"] = this.homemodel.list2.Count;
+            ViewData["Page"] = page;
+            int data_count = this.homemodel.data_count;
+            int r = data_count % 3;
+            int count_page = (data_count - r) / 3;
+            int max_page = 0;
+            int prev_page = 0;
+            int next_page = 0;
+            if (r > 0)
+            {
+                max_page = count_page;
+            }
+            else
+            {
+                max_page = count_page - 1;
+            }
+            prev_page = page - 1;
+            if (prev_page < 0) prev_page = 0;
+            next_page = page + 1;
+            if (next_page > max_page) next_page = max_page;
+            ViewData["prev_page"] = prev_page;
+            ViewData["next_page"] = next_page;
+            ViewData["disable_str1"] = "";
+            if (page == 0) ViewData["disable_str1"] = "w3-disabled";
+            ViewData["disable_str2"] = "";
+            if (page == max_page) ViewData["disable_str2"] = "w3-disabled";
             return View();
         }
 
@@ -130,10 +156,10 @@ namespace CF_ASP_NET.Controllers
         {
             //ViewBag.Message = "Your application description page.";
             String second_name = this.homemodel.ProposalImage(id);
-            String pimage_url = mUrl + "file/show/" + this.homemodel.lastid.ToString();
+            String pimage_url = "file/show/" + this.homemodel.lastid.ToString();
             if (second_name == "webp")
             {
-                pimage_url = mUrl+"file/webpshow/"+ this.homemodel.lastid.ToString();
+                pimage_url = "file/webpshow/"+ this.homemodel.lastid.ToString();
             }
             
 
@@ -169,7 +195,7 @@ namespace CF_ASP_NET.Controllers
         public ActionResult News(int id)
         {
             this.homemodel.News(id);
-
+            ViewData["DataList"] = this.homemodel.list;
             return View();
         }
 

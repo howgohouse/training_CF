@@ -90,6 +90,7 @@
         $.post(document.getElementById("murl").href + 'bverify/proposalcontent', array,
             function (data) {
                 $("#content").html(data);
+                window.parent.playDialog();
                 window.parent.displayLoad();
             }
         );
@@ -124,7 +125,7 @@
 
     function post(value) {
         if (confirm("是否要進行此操作?")) {
-            playLoad();
+            window.parent.playLoad();
             var array =
                 { "p_id": $("#p_id").html(), "value": value }
             $.post(document.getElementById("murl").href + 'bverify/editrun', array,

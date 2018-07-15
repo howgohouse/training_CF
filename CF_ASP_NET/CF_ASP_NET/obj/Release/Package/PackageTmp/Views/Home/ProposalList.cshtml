@@ -26,8 +26,8 @@
                         </div>
                     </div>
                     <div class="main-investment-slide-img-content-bottom">
-                        <img class="img-float-left" src="image/Previous page.png" alt="">
-                        <img class="img-float-right" src="image/next page.png" alt="">
+                        <img class="img-float-left @ViewData["disable_str1"]" onclick="setSlidePage(@ViewData["prev_page"])" src="image/Previous page.png" alt="">
+                        <img class="img-float-right @ViewData["disable_str2"]" onclick="setSlidePage(@ViewData["next_page"])" src="image/next page.png" alt="">
                     </div>
                 </div>
                 <p id="@("slide_p_id"+i.ToString())" style="display:none;">@a.proposal</p>
@@ -53,8 +53,8 @@
         </div>
     </div>
     <div class="main-investment-bottom-img">
-        <img class="img-float-left" src="image/Previous page.png" alt="">
-        <img class="img-float-right" src="image/next page.png" alt="">
+        <img class="img-float-left @ViewData["disable_str1"]" onclick="setSlidePage(@ViewData["prev_page"])" src="image/Previous page.png" alt="">
+        <img class="img-float-right @ViewData["disable_str2"]" onclick="setSlidePage(@ViewData["next_page"])" src="image/next page.png" alt="">
     </div>
 </div>
 
@@ -96,21 +96,17 @@
     }
 
     function setSlideImage(n, length) {
-        alert("#pimage" + n);
         var array =
             { "id": $("#slide_p_id" + n).html() }
         $.post(document.getElementById("murl").href + 'home/proposalimage/', array,
             function (data) {
                 var obj = JSON.parse(data);
                 if (obj.second_name == "webp") {
-                    WebpIsSupported(function (isSupported) {
-                        if (isSupported) {
-                            $("#pimage" + n).addClass('webp');
-                            $("#pimage" + n).css("background-image", "url('" + obj.url + "')");
-                        } else {
-                            alert('瀏覽器不支援webp');
-                        }
-                    });
+                    if ($("#iswebpshow").html() == "1") {
+                        $("#pimage" + n).css("background-image", "url('" + obj.url + "')");
+                    } else {
+                        alert('瀏覽器不支援webp');
+                    }
                 } else {
                     $("#pimage" + n).css("background-image", "url('" + obj.url + "')");
                 }

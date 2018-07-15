@@ -122,6 +122,7 @@
                     catch (err) {
 
                     }
+                    window.parent.playDialog();
                     window.parent.displayLoad();
                 }
             );
@@ -179,7 +180,7 @@
 
     function post() {
         if (confirm("是否要進行此操作?")) {
-            playLoad();
+            window.parent.playLoad();
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "n_id": $("#n_id").html(), "title": $("#title").val(), "content": $("#content").html() }
@@ -195,7 +196,7 @@
 
     function postOpen() {
         if (confirm("是否要進行此操作?")) {
-            playLoad();
+            window.parent.playLoad();
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "n_id": $("#n_id").html(), "value": "1" }
@@ -211,7 +212,7 @@
 
     function postClose() {
         if (confirm("是否要進行此操作?")) {
-            playLoad();
+            window.parent.playLoad();
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "n_id": $("#n_id").html(), "value": "0" }

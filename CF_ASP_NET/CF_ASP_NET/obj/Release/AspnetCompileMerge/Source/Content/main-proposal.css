@@ -7,38 +7,47 @@
 }
 .main-proposal > div > p{
     width: 100%;
-    height: calc(100% - 50vh + 8vw - 105px);
-    padding-top: 40vh;
+    height: calc(100% - 10vh + 8vw - 145px);
+    padding-top: 40px;
     padding-bottom: 10vh;
     font-size: 8vw;
+    text-align: center;
+}
+.main-proposal > div > div{
+    width: 100%;
+    height: calc(100% - 10vh + 12vw - 145px);
+    padding-top: 10vh;
+    padding-bottom: 40px;
     text-align: center;
 }
 .main-proposal-button{
 }
 .main-proposal-button-item{
+    padding-left: calc((100% - 25vw) / 2);
+    padding-right: calc((100% - 25vw) / 2);
 }
 .main-proposal-button-item button{
     width: 25vw;
     height: 12vw;
     font-size: 4vw;
-    padding: 2vw;
+    padding: 10px;
     box-sizing: border-box;
     background-color: rgb(75,230,255);
 }
 @media only screen and (min-width: 800px) {
     .main-proposal > div > p{
         width: 100%;
-        height: calc(100% - 45vh - 105px);
-        padding-top: 35vh;
+        height: calc(100% - 10vh + 5vh - 145px);
+        padding-top: 40px;
         padding-bottom: 10vh;
         font-size: 5vh;
         text-align: center;
     }
     .main-proposal-button-item button{
         width: 242px;
-        height: 77px;
-        font-size: 30px;
-        padding: 10px;
+        height: 44px;
+        font-size: 24px;
+        padding: 5px;
         box-sizing: border-box;
         background-color: rgb(75,230,255);
     }

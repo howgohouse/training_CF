@@ -3,20 +3,23 @@
 }
 @Styles.Render("~/Content/fe-index.css")
 @Styles.Render("~/Content/load-fe-control.css")
+@Styles.Render("~/Content/main.css")
 @Styles.Render("~/Content/main-introduction.css")
 @Styles.Render("~/Content/main-investment.css")
 @Styles.Render("~/Content/main-news.css")
 @Styles.Render("~/Content/main-proposal.css")
-@Styles.Render("~/Content/main.css")
+
+@Scripts.Render("~/Scripts/scroll-fe-control.js")
 <a id="murl" href="~/" style="display:none"></a>
-<div class="container">
-    <p class="col-md-6">
+<div class="dialog-main-top">
+    <p class="col-md-12 dialog-line"></p>
+    <p class="col-md-12">
         <label>姓名</label>
         <input id="name" class="w3-input w3-border w3-round-large" onKeyUp="CheckName()" onMouseUp="CheckName()" onChange="CheckName()" type="text">
     <p id="name_check" style="height: 25px;"></p>
     <p id="name_check_value" style="display: none;">0</p>
     </p>
-    <p class="col-md-6">
+    <p class="col-md-12">
         <label>連絡電話</label>
         <input id="phone" class="w3-input w3-border w3-round-large" onkeyup="CheckPhone()" onmouseup="CheckPhone()" onchange="CheckPhone()" type="text">
     <p id="phone_check" style="height: 25px;"></p>
@@ -46,13 +49,13 @@
     <p id="account_name_check" style="height: 25px;"></p>
     <p id="account_name_check_value" style="display: none;">0</p>
     </p>
-    <p class="col-md-6">
+    <p class="col-md-12">
         <label>目標金額</label>
         <input id="target_money" class="w3-input w3-border w3-round-large" onkeyup="CheckTargetMoney()" onmouseup="CheckTargetMoney()" onchange="CheckTargetMoney()" type="number">
     <p id="target_money_check" style="height: 25px;"></p>
     <p id="target_money_check_value" style="display: none;">0</p>
     </p>
-    <p class="col-md-6">
+    <p class="col-md-12">
         <label>募資結束日期時間</label>
         <input id="end_datetime" class="w3-input w3-border w3-round-large" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text">
     <p id="end_datetime_check" style="height: 25px;"></p>
@@ -82,10 +85,17 @@
     <p id="content_check" style="height: 25px;"></p>
     <p id="content_check_value" style="display: none;">1</p>
     </p>
-    <p class="w3-padding w3-center">
-        <a id="output" class="w3-button w3-round-large w3-green col-sm-12" onclick="post()">確定</a>
-        <a class="w3-button w3-round-large w3-green col-sm-12">返回</a>
-    </p>
+    <p class="col-md-12 dialog-line"></p>
+</div>
+<div class="col-md-12 dialog-main-bottom-button">
+    <div class="col-md-4">
+        <button id="output" class="w3-button" onclick="post()">確定</button>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <button class="w3-button">返回</button>
+    </div>
 </div>
 
 <script>
@@ -446,13 +456,37 @@
         }
     }
 
-    var editor = CKEDITOR.replace('content', {
-        extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
-        filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
-    });
-    editor.on('change', function (evt) {
-        $("#content").html(evt.editor.getData());
-    });
+    if (screen.width <= 768) {
+        try {
+            var editor = CKEDITOR.replace('content', {
+                extraPlugins: 'uploadimage,image2',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+                uploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?',
+                filebrowserUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?',
+                filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
+            });
+            editor.on('change', function (evt) {
+                $("#content").html(evt.editor.getData());
+            });
+        }
+        catch (err) {
+
+        }
+    } else {
+        try {
+            var editor = CKEDITOR.replace('content', {
+                extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
+                uploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?',
+                filebrowserUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?',
+                filebrowserImageUploadUrl: document.getElementById("murl").href + 'file/uploadckeditor/?'
+            });
+            editor.on('change', function (evt) {
+                $("#content").html(evt.editor.getData());
+            });
+        }
+        catch (err) {
+
+        }
+    }
 
     //輸入欄位設置檢查動作
     setTimeout(function () {
@@ -486,6 +520,8 @@
 
         //按鈕狀態重設
         $("#output").addClass('w3-disabled');
+
+        window.parent.displayLoad();
     }, 100);
 
     //設置Enter Key事件

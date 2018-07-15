@@ -40,6 +40,7 @@
 </div>
 
 <script>
+    window.parent.playDialog();
     window.parent.displayLoad();
 
     function checkAll() {
@@ -156,7 +157,7 @@
 
     function post() {
         if (confirm("是否要進行此操作?")) {
-            playLoad();
+            window.parent.playLoad();
             $("#content").html(CKEDITOR.instances['content'].getData());
             var array =
                 { "title": $("#title").val(), "content": $("#content").html() }

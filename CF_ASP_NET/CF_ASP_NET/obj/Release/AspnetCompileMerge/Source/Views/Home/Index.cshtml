@@ -1,13 +1,17 @@
-﻿@{
+﻿@using CF_ASP_NET.Models;
+@{
     ViewBag.Title = "Home Page";
 }
 @Styles.Render("~/Content/fe-index.css")
 @Styles.Render("~/Content/load-fe-control.css")
+@Styles.Render("~/Content/main.css")
 @Styles.Render("~/Content/main-introduction.css")
 @Styles.Render("~/Content/main-investment.css")
 @Styles.Render("~/Content/main-news.css")
 @Styles.Render("~/Content/main-proposal.css")
-@Styles.Render("~/Content/main.css")
+
+@Scripts.Render("~/Scripts/scroll-fe-control.js")
+
 <div style="display:none">
     <a id="murl" href="~/"></a>
 </div>
@@ -37,7 +41,7 @@
 </div>
 <div id="top-menu" class="top-menu">
     <!-- Image and text -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark">
         <a class="navbar-brand" onclick="GoPage()" href="#toppage">
             <img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
         </a>
@@ -76,17 +80,18 @@
                     <button onclick="playExplanationDialog(3)" class="w3-button">如何投資</button>
                 </div>
             </div>
+            <div id="dialog-bg" class="main-introduction-dialog-bg"></div>
             <div id="dialog-explanation-1" class="main-function-page main-introduction-explanation main-introduction-dialog">
                 <p class="main-introduction-dialog-header">
-                    <img src="~/image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(1)" class="d-inline-block align-top" alt="">
+                    <img src="image/cancel.svg" width="24" height="24" onclick="displayExplanationDialog(1)" class="d-inline-block align-top" alt="">
                 </p>
                 <div>
                     <div>
-                        <img src="~/image/crowd-funding.svg" alt="">
+                        <img src="image/crowd-funding.svg" alt="" style="max-width: 360px;max-height: 360px;">
                     </div>
                 </div>
                 <div class="main-introduction-explanation-padding-top">
-                    <p>
+                    <p style="font-size: 24px;">
                         CF名稱為Crowd和funding,兩個英文字幕合併成的名稱,本站就如同Crowdfunding的意思,專為您的想法募集您所需要的資金,只要將您的計畫容,於本站提出,就能讓更多的投資者,看見您的計畫
                     </p>
                 </div>
@@ -94,7 +99,7 @@
             <div class="main-function-page main-introduction-explanation">
                 <div>
                     <div>
-                        <img src="~/image/crowd-funding.svg" alt="">
+                        <img src="image/crowd-funding.svg" alt="">
                     </div>
                 </div>
                 <div class="main-introduction-explanation-padding-top">
@@ -103,50 +108,52 @@
                     </p>
                 </div>
             </div>
-            <div id="dialog-explanation-2" class="main-function-page main-introduction-proposal main-introduction-dialog">
+            <div id="dialog-explanation-2" class="main-function-page main-introduction-proposal-dialog main-introduction-dialog">
                 <p class="main-introduction-dialog-header">
-                    <img src="~/image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(2)" class="d-inline-block align-top" alt="">
+                    <img src="image/cancel.svg" width="24" height="24" onclick="displayExplanationDialog(2)" class="d-inline-block align-top" alt="">
                 </p>
                 <div>
                     <center>
-                        <img class="main-introduction-proposal-img" src="~/image/proposal.png" alt="">
+                        <img class="main-introduction-proposal-dialog-img" width="410" src="image/proposal.png" alt="">
                     </center>
                 </div>
             </div>
             <div class="main-function-page main-introduction-proposal">
                 <div>
                     <center>
-                        <img class="main-introduction-proposal-img align-middle" src="~/image/proposal.png" alt="">
+                        <img class="main-introduction-proposal-img align-middle" src="image/proposal.png" alt="">
                     </center>
                 </div>
             </div>
-            <div id="dialog-explanation-3" class="main-function-page main-introduction-investment main-introduction-dialog">
+            <div id="dialog-explanation-3" class="main-function-page main-introduction-investment-dialog main-introduction-dialog">
                 <p class="main-introduction-dialog-header">
-                    <img src="~/image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(3)" class="d-inline-block align-top" alt="">
+                    <img src="image/cancel.svg" width="24" height="24" onclick="displayExplanationDialog(3)" class="d-inline-block align-top" alt="">
                 </p>
                 <div>
                     <center>
-                        <img class="main-introduction-investment-img" src="~/image/investment.png" alt="">
+                        <img class="main-introduction-investment-dialog-img" width="758" src="image/investment.png" alt="">
                     </center>
                 </div>
             </div>
             <div class="main-function-page main-introduction-investment">
                 <div>
                     <center>
-                        <img class="main-introduction-investment-img align-middle" src="~/image/investment.png" alt="">
+                        <img class="main-introduction-investment-img align-middle" src="image/investment.png" alt="">
                     </center>
                 </div>
             </div>
         </div>
         <div id="news" class="main-interval"></div>
-        <div class="main-function-page main-news">
+        <div class="main-function-page-half main-news" style="overflow:hidden;">
             <div>
-                <p onclick="playDialog('news',0)">2018/6/25新新聞準備中</p>
-                <p onclick="playDialog('news',0)">2018/6/25新新聞準備中</p>
+                @foreach (CfBulletin a in ViewData["DataListNews"] as List<CfBulletin>)
+                {
+                    <p onclick="playDialog('news',@a.id)">@a.makeTime @a.title</p>
+                }
             </div>
         </div>
         <div id="proposal" class="main-interval"></div>
-        <div class="main-function-page main-proposal">
+        <div class="main-function-page-half main-proposal">
             <div>
                 <p>為您的想法,來此募資</p>
             </div>
@@ -170,6 +177,7 @@
     </div>
     <div class="footer"></div>
 </div>
+<p id="iswebpshow" style="display:none;">0</p>
 
 <script>
     function WebpIsSupported(callback) {
@@ -195,16 +203,58 @@
         });
     }
 
-    function playExplanationDialog(value) {
-        document.getElementById("dialog-explanation-" + value).style.display = "block";
-        document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-show');
-        setTimeout(function () {
-            document.getElementById("top-menu").style.display = "none";
-        }, 500);
-        $('#dialog-main').scrollTop(0);
-    }
-    function displayExplanationDialog(value) {
+    WebpIsSupported(function (isSupported) {
+        if (isSupported) {
+            $("#iswebpshow").html('1');
+        } else {
+            //$("#iswebpshow").html('瀏覽器不支援webp');
+        }
+    });
 
+    function playExplanationDialog(value) {
+        var isforwork = true;
+        for (var i = 1; (i < 4 & isforwork); i++) {
+            if (document.getElementById("dialog-explanation-" + i).style.display == "block") {
+                isforwork = false;
+                document.getElementById("dialog-bg").classList.remove("main-introduction-dialog-bg-show");
+                document.getElementById("dialog-explanation-1").classList.remove('main-introduction-dialog-animation-show');
+                document.getElementById("dialog-explanation-1").classList.add('main-introduction-dialog-animation-notshow');
+                document.getElementById("dialog-explanation-2").classList.remove('main-introduction-dialog-animation-show');
+                document.getElementById("dialog-explanation-2").classList.add('main-introduction-dialog-animation-notshow');
+                document.getElementById("dialog-explanation-3").classList.remove('main-introduction-dialog-animation-show');
+                document.getElementById("dialog-explanation-3").classList.add('main-introduction-dialog-animation-notshow');
+                setTimeout(function () {
+                    document.getElementById("dialog-explanation-1").style.display = "none";
+                    document.getElementById("dialog-explanation-1").classList.remove('main-introduction-dialog-animation-notshow');
+                    document.getElementById("dialog-explanation-2").style.display = "none";
+                    document.getElementById("dialog-explanation-2").classList.remove('main-introduction-dialog-animation-notshow');
+                    document.getElementById("dialog-explanation-3").style.display = "none";
+                    document.getElementById("dialog-explanation-3").classList.remove('main-introduction-dialog-animation-notshow');
+
+                    document.getElementById("dialog-bg").classList.add("main-introduction-dialog-bg-show");
+                    document.getElementById("dialog-explanation-" + value).style.display = "block";
+                    document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-show');
+                    setTimeout(function () {
+                        document.getElementById("top-menu").style.display = "none";
+                    }, 500);
+                    $('#dialog-main').scrollTop(0);
+                }, 500);
+            }
+        }
+
+        if (isforwork) {
+            document.getElementById("dialog-bg").classList.add("main-introduction-dialog-bg-show");
+            document.getElementById("dialog-explanation-" + value).style.display = "block";
+            document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-show');
+            setTimeout(function () {
+                document.getElementById("top-menu").style.display = "none";
+            }, 500);
+            $('#dialog-main').scrollTop(0);
+        }
+    }
+
+    function displayExplanationDialog(value) {
+        document.getElementById("dialog-bg").classList.remove("main-introduction-dialog-bg-show");
         document.getElementById("dialog-explanation-" + value).classList.remove('main-introduction-dialog-animation-show');
         document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-notshow');
         document.getElementById("top-menu").style.display = "block";
@@ -238,7 +288,7 @@
                     playDialog();
                 }
             );*/
-            document.getElementById('dialog_main').src = document.getElementById("murl").href + "b" + function_name + "/" + id;
+            document.getElementById('dialog-main').src = document.getElementById("murl").href + function_name + "/" + id;
             document.getElementById("dialog").style.display = "block";
             document.getElementById("dialog-cover").style.display = "block";
             document.getElementById("top-menu").style.display = "none";
@@ -269,7 +319,7 @@
                     playDialog();
                 }
             );*/
-            document.getElementById('dialog_main').src = document.getElementById("murl").href + "b" + function_name + "/" + id;
+            document.getElementById('dialog-main').src = document.getElementById("murl").href + "b" + function_name + "/" + id;
             document.getElementById("dialog").style.display = "block";
             document.getElementById("dialog-cover").style.display = "block";
             document.getElementById("top-menu").style.display = "none";
@@ -285,6 +335,7 @@
         $.post(document.getElementById("murl").href + 'home/proposallist', array,
             function (data) {
                 $("#slide_image_page").html(data);
+                top.location.href = document.getElementById("murl").href + "#investment";
             }
         );
     }
@@ -306,7 +357,7 @@
             document.getElementById("dialog").style.display = "none";
             document.getElementById("dialog-cover").style.display = "none";
             document.getElementById("top-menu").style.display = "block";
-            document.getElementById('dialog_main').src = "";
+            document.getElementById('dialog-main').src = "";
             setTimeout(function () { displayLoad(); }, 1000);
         }, 1000);
     }
@@ -336,4 +387,20 @@
     }
 
     setSlidePageFirst(0);
+
+    function resetExplanationDialog(y) {
+        if (screen.width < 800) {
+            if (document.getElementById("dialog-explanation-1").style.display == "block" | document.getElementById("dialog-explanation-2").style.display == "block" | document.getElementById("dialog-explanation-3").style.display == "block") {
+                displayExplanationDialog(1);
+                displayExplanationDialog(2);
+                displayExplanationDialog(3);
+            }
+        }
+
+        setTimeout(function () {
+            resetExplanationDialog();
+        }, 500);
+    }
+
+    resetExplanationDialog();
 </script>

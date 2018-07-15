@@ -51,7 +51,7 @@
 	</div>
 	<div id="top-menu" class="top-menu">
 		<!-- Image and text -->
-		<nav class="navbar navbar-expand-lg navbar-dark">
+		<nav class="navbar navbar-expand-sm navbar-dark">
 			<a class="navbar-brand" onclick="GoPage()" href="#toppage">
 				<img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
 			</a>
@@ -90,17 +90,18 @@
 			        	<button onclick="playExplanationDialog(3)" class="w3-button">如何投資</button>
 			        </div>
 				</div>
+				<div id="dialog-bg" class="main-introduction-dialog-bg"></div>
 				<div id="dialog-explanation-1" class="main-function-page main-introduction-explanation main-introduction-dialog">
 					<p class="main-introduction-dialog-header">
-						<img src="image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(1)" class="d-inline-block align-top" alt="">
+						<img src="image/cancel.svg" width="24" height="24" onclick="displayExplanationDialog(1)" class="d-inline-block align-top" alt="">
 					</p>
 					<div>
 						<div>
-							<img src="image/crowd-funding.svg" alt="">
+							<img src="image/crowd-funding.svg" alt="" style="max-width: 360px;max-height: 360px;">
 						</div>
 					</div>
 					<div class="main-introduction-explanation-padding-top">
-						<p>
+						<p style="font-size: 24px;">
 							CF名稱為Crowd和funding,兩個英文字幕合併成的名稱,本站就如同Crowdfunding的意思,專為您的想法募集您所需要的資金,只要將您的計畫容,於本站提出,就能讓更多的投資者,看見您的計畫
 						</p>
 					</div>
@@ -117,13 +118,13 @@
 						</p>
 					</div>
 				</div>
-				<div id="dialog-explanation-2" class="main-function-page main-introduction-proposal main-introduction-dialog">
+				<div id="dialog-explanation-2" class="main-function-page main-introduction-proposal-dialog main-introduction-dialog">
 					<p class="main-introduction-dialog-header">
-						<img src="image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(2)" class="d-inline-block align-top" alt="">
+						<img src="image/cancel.svg" width="24" height="24" onclick="displayExplanationDialog(2)" class="d-inline-block align-top" alt="">
 					</p>
 					<div>
 						<center>
-							<img class="main-introduction-proposal-img" src="image/proposal.png" alt="">
+							<img class="main-introduction-proposal-dialog-img" width="410" src="image/proposal.png" alt="">
 						</center>
 					</div>
 				</div>
@@ -134,13 +135,13 @@
 						</center>
 					</div>
 				</div>
-				<div id="dialog-explanation-3" class="main-function-page main-introduction-investment main-introduction-dialog">
+				<div id="dialog-explanation-3" class="main-function-page main-introduction-investment-dialog main-introduction-dialog">
 					<p class="main-introduction-dialog-header">
-						<img src="image/cancel.svg" width="48" height="48" onclick="displayExplanationDialog(3)" class="d-inline-block align-top" alt="">
+						<img src="image/cancel.svg" width="24" height="24" onclick="displayExplanationDialog(3)" class="d-inline-block align-top" alt="">
 					</p>
 					<div>
 						<center>
-							<img class="main-introduction-investment-img" src="image/investment.png" alt="">
+							<img class="main-introduction-investment-dialog-img" width="758" src="image/investment.png" alt="">
 						</center>
 					</div>
 				</div>
@@ -153,14 +154,14 @@
 				</div>
 			</div>
 			<div id="news" class="main-interval"></div>
-			<div class="main-function-page main-news">
+			<div class="main-function-page-half main-news">
 				<div>
 					<p onclick="playDialog()">2018/6/25新新聞準備中</p>
 					<p onclick="playDialog()">2018/6/25新新聞準備中</p>
 				</div>
 			</div>
 			<div id="proposal" class="main-interval"></div>
-			<div class="main-function-page main-proposal">
+			<div class="main-function-page-half main-proposal">
 				<div>
 					<p>為您的想法,來此募資</p>
 				</div>
@@ -195,7 +196,7 @@
 								<img class="img-float-right" src="image/next page.png" alt="">
 							</div>
 						</div>
-						<div class="mySlides main-investment-slide-img" style="background-image: url('image/slide-bg-02.jpg');">
+						<div class="mySlides main-investment-slide-img" style="background-image: url('image/slide-bg-02.webp');">
 							<div class="main-investment-slide-img-content-top">
 								<div class="main-investment-slide-img-title">
 									標題A二三
@@ -229,30 +230,30 @@
 								</div>
 							</div>
 							<div class="main-investment-slide-img-content-bottom">
-								<img class="img-float-left" src="image/Previous page.png" alt="">
-								<img class="img-float-right" src="image/next page.png" alt="">
+								<img width="24" class="img-float-left" src="image/Previous page.png" alt="">
+								<img width="24" class="img-float-right" src="image/next page.png" alt="">
 							</div>
 						</div>
 					</div>
 					<div class="w3-display-left main-investment-slide-list">
-						<div class="main-investment-slide-list-item" onclick="currentDiv(1)" onmouseover="currentDiv(1)">01</div>
-						<div class="main-investment-slide-list-item" onclick="currentDiv(2)" onmouseover="currentDiv(2)">02</div>
-						<div class="main-investment-slide-list-item" onclick="currentDiv(3)" onmouseover="currentDiv(3)">03</div>
+						<div class="main-investment-slide-list-item" onclick="currentDiv(1)" onmouseover="currentDiv(1)">標題一二三...</div>
+						<div class="main-investment-slide-list-item" onclick="currentDiv(2)" onmouseover="currentDiv(2)">標題一二三...</div>
+						<div class="main-investment-slide-list-item" onclick="currentDiv(3)" onmouseover="currentDiv(3)">標題一二三...</div>
 					</div>
 				</div>
 			</div>
 			<div class="main-function-page-onethird main-investment-bottom">
 				<div class="main-investment-bottom-list">
-					<div class="main-investment-bottom-list-item text-align-left" onclick="currentDiv(1)" onmouseover="currentDiv(1)">01
+					<div class="main-investment-bottom-list-item text-align-left" onclick="currentDiv(1)" onmouseover="currentDiv(1)">標題一...
 					</div>
-					<div class="main-investment-bottom-list-item text-align-center" onclick="currentDiv(2)" onmouseover="currentDiv(2)">02
+					<div class="main-investment-bottom-list-item text-align-center" onclick="currentDiv(2)" onmouseover="currentDiv(2)">標題一...
 					</div>
-					<div class="main-investment-bottom-list-item text-align-right" onclick="currentDiv(3)" onmouseover="currentDiv(3)">03
+					<div class="main-investment-bottom-list-item text-align-right" onclick="currentDiv(3)" onmouseover="currentDiv(3)">標題一...
 					</div>
 				</div>
 				<div class="main-investment-bottom-img">
-					<img class="img-float-left" src="image/Previous page.png" alt="">
-					<img class="img-float-right" src="image/next page.png" alt="">
+					<img width="24" class="img-float-left" src="image/Previous page.png" alt="">
+					<img width="24" class="img-float-right" src="image/next page.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -294,16 +295,81 @@
 </body>
 
 <script>
+	function WebpIsSupported(callback) {
+        // If the browser doesn't has the method createImageBitmap, you can't display webp format
+        if (!window.createImageBitmap) {
+            callback(false);
+            return;
+        }
+
+        // Base64 representation of a white point image
+        var webpdata = 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoCAAEAAQAcJaQAA3AA/v3AgAA=';
+
+        // Retrieve the Image in Blob Format
+        fetch(webpdata).then(function (response) {
+            return response.blob();
+        }).then(function (blob) {
+            // If the createImageBitmap method succeeds, return true, otherwise false
+            createImageBitmap(blob).then(function () {
+                callback(true);
+            }, function () {
+                callback(false);
+            });
+        });
+    }
+
+	WebpIsSupported(function (isSupported) {
+        if (isSupported) {
+            //alert('瀏覽器支援webp');
+        } else {
+        	//alert('瀏覽器不支援webp');
+         }
+    });
+
 	function playExplanationDialog(value) {
-	    document.getElementById("dialog-explanation-"+value).style.display = "block";
-		document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-show');
-	    setTimeout(function () {
-			document.getElementById("top-menu").style.display = "none";
-		},500);
-	    $('#dialog-main').scrollTop(0);
+		var isforwork=true;
+		for(var i=1;(i<4 & isforwork);i++){
+			if(document.getElementById("dialog-explanation-"+i).style.display=="block"){
+				isforwork=false;
+				document.getElementById("dialog-bg").classList.remove("main-introduction-dialog-bg-show");
+				document.getElementById("dialog-explanation-1").classList.remove('main-introduction-dialog-animation-show');
+				document.getElementById("dialog-explanation-1").classList.add('main-introduction-dialog-animation-notshow');
+				document.getElementById("dialog-explanation-2").classList.remove('main-introduction-dialog-animation-show');
+				document.getElementById("dialog-explanation-2").classList.add('main-introduction-dialog-animation-notshow');
+				document.getElementById("dialog-explanation-3").classList.remove('main-introduction-dialog-animation-show');
+				document.getElementById("dialog-explanation-3").classList.add('main-introduction-dialog-animation-notshow');
+				setTimeout(function () {
+					document.getElementById("dialog-explanation-1").style.display = "none";
+					document.getElementById("dialog-explanation-1").classList.remove('main-introduction-dialog-animation-notshow');
+					document.getElementById("dialog-explanation-2").style.display = "none";
+					document.getElementById("dialog-explanation-2").classList.remove('main-introduction-dialog-animation-notshow');
+					document.getElementById("dialog-explanation-3").style.display = "none";
+					document.getElementById("dialog-explanation-3").classList.remove('main-introduction-dialog-animation-notshow');
+
+					document.getElementById("dialog-bg").classList.add("main-introduction-dialog-bg-show");
+				    document.getElementById("dialog-explanation-"+value).style.display = "block";
+					document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-show');
+				    setTimeout(function () {
+						document.getElementById("top-menu").style.display = "none";
+					},500);
+				    $('#dialog-main').scrollTop(0);
+				},500);
+			}
+		}
+
+		if(isforwork){
+			document.getElementById("dialog-bg").classList.add("main-introduction-dialog-bg-show");
+		    document.getElementById("dialog-explanation-"+value).style.display = "block";
+			document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-show');
+		    setTimeout(function () {
+				document.getElementById("top-menu").style.display = "none";
+			},500);
+		    $('#dialog-main').scrollTop(0);
+		}
 	}
+
 	function displayExplanationDialog(value) {
-	    
+	    document.getElementById("dialog-bg").classList.remove("main-introduction-dialog-bg-show");
 		document.getElementById("dialog-explanation-"+value).classList.remove('main-introduction-dialog-animation-show');
 		document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-notshow');
 	    document.getElementById("top-menu").style.display = "block";
@@ -427,6 +493,22 @@
 	function GoPage() {
 		$("#navbarNavAltMarkup").removeClass('show');
     }
+
+    function resetExplanationDialog(y){
+    	if(screen.width < 800){
+    		if(document.getElementById("dialog-explanation-1").style.display=="block" | document.getElementById("dialog-explanation-2").style.display=="block" | document.getElementById("dialog-explanation-3").style.display=="block"){
+    			displayExplanationDialog(1);
+	    		displayExplanationDialog(2);
+	    		displayExplanationDialog(3);
+    		}
+    	}
+
+    	setTimeout(function () {
+    		resetExplanationDialog();
+    	}, 500);
+    }
+
+    resetExplanationDialog();
 	
 	</script>
 
