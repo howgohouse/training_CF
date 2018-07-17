@@ -31,21 +31,22 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-        <button class="w3-button">返回</button>
+        <button class="w3-button" onclick="window.parent.displayDialog()">返回</button>
     </div>
     <div class="col-md-4">
     </div>
 </div>
 
 <script>
-    window.parent.displayLoad();
+    getContent();
 
     function getContent() {
         var array =
             { "id": $("#n_id").html() }
         $.post(document.getElementById("murl").href + 'home/newscontent', array,
             function (data) {
-                $("#content").html(data);
+                var res = data.replace("http://192.168.2.113/", document.getElementById("murl").href);
+                $("#content").html(res);
                 window.parent.displayLoad();
             }
         );

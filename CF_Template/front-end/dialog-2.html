@@ -16,12 +16,19 @@
 	<link rel="stylesheet" href="content/dialog.css">
 	<link rel="stylesheet" href="content/load.css">
 	<link rel="stylesheet" href="content/load-fe-control.css">
+	<link rel="stylesheet" href="content/tempusdominus-bootstrap-4.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<script src="scripts/jquery-3.3.1.js"></script>
 	<script src="scripts/jquery-3.3.1.min.js"></script>
 	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/ckeditor/ckeditor.js"></script>
 	<script src="scripts/scroll-fe-control.js"></script>
+	<script src="scripts/moment.min.js"></script>
+	<script src="scripts/moment-with-locales.min.js"></script>
+	<script src="scripts/zh-tw.js"></script>
+	<script src="scripts/tempusdominus-bootstrap-4.min.js"></script>
+	
 </head>
 <body>
     <div class="dialog-main-top">
@@ -70,7 +77,13 @@
         </p>
         <p class="col-md-12">
             <label>募資結束日期時間</label>
-            <input id="end_datetime" class="w3-input w3-border w3-round-large" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text">
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            	<input id="end_datetime" class="w3-input w3-border w3-round-large form-control datetimepicker-input" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text" style="height: 54px;">
+            	<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    <div class="input-group-text"><img src="image/calendar.svg" alt="" style="width: 24px;"></div>
+                </div>
+            </div>
+            
         <p id="end_datetime_check" style="height: 25px;"></p>
         <p id="end_datetime_check_value" style="display: none;">0</p>
         </p>
@@ -122,4 +135,10 @@
 		} catch (error) {
 				
 		}
+	$(function () {
+        $('#datetimepicker1').datetimepicker({
+        	locale: moment.locale('zh-tw'),
+        	format: 'YYYY/MM/DD HH:mm:ss'
+        });
+    });
 </script>

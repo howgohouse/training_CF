@@ -275,11 +275,13 @@
     <Content Include="Content\main-proposal.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\slide.css" />
+    <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\w3.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\calendar.svg" />
     <Content Include="image\crowd-funding.svg" />
     <Content Include="image\edit.png" />
     <Content Include="image\investment.png" />
@@ -782,9 +784,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\modernizr.min.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\scroll-fe-control.js" />
     <Content Include="Scripts\slide.js" />
+    <Content Include="Scripts\tempusdominus-bootstrap-4.min.js" />
+    <Content Include="Scripts\zh-tw.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -811,6 +816,8 @@
     <Content Include="Views\BNews\NewsAdd.cshtml" />
     <Content Include="Views\Home\ProposalList.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\InvestResult.cshtml" />
+    <Content Include="Views\Home\ProposalListFirst.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

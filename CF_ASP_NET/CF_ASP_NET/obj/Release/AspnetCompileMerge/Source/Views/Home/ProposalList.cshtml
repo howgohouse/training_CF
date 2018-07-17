@@ -90,7 +90,7 @@
                 }
                 x[slideIndex - 1].style.display = "block";
                 x[slideIndex - 1].classList.add('main-investment-slide-img-show');
-                dots[slideIndex - 1].className += " w3-opacity-off";
+                //dots[slideIndex - 1].className += " w3-opacity-off";
             }, 1000);
         }
     }
@@ -118,7 +118,10 @@
                 } else {
                     setTimeout(function () {
                         showDivs(1);
-                        displayLoad();
+                        setTimeout(function () {
+                            location.href = document.getElementById("murl").href + "#investment";
+                            displayLoad();
+                        }, 2000);
                     }, 100);
                 }
             }

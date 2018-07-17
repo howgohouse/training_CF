@@ -16,8 +16,8 @@
     <a id="murl" href="~/"></a>
 </div>
 <div id="load-all" class="load-all">
-    <div class="load-main">
-        <div class="load8">
+    <div class="load-main w3-display-container">
+        <div class="load8 w3-display-middle">
             <div class="load8-container container1">
                 <div class="circle1"></div>
                 <div class="circle2"></div>
@@ -319,7 +319,7 @@
                     playDialog();
                 }
             );*/
-            document.getElementById('dialog-main').src = document.getElementById("murl").href + "b" + function_name + "/" + id;
+            document.getElementById('dialog-main').src = document.getElementById("murl").href + function_name + "/" + id;
             document.getElementById("dialog").style.display = "block";
             document.getElementById("dialog-cover").style.display = "block";
             document.getElementById("top-menu").style.display = "none";
@@ -330,29 +330,42 @@
 
     function setSlidePage(page) {
         playLoad();
-        var array =
-            { "page": page }
-        $.post(document.getElementById("murl").href + 'home/proposallist', array,
-            function (data) {
-                $("#slide_image_page").html(data);
-                top.location.href = document.getElementById("murl").href + "#investment";
-            }
-        );
+        setTimeout(function () {
+            var array =
+                { "page": page }
+            $.post(document.getElementById("murl").href + 'home/proposallist', array,
+                function (data) {
+                    $("#slide_image_page").html(data);
+                }
+            );
+        }, 1000);
     }
 
     function setSlidePageFirst(page) {
         playLoadFirst();
-        var array =
-            { "page": page }
-        $.post(document.getElementById("murl").href + 'home/proposallist', array,
-            function (data) {
-                $("#slide_image_page").html(data);
-            }
-        );
+        setTimeout(function () {
+            var array =
+                { "page": page }
+            $.post(document.getElementById("murl").href + 'home/proposallistfirst', array,
+                function (data) {
+                    $("#slide_image_page").html(data);
+                }
+            );
+        }, 1000);
     }
 
     function displayDialog() {
         playLoad();
+        setTimeout(function () {
+            document.getElementById("dialog").style.display = "none";
+            document.getElementById("dialog-cover").style.display = "none";
+            document.getElementById("top-menu").style.display = "block";
+            document.getElementById('dialog-main').src = "";
+            setTimeout(function () { displayLoad(); }, 1000);
+        }, 1000);
+    }
+
+    function displayDialog2() {
         setTimeout(function () {
             document.getElementById("dialog").style.display = "none";
             document.getElementById("dialog-cover").style.display = "none";
@@ -403,4 +416,15 @@
     }
 
     resetExplanationDialog();
+
+    function setMurl() {
+        var array =
+            { "url": document.getElementById("murl").href }
+        $.post(document.getElementById("murl").href + 'bhome/setmurl', array,
+            function (data) {
+            }
+        );
+    }
+
+    setMurl();
 </script>

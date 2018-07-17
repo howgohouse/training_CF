@@ -10,6 +10,7 @@ namespace CF_ASP_NET.Models
         CrowdfundingEntities db = new CrowdfundingEntities();
         public List<Models.CfBulletin> list = null;
         public List<Models.CfProposalV> list2 = null;
+        public List<Models.CfBank> list3 = null;
         public int data_count = 0;
 
         public int lastid = 0;
@@ -234,6 +235,17 @@ namespace CF_ASP_NET.Models
 
             db.SaveChanges();
 
+        }
+
+        public void InvestResult(int p_id)
+        {
+            int bank = 0;
+            var query = from d in db.CfProposal where d.id == p_id select d;
+            foreach (Models.CfProposal cfp in query)
+            {
+                bank = cfp.bank.Value;
+            }
+            this.list3 = (from d in db.CfBank where d.id == bank select d).ToList();
         }
 
     }

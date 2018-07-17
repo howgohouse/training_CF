@@ -54,7 +54,7 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-        <button class="w3-button">返回</button>
+        <button class="w3-button" onclick="window.parent.displayDialog()">返回</button>
     </div>
 </div>
 
@@ -87,7 +87,8 @@
             { "id": $("#p_id").html() }
         $.post(document.getElementById("murl").href + 'home/proposalcontent', array,
             function (data) {
-                $("#content").html(data);
+                var res = data.replace("http://192.168.2.113/", document.getElementById("murl").href);
+                $("#content").html(res);
                 getImage();
             }
         );
@@ -262,13 +263,13 @@
 
     function post() {
         if (confirm("是否要進行此操作?")) {
-            playLoad();
+            window.parent.playLoad();
             setTimeout(function () {
                 var array =
                     { "p_id": $("#p_id").html(), "name": $("#name").val(), "phone": $("#phone").val(), "invest_money": $("#invest_money").val() }
                 $.post(document.getElementById("murl").href + 'home/investrun', array,
                     function (data) {
-                        alert(data);
+                        alert('資料已送出');
                         window.parent.changeDialog('invest_result', $("#p_id").html());
                     }
                 );

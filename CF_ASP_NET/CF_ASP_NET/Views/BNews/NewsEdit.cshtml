@@ -5,10 +5,6 @@
 @Styles.Render("~/Content/cf-index.css")
 @Styles.Render("~/Content/load-be-control.css")
 <a id="murl" href="~/" style="display:none"></a>
-<div class="dialog-header">
-    <img src="image/cancel.svg" width="48" height="48" onclick="displayDialog()" class="d-inline-block align-top" alt="">
-</div>
-<div id="dialog-main" class="dialog-main">
     <div class="dialog-main-top">
         <p class="col-md-12 dialog-line"></p>
         @foreach (CfBulletin a in ViewData["DataList"] as List<CfBulletin>)
@@ -37,10 +33,9 @@
         <div id="resetbtn" class="col-md-4">
         </div>
         <div class="col-md-4">
-            <button class="w3-button" onclick="closeDialog()">返回</button>
+            <button class="w3-button" onclick="window.parent.closeDialog()">返回</button>
         </div>
     </div>
-</div>
 
 <script>
     if ($("#n_status").html() == "0") {
@@ -109,7 +104,8 @@
         if (screen.width <= 768) {
             $.post(document.getElementById("murl").href + 'bnews/newscontent', array,
                 function (data) {
-                    $("#content").html(data);
+                    var res = data.replace("http://192.168.2.113/", document.getElementById("murl").href);
+                    $("#content").html(res);
                     try {
                         var editor = CKEDITOR.replace('content', {
                             extraPlugins: 'uploadimage,image2',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
@@ -129,7 +125,8 @@
         } else {
             $.post(document.getElementById("murl").href + 'bnews/newscontent', array,
                 function (data) {
-                    $("#content").html(data);
+                    var res = data.replace("http://192.168.2.113/", document.getElementById("murl").href);
+                    $("#content").html(res);
                     try {
                         var editor = CKEDITOR.replace('content', {
                             extraPlugins: 'uploadimage',//,youtube,html5video,widget,widgetselection,clipboard,lineutils',
@@ -144,6 +141,7 @@
                     catch (err) {
 
                     }
+                    window.parent.playDialog();
                     window.parent.displayLoad();
                 }
             );
@@ -181,7 +179,8 @@
     function post() {
         if (confirm("是否要進行此操作?")) {
             window.parent.playLoad();
-            $("#content").html(CKEDITOR.instances['content'].getData());
+            var res = CKEDITOR.instances['content'].getData().replace(document.getElementById("murl").href, "http://192.168.2.113/");
+            $("#content").html(res);
             var array =
                 { "n_id": $("#n_id").html(), "title": $("#title").val(), "content": $("#content").html() }
             $.post(document.getElementById("murl").href + 'bnews/newseditrun', array,
@@ -197,7 +196,8 @@
     function postOpen() {
         if (confirm("是否要進行此操作?")) {
             window.parent.playLoad();
-            $("#content").html(CKEDITOR.instances['content'].getData());
+            var res = CKEDITOR.instances['content'].getData().replace(document.getElementById("murl").href, "http://192.168.2.113/");
+            $("#content").html(res);
             var array =
                 { "n_id": $("#n_id").html(), "value": "1" }
             $.post(document.getElementById("murl").href + 'bnews/newschangerun', array,
@@ -213,7 +213,8 @@
     function postClose() {
         if (confirm("是否要進行此操作?")) {
             window.parent.playLoad();
-            $("#content").html(CKEDITOR.instances['content'].getData());
+            var res = CKEDITOR.instances['content'].getData().replace(document.getElementById("murl").href, "http://192.168.2.113/");
+            $("#content").html(res);
             var array =
                 { "n_id": $("#n_id").html(), "value": "0" }
             $.post(document.getElementById("murl").href + 'bnews/newschangerun', array,

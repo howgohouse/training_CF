@@ -1,0 +1,131 @@
+﻿@using CF_ASP_NET.Models;
+@{
+    ViewBag.Title = "About";
+}
+<div class="main-function-page main-investment">
+    <div class="w3-display-container">
+        <div>
+            @{
+                int i = 0;
+            }
+            @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
+            {
+            <p style="display:none;">@(i++)</p>
+                <div id="@("pimage"+i.ToString())" class="mySlides main-investment-slide-img">
+                    <div class="main-investment-slide-img-content-top">
+                        <div class="main-investment-slide-img-title">
+                            @a.title
+                        </div>
+                        <div class="main-investment-slide-img-introduction">
+                            @a.introduction
+                        </div>
+                    </div>
+                    <div class="main-investment-slide-img-content-midle">
+                        <div class="main-investment-slide-img-button">
+                            <button class="w3-button" onclick="playDialog('invest',@a.proposal)">瀏覽</button>
+                        </div>
+                    </div>
+                    <div class="main-investment-slide-img-content-bottom">
+                        <img class="img-float-left @ViewData["disable_str1"]" onclick="setSlidePage(@ViewData["prev_page"])" src="image/Previous page.png" alt="">
+                        <img class="img-float-right @ViewData["disable_str2"]" onclick="setSlidePage(@ViewData["next_page"])" src="image/next page.png" alt="">
+                    </div>
+                </div>
+                <p id="@("slide_p_id"+i.ToString())" style="display:none;">@a.proposal</p>
+            }
+        </div>
+        <div class="w3-display-left main-investment-slide-list">
+            <div class="main-investment-slide-list-item" onclick="currentDiv(@ViewData["DataList1id"])" onmouseover="currentDiv(@ViewData["DataList1id"])">@ViewData["DataList1Title5"]</div>
+            <div class="main-investment-slide-list-item" onclick="currentDiv(@ViewData["DataList2id"])" onmouseover="currentDiv(@ViewData["DataList2id"])">@ViewData["DataList2Title5"]</div>
+            <div class="main-investment-slide-list-item" onclick="currentDiv(@ViewData["DataList3id"])" onmouseover="currentDiv(@ViewData["DataList3id"])">@ViewData["DataList3Title5"]</div>
+        </div>
+    </div>
+</div>
+<div class="main-function-page-onethird main-investment-bottom">
+    <div class="main-investment-bottom-list">
+        <div class="main-investment-bottom-list-item text-align-left" onclick="currentDiv(@ViewData["DataList1id"])" onmouseover="currentDiv(1)">
+            @ViewData["DataList1Title"]
+        </div>
+        <div class="main-investment-bottom-list-item text-align-center" onclick="currentDiv(@ViewData["DataList2id"])" onmouseover="currentDiv(2)">
+            @ViewData["DataList2Title"]
+        </div>
+        <div class="main-investment-bottom-list-item text-align-right" onclick="currentDiv(@ViewData["DataList3id"])" onmouseover="currentDiv(3)">
+            @ViewData["DataList3Title"]
+        </div>
+    </div>
+    <div class="main-investment-bottom-img">
+        <img class="img-float-left @ViewData["disable_str1"]" onclick="setSlidePage(@ViewData["prev_page"])" src="image/Previous page.png" alt="">
+        <img class="img-float-right @ViewData["disable_str2"]" onclick="setSlidePage(@ViewData["next_page"])" src="image/next page.png" alt="">
+    </div>
+</div>
+
+<script>
+    var slideIndex = 1;
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+        if (n != 0) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].classList.add('main-investment-slide-img-notshow');
+            }
+
+            setTimeout(function () {
+                for (i = 0; i < x.length; i++) {
+                    x[i].classList.remove('main-investment-slide-img-notshow');
+                    x[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+                }
+                x[slideIndex - 1].style.display = "block";
+                x[slideIndex - 1].classList.add('main-investment-slide-img-show');
+                //dots[slideIndex - 1].className += " w3-opacity-off";
+            }, 1000);
+        }
+    }
+
+    function setSlideImage(n, length) {
+        var array =
+            { "id": $("#slide_p_id" + n).html() }
+        $.post(document.getElementById("murl").href + 'home/proposalimage/', array,
+            function (data) {
+                var obj = JSON.parse(data);
+                if (obj.second_name == "webp") {
+                    if ($("#iswebpshow").html() == "1") {
+                        $("#pimage" + n).css("background-image", "url('" + obj.url + "')");
+                    } else {
+                        alert('瀏覽器不支援webp');
+                    }
+                } else {
+                    $("#pimage" + n).css("background-image", "url('" + obj.url + "')");
+                }
+                n++;
+                if (n <= length) {
+                    setSlideImage(n, length);
+                } else {
+                    showDivs(1);
+                    setTimeout(function () {
+                        console.log('ok');
+                        displayLoad();
+                    }, 2000);
+                }
+            }
+        );
+    }
+
+    setTimeout(function () {
+        var x = document.getElementsByClassName("mySlides");
+        setSlideImage(1, x.length);
+    }, 100);
+</script>

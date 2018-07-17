@@ -145,6 +145,86 @@ namespace CF_ASP_NET.Controllers
             return View();
         }
 
+        public ActionResult ProposalListFirst(int page)
+        {
+            this.homemodel.ProposalList(page);
+            ViewData["DataList"] = this.homemodel.list2;
+            ViewData["DataList1Class"] = "";
+            ViewData["DataList1Title"] = "";
+            ViewData["DataList1Title5"] = "";
+            ViewData["DataList1id"] = 0;
+            ViewData["DataList2Class"] = "";
+            ViewData["DataList2Title"] = "";
+            ViewData["DataList2Title5"] = "";
+            ViewData["DataList2id"] = 0;
+            ViewData["DataList3Class"] = "";
+            ViewData["DataList3Title"] = "";
+            ViewData["DataList3Title5"] = "";
+            ViewData["DataList3id"] = 0;
+            int i = 0;
+            foreach (CF_ASP_NET.Models.CfProposalV a in ViewData["DataList"] as List<CF_ASP_NET.Models.CfProposalV>)
+            {
+                i++;
+                switch (i)
+                {
+                    case 1:
+                        ViewData["DataList" + (i.ToString()) + "Class"] = "text-align-left";
+                        break;
+                    case 2:
+                        ViewData["DataList" + (i.ToString()) + "Class"] = "text-align-center";
+                        break;
+                    case 3:
+                        ViewData["DataList" + (i.ToString()) + "Class"] = "text-align-right";
+                        break;
+                }
+
+                if (a.title.Length > 3)
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title"] = a.title.Substring(0, 3) + "...";
+                }
+                else
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title"] = a.title;
+                }
+                if (a.title.Length > 5)
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title5"] = a.title.Substring(0, 5) + "...";
+                }
+                else
+                {
+                    ViewData["DataList" + (i.ToString()) + "Title5"] = a.title;
+                }
+                ViewData["DataList" + (i.ToString()) + "id"] = i;
+            }
+            ViewData["DataListLength"] = this.homemodel.list2.Count;
+            ViewData["Page"] = page;
+            int data_count = this.homemodel.data_count;
+            int r = data_count % 3;
+            int count_page = (data_count - r) / 3;
+            int max_page = 0;
+            int prev_page = 0;
+            int next_page = 0;
+            if (r > 0)
+            {
+                max_page = count_page;
+            }
+            else
+            {
+                max_page = count_page - 1;
+            }
+            prev_page = page - 1;
+            if (prev_page < 0) prev_page = 0;
+            next_page = page + 1;
+            if (next_page > max_page) next_page = max_page;
+            ViewData["prev_page"] = prev_page;
+            ViewData["next_page"] = next_page;
+            ViewData["disable_str1"] = "";
+            if (page == 0) ViewData["disable_str1"] = "w3-disabled";
+            ViewData["disable_str2"] = "";
+            if (page == max_page) ViewData["disable_str2"] = "w3-disabled";
+            return View();
+        }
+
         public ActionResult ProposalContent(int id)
         {
             //ViewBag.Message = "Your application description page.";
@@ -183,6 +263,13 @@ namespace CF_ASP_NET.Controllers
             this.homemodel.InvestRsetRun(p_id, invest_money);
 
             return Content("ok");
+        }
+
+        public ActionResult InvestResult(int id)
+        {
+            this.homemodel.InvestResult(id);
+            ViewData["DataList"] = this.homemodel.list3;
+            return View();
         }
 
         public ActionResult NewsList()

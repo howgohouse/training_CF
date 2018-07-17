@@ -57,7 +57,12 @@
     </p>
     <p class="col-md-12">
         <label>募資結束日期時間</label>
-        <input id="end_datetime" class="w3-input w3-border w3-round-large" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text">
+        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            <input id="end_datetime" class="w3-input w3-border w3-round-large form-control datetimepicker-input" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text" style="height: 54px;">
+            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                <div class="input-group-text"><img src="~/image/calendar.svg" alt="" style="width: 24px;"></div>
+            </div>
+        </div>
     <p id="end_datetime_check" style="height: 25px;"></p>
     <p id="end_datetime_check_value" style="display: none;">0</p>
     </p>
@@ -94,7 +99,7 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-        <button class="w3-button">返回</button>
+        <button class="w3-button" onclick="window.parent.displayDialog()">返回</button>
     </div>
 </div>
 
@@ -594,7 +599,10 @@
         xhr.onload = function () {
             //上傳完成
             //up_progress.innerHTML = '100 %, 上傳完成';
-            setTimeout(function () { alert('ok'); }, 100);
+            setTimeout(function () {
+                alert('方案資料已送出,請等候結果通知'); 
+                window.parent.displayDialog2();
+            }, 100);
         };
         xhr.upload.onprogress = function (evt) {
             //up_progress.innerHTML = '正開始上傳';
@@ -627,16 +635,27 @@
 
     function post() {
         if (confirm("是否要進行此操作?")) {
-            $("#content").html(CKEDITOR.instances['content'].getData());
-            var array =
-                { "name": $("#name").val(), "phone": $("#phone").val(), "bank_code": $("#bank_code").val(), "bank_name": $("#bank_name").val(), "account_code": $("#account_code").val(), "account_name": $("#account_name").val(), "target_money": $("#target_money").val(), "end_datetime": $("#end_datetime").val(), "title": $("#title").val(), "introduction": $("#introduction").html(), "content": $("#content").html() }
-            $.post(document.getElementById("murl").href + 'home/draftrun', array,
-                function (data) {
-                    var dataStr = JSON.parse(data);
-                    startupload(dataStr.p_id);
-                }
-            );
+            window.parent.playLoad();
+            setTimeout(function () {
+                var res = CKEDITOR.instances['content'].getData().replace(document.getElementById("murl").href , "http://192.168.2.113/");
+                $("#content").html(res);
+                var array =
+                    { "name": $("#name").val(), "phone": $("#phone").val(), "bank_code": $("#bank_code").val(), "bank_name": $("#bank_name").val(), "account_code": $("#account_code").val(), "account_name": $("#account_name").val(), "target_money": $("#target_money").val(), "end_datetime": $("#end_datetime").val(), "title": $("#title").val(), "introduction": $("#introduction").html(), "content": $("#content").html() }
+                $.post(document.getElementById("murl").href + 'home/draftrun', array,
+                    function (data) {
+                        var dataStr = JSON.parse(data);
+                        startupload(dataStr.p_id);
+                    }
+                );
+            }, 1000);
+            
         }
     }
 
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            locale: moment.locale('zh-tw'),
+            format: 'YYYY/MM/DD HH:mm:ss'
+        });
+    });
 </script>

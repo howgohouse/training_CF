@@ -259,6 +259,11 @@ namespace CF_ASP_NET.Controllers
                 this.filemodel.Upload_3(lastid, temptime, path);
             }
 
+            if (!string.IsNullOrEmpty(Session["murl"] as string))
+            {
+                this.mUrl = Session["murl"].ToString();
+            }
+
             //String cKEditorFuncNum = Request.Form["CKEditorFuncNum"]; POST值
             String cKEditorFuncNum = Request.QueryString["CKEditorFuncNum"];//GET值
             if (cKEditorFuncNum == "") cKEditorFuncNum = "2";
@@ -269,13 +274,13 @@ namespace CF_ASP_NET.Controllers
                 sb = sb + "\"CKEditorFuncNum\": 2 , ";
                 sb = sb + "\"uploaded\":" + "true" + " , ";
                 sb = sb + "\"fileName\":\"" + fileName + "\" , ";
-                sb = sb + "\"url\":\"" + "" + "file/show/" + lastid.ToString() + "\"";
+                sb = sb + "\"url\":\"" + this.mUrl + "file/show/" + lastid.ToString() + "\"";
                 sb = sb + "}";
                 return Content(sb);
             }
             else
             {
-                return Content("<script>window.parent.CKEDITOR.tools.callFunction(1,'" + "" + "file/show/" + lastid.ToString() + "','');</script>");
+                return Content("<script>window.parent.CKEDITOR.tools.callFunction(1,'" + this.mUrl + "file/show/" + lastid.ToString() + "','');</script>");
             }
 
             return Content(sb);

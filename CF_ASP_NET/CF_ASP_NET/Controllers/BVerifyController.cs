@@ -72,10 +72,10 @@ namespace CF_ASP_NET.Controllers
         {
             //ViewBag.Message = "Your application description page.";
             String second_name = this.verifymodel.ProposalImage(id);
-            String pimage_url = mUrl + "file/show/" + this.verifymodel.lastid.ToString();
+            String pimage_url = "file/show/" + this.verifymodel.lastid.ToString();
             if (second_name == "webp")
             {
-                pimage_url = mUrl + "file/webpshow/" + this.verifymodel.lastid.ToString();
+                pimage_url = "file/webpshow/" + this.verifymodel.lastid.ToString();
             }
 
 

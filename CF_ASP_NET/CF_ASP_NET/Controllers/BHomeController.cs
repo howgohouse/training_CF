@@ -19,5 +19,33 @@ namespace CF_ASP_NET.Controllers
 
             return View();
         }
+
+        public ActionResult setMurl(String url)
+        {
+
+            if (!string.IsNullOrEmpty(Session["murl"] as string))
+            {
+                Session.Add("murl", url);
+            }
+            else
+            {
+                Session["murl"] = url;
+            }
+
+            //建立
+            Session.Add("murl", url);
+                //or
+                //Session["islogin"] = true;
+                //取值
+                //string s = Session["islogin"].ToString();
+                //移除
+                //Session.Remove("islogin");
+
+            String sb = "";
+            sb = sb + "{";
+            sb = sb + "\"ok\":\"" + "ok" + "\"";
+            sb = sb + "}";
+            return Content(sb);
+        }
     }
 }

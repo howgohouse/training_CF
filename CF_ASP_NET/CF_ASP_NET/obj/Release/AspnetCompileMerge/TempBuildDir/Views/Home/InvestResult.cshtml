@@ -1,0 +1,42 @@
+﻿@using CF_ASP_NET.Models;
+@{
+    ViewBag.Title = "Home Page";
+}
+@Styles.Render("~/Content/fe-index.css")
+@Styles.Render("~/Content/load-fe-control.css")
+@Styles.Render("~/Content/main.css")
+@Styles.Render("~/Content/main-introduction.css")
+@Styles.Render("~/Content/main-investment.css")
+@Styles.Render("~/Content/main-news.css")
+@Styles.Render("~/Content/main-proposal.css")
+
+@Scripts.Render("~/Scripts/scroll-fe-control.js")
+<a id="murl" href="~/" style="display:none"></a>
+<div class="dialog-main-top">
+</div>
+<div class="dialog-main-bottom">
+    @foreach (CfBank a in ViewData["DataList"] as List<CfBank>)
+    {
+        <p>銀行代碼: @a.bankCdoe</p>
+        <p>銀行名稱: @a.bankName</p>
+        <p>帳戶代碼: @a.accountCdoe</p>
+        <p>帳戶名稱: @a.accountName</p>
+    }
+
+    <p></p>
+    <p>請於七日內完成匯款</p>
+    <p class="col-md-12 dialog-line"></p>
+</div>
+<div class="col-md-12 dialog-main-bottom-button">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <button class="w3-button" onclick="window.parent.displayDialog()">關閉</button>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+<script>
+    window.parent.displayLoad();
+</script>

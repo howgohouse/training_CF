@@ -1,64 +1,70 @@
 ﻿@using CF_ASP_NET.Models;
 @{
-    ViewBag.Title = "Home Page";
+                /**/
+
+                ViewBag.Title = "Home Page";
 }
 @Styles.Render("~/Content/cf-index.css")
 @Styles.Render("~/Content/load-be-control.css")
 <a id="murl" href="~/" style="display:none"></a>
-<div class="dialog-header">
-    <img src="~/image/cancel.svg" width="48" height="48" onclick="window.parent.setMainPage('verify', 0, 'title', 'asc', '')" class="d-inline-block align-top" alt="">
-</div>
-<div id="dialog-main" class="dialog-main">
-    <div class="dialog-main-top">
-        @foreach (CfMember a in ViewData["DataListMem"] as List<CfMember>)
-        {
-            <p>姓名:@a.name</p>
-            <p>電話:@a.phone</p>
-        }
-        @foreach (CfBank a in ViewData["DataListBank"] as List<CfBank>)
-        {
-            <p>銀行代碼:@a.bankCdoe</p>
-            <p>銀行名稱:@a.bankName</p>
-            <p>帳戶代碼:@a.accountCdoe</p>
-            <p>帳戶名稱:@a.accountName</p>
-        }
-        @foreach (CfProposalGoal a in ViewData["DataListGoal"] as List<CfProposalGoal>)
-        {
-            <p>目標金額:@a.targetColumn.ToString("C")</p>
-        }
-        @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
-        {
-            <p>結束時間:@a.endTime</p>
-        }
-
-        <p>宣傳圖片</p>
-    </div>
-
+<div class="dialog-main-top">
+    @foreach (CfMember a in ViewData["DataListMem"] as List<CfMember>)
+    {
+        <p>姓名:@a.name</p>
+        <p>電話:@a.phone</p>
+    }
+    @foreach (CfBank a in ViewData["DataListBank"] as List<CfBank>)
+    {
+        <p>銀行代碼:@a.bankCdoe</p>
+        <p>銀行名稱:@a.bankName</p>
+        <p>帳戶代碼:@a.accountCdoe</p>
+        <p>帳戶名稱:@a.accountName</p>
+    }
+    @foreach (CfProposalGoal a in ViewData["DataListGoal"] as List<CfProposalGoal>)
+    {
+        <p>目標金額:@a.targetColumn.ToString("C")</p>
+    }
     @foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
     {
-        <div id="pimage">
-        </div>
-        <div class="dialog-main-mid">
-            <label>@a.title</label>
-            <p>@a.introduction</p>
-        </div>
-        <div id="content" class="dialog-main-bottom">
-        </div>
-        <p id="p_id" style="display:none;">@a.proposal</p>
+        <p>結束時間:@a.endTime</p>
     }
+
+    <p>宣傳圖片</p>
+</div>
+
+@foreach (CfProposalV a in ViewData["DataList"] as List<CfProposalV>)
+{
+    <div id="pimage">
+    </div>
+    <div class="dialog-main-mid">
+        <label>@a.title</label>
+        <p>@a.introduction</p>
+    </div>
+    <div id="content" class="dialog-main-bottom">
+    </div>
+    <p id="p_id" style="display:none;">@a.proposal</p>
     <p class="col-md-12 dialog-line"></p>
     <div class="col-md-12 dialog-main-bottom-button">
         <div class="col-md-4">
-            <button class="w3-button" onclick="post(1)">通過</button>
+            @if (a.status == 0 | a.status == 1)
+            {
+                <button class="w3-button" onclick="post(1)">通過</button>
+            }
+
         </div>
         <div class="col-md-4">
-            <button class="w3-button" onclick="post(0)">不通過</button>
+            @if (a.status == 0 | a.status == 1)
+            {
+                <button class="w3-button" onclick="post(0)">不通過</button>
+            }
+
         </div>
         <div class="col-md-4">
-            <button class="w3-button" onclick="closeDialog()">返回</button>
+            <button class="w3-button" onclick="window.parent.closeDialog()">返回</button>
         </div>
     </div>
-</div>
+}
+
 
 <script>
     function WebpIsSupported(callback) {
@@ -89,7 +95,8 @@
             { "id": $("#p_id").html() }
         $.post(document.getElementById("murl").href + 'bverify/proposalcontent', array,
             function (data) {
-                $("#content").html(data);
+                var res = data.replace("http://192.168.2.113/", document.getElementById("murl").href);
+                $("#content").html(res);
                 window.parent.playDialog();
                 window.parent.displayLoad();
             }
@@ -105,13 +112,13 @@
                 if (obj.second_name == "webp") {
                     WebpIsSupported(function (isSupported) {
                         if (isSupported) {
-                            $("#pimage").html('<img src="' + obj.url + '" style="width:100%;" />');
+                            $("#pimage").html('<img src="' + document.getElementById("murl").href + obj.url + '" style="width:100%;" />');
                         } else {
                             $("#pimage").html('瀏覽器不支援webp');
                         }
                     });
                 } else {
-                    $("#pimage").html('<img src="' + obj.url + '" style="width:100%;" />');
+                    $("#pimage").html('<img src="' + document.getElementById("murl").href + obj.url + '" style="width:100%;" />');
                 }
                 getContent();
             }

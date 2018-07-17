@@ -8,8 +8,8 @@
     <a id="murl" href="~/"></a>
 </div>
 <div id="load-all" class="load-all">
-    <div class="load-main">
-        <div class="load8">
+    <div class="load-main w3-display-container">
+        <div class="load8 w3-display-middle">
             <div class="load8-container container1">
                 <div class="circle1"></div>
                 <div class="circle2"></div>
@@ -46,7 +46,7 @@
                 <a class="nav-item nav-link" onclick="setMainPage('verify', 0, 'title', 'asc', '')"><font color="white">審核</font></a>
             </div>
         </div>
-        <a href="~/blogout" class="logout">
+        <a onclick="logout()" class="logout">
             <img src="~/image/logout.png" width="36" height="36" class="d-inline-block align-top" alt="">
         </a>
     </nav>
@@ -90,16 +90,21 @@
 
         function setMainPageFirst(function_name, page, order_by, desc_or_asc, keyword) {
             displayLoadFirst();
-            $("#navbarNavAltMarkup").removeClass('show');
-            var array =
-                { "page": page, "order_by": order_by, "desc_or_asc": desc_or_asc, "keyword": keyword }
-            $.post(document.getElementById("murl").href + "b" + function_name, array,
-                function (data) {
-                    $("#main_page").html(data);
-                    $("#dialog_main_page").html("");
-                    displayDialog();
-                }
-            );
+            setTimeout(function () {
+                $("#navbarNavAltMarkup").removeClass('show');
+                var array =
+                    { "page": page, "order_by": order_by, "desc_or_asc": desc_or_asc, "keyword": keyword }
+                $.post(document.getElementById("murl").href + "b" + function_name, array,
+                    function (data) {
+                        $("#main_page").html(data);
+                        $("#dialog_main_page").html("");
+                        displayDialog();
+                        setTimeout(function () {
+                            setMurl();
+                        }, 1000);
+                    }
+                );
+            }, 1000);
         }
 
         function setMainPageCloseDialog(function_name, page, order_by, desc_or_asc, keyword) {
@@ -167,6 +172,13 @@
             displayLoad();
         }
 
+        function logout() {
+            playLoad();
+            setTimeout(function () {
+                top.location.href = document.getElementById("murl").href + "blogout";
+            }, 1000);
+        }
+
         function playLoad() {
             var element = document.getElementById("load-all");
             element.classList.remove("load-all-animation-end-first");
@@ -189,8 +201,16 @@
             element.classList.add("load-all-animation-end-first");
         }
 
-        setMainPageFirst('verify', 0, 'title', 'asc', '');
+        function setMurl() {
+            var array =
+                { "url": document.getElementById("murl").href }
+            $.post(document.getElementById("murl").href + 'bhome/setmurl', array,
+                function (data) {
+                }
+            );
+        }
 
+        setMainPageFirst('verify', 0, 'title', 'asc', '');
     </script>
 }
 else
