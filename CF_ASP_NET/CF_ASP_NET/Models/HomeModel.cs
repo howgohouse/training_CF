@@ -24,7 +24,7 @@ namespace CF_ASP_NET.Models
 
         public void NewsList()
         {
-            this.list = (from d in db.CfBulletin orderby d.makeTime descending select d).Take(6).ToList();
+            this.list = (from d in db.CfBulletin where d.status == 1 orderby d.makeTime descending select d).Take(6).ToList();
         }
 
         public void News(int id)

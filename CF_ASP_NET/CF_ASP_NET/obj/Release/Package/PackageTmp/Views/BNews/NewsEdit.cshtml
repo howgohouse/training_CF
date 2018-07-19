@@ -186,7 +186,7 @@
             $.post(document.getElementById("murl").href + 'bnews/newseditrun', array,
                 function (data) {
                     var obj = JSON.parse(data);
-                    alert(obj.ok);
+                    alert('儲存完成');
                     window.parent.setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
@@ -203,7 +203,7 @@
             $.post(document.getElementById("murl").href + 'bnews/newschangerun', array,
                 function (data) {
                     var obj = JSON.parse(data);
-                    alert(obj.ok);
+                    alert('已對外開放');
                     window.parent.setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );
@@ -220,7 +220,7 @@
             $.post(document.getElementById("murl").href + 'bnews/newschangerun', array,
                 function (data) {
                     var obj = JSON.parse(data);
-                    alert(obj.ok);
+                    alert('已對外關閉');
                     window.parent.setMainPageCloseDialog('news', 0, 'title', 'asc', '');
                 }
             );

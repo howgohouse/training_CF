@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
 	<link rel="stylesheet" href="content/fe-index.css">
 	<link rel="stylesheet" href="content/main.css">
@@ -21,7 +20,6 @@
 
 	<script src="scripts/jquery-3.3.1.js"></script>
 	<script src="scripts/jquery-3.3.1.min.js"></script>
-	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/ckeditor/ckeditor.js"></script>
 	<script src="scripts/scroll-fe-control.js"></script>
 	<script src="scripts/moment.min.js"></script>
@@ -77,14 +75,8 @@
         </p>
         <p class="col-md-12">
             <label>募資結束日期時間</label>
-            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-            	<input id="end_datetime" class="w3-input w3-border w3-round-large form-control datetimepicker-input" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="text" style="height: 54px;">
-            	<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                    <div class="input-group-text"><img src="image/calendar.svg" alt="" style="width: 24px;"></div>
-                </div>
-            </div>
-            
-        <p id="end_datetime_check" style="height: 25px;"></p>
+            <input id="end_datetime" class="w3-input w3-border w3-round-large" onkeyup="CheckEndDatetime()" onmouseup="CheckEndDatetime()" onchange="CheckEndDatetime()" type="datetime-local">
+            <p id="end_datetime_check" style="height: 25px;"></p>
         <p id="end_datetime_check_value" style="display: none;">0</p>
         </p>
         <p class="col-md-12">
@@ -122,6 +114,7 @@
         <div class="col-md-4">
             <button class="w3-button">返回</button>
         </div>
+        <div style="clear: both;"></div>
     </div>
 </body>
 </html>

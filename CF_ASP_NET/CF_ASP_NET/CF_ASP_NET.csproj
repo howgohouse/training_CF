@@ -254,14 +254,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\be-navbar.css" />
     <Content Include="Content\cf-index.css" />
     <Content Include="Content\cf-login.css" />
     <Content Include="Content\dialog.css" />
@@ -274,6 +267,7 @@
     <Content Include="Content\main-news.css" />
     <Content Include="Content\main-proposal.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\navbar.css" />
     <Content Include="Content\slide.css" />
     <Content Include="Content\tempusdominus-bootstrap-4.min.css" />
     <Content Include="Content\w3.css" />
@@ -302,17 +296,9 @@
       <DependentUpon>cfdb.edmx</DependentUpon>
       <LastGenOutput>cfdb.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
     <EntityDeploy Include="Models\cfdb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>cfdb.Designer.cs</LastGenOutput>
@@ -324,10 +310,6 @@
     <Content Include="image\logo.svg" />
     <Content Include="image\menu.svg" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -786,6 +768,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\navbar.js" />
     <Content Include="Scripts\scroll-fe-control.js" />
     <Content Include="Scripts\slide.js" />
     <Content Include="Scripts\tempusdominus-bootstrap-4.min.js" />
@@ -827,10 +810,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />

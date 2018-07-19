@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
 	<link rel="stylesheet" href="content/fe-index.css">
 	<link rel="stylesheet" href="content/main.css">
@@ -15,13 +14,13 @@
 	<link rel="stylesheet" href="content/dialog.css">
 	<link rel="stylesheet" href="content/load.css">
 	<link rel="stylesheet" href="content/load-fe-control.css">
+	<link rel="stylesheet" href="content/navbar.css">
 
 	<script src="scripts/jquery-3.3.1.js"></script>
 	<script src="scripts/jquery-3.3.1.min.js"></script>
-	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/ckeditor/ckeditor.js"></script>
 	<script src="scripts/scroll-fe-control.js"></script>
-
+	<script src="scripts/navbar.js"></script>
 	
 </head>
 <body>
@@ -51,7 +50,19 @@
 	</div>
 	<div id="top-menu" class="top-menu">
 		<!-- Image and text -->
-		<nav class="navbar navbar-expand-sm navbar-dark">
+		<div class="topnav" id="myTopnav">
+			<a onclick="GoPage()" href="#toppage">
+				<img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+			</a>
+			<a onclick="GoPage()" href="#introduction">本站介紹</a>
+			<a onclick="GoPage()" href="#news">消息</a>
+			<a onclick="GoPage()" href="#proposal">提案</a>
+			<a onclick="GoPage()" href="#investment">探索</a>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<img src="image/menu.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+			</a>
+		</div>
+		<nav class="navbar navbar-expand-sm navbar-dark" style="display: none;">
 			<a class="navbar-brand" onclick="GoPage()" href="#toppage">
 				<img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
 			</a>
@@ -290,7 +301,9 @@
 
 			</iframe>
 		</div>
-		<div class="footer"></div>
+		<div class="footer">
+				CF @ copyright
+		</div>
 	</div>
 </body>
 

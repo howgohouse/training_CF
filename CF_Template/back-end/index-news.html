@@ -4,17 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>登入</title>
-	<link rel="stylesheet" href="content/bootstrap.min.css">
 	<link rel="stylesheet" href="content/w3.css">
 	<link rel="stylesheet" href="content/cf-index.css">
 	<link rel="stylesheet" href="content/dialog.css">
 	<link rel="stylesheet" href="content/load.css">
 	<link rel="stylesheet" href="content/load-be-control.css">
+	<link rel="stylesheet" href="content/navbar.css">
 
 	<script src="scripts/jquery-3.3.1.js"></script>
 	<script src="scripts/jquery-3.3.1.min.js"></script>
-	<script src="scripts/bootstrap.min.js"></script>
 	<script src="scripts/ckeditor/ckeditor.js"></script>
+	<script src="scripts/navbar.js"></script>
 </head>
 <body>
 	<div id="load-all" class="load-all">
@@ -42,8 +42,21 @@
 		</div>		
 	</div>
 	<div id="top-menu" class="top-menu">
+		<div class="topnav" id="myTopnav">
+			<a href="#toppage">
+				<img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+			</a>
+			<a href="#">新聞</a>
+			<a href="index.html">審核</a>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<img src="image/menu.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+			</a>
+			<div class="other-icon" href="login.html">
+				<img src="image/logout.png" width="36" height="36" class="d-inline-block align-top" alt="">
+			</div>
+		</div>
 		<!-- Image and text -->
-		<nav class="navbar navbar-expand-lg navbar-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark" style="display: none;">
 			<a class="navbar-brand" href="#">
 				<img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
 			</a>

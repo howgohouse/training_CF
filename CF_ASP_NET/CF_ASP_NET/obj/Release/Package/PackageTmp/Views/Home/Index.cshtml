@@ -9,8 +9,10 @@
 @Styles.Render("~/Content/main-investment.css")
 @Styles.Render("~/Content/main-news.css")
 @Styles.Render("~/Content/main-proposal.css")
+@Styles.Render("~/Content/navbar.css")
 
 @Scripts.Render("~/Scripts/scroll-fe-control.js")
+@Scripts.Render("~/Scripts/navbar.js")
 
 <div style="display:none">
     <a id="murl" href="~/"></a>
@@ -41,7 +43,19 @@
 </div>
 <div id="top-menu" class="top-menu">
     <!-- Image and text -->
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="topnav" id="myTopnav">
+        <a onclick="GoPage()" href="#toppage">
+            <img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+        </a>
+        <a onclick="GoPage()" href="#introduction">本站介紹</a>
+        <a onclick="GoPage()" href="#news">消息</a>
+        <a onclick="GoPage()" href="#proposal">提案</a>
+        <a onclick="GoPage()" href="#investment">探索</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <img src="image/menu.svg" width="36" height="36" class="d-inline-block align-top" alt="">
+        </a>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="display:none;">
         <a class="navbar-brand" onclick="GoPage()" href="#toppage">
             <img src="image/logo.svg" width="36" height="36" class="d-inline-block align-top" alt="">
         </a>
@@ -175,7 +189,9 @@
         </div>
         <iframe src="" frameborder="0" id="dialog-main" class="dialog-main"></iframe>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        CF @("@") copyright
+    </div>
 </div>
 <p id="iswebpshow" style="display:none;">0</p>
 

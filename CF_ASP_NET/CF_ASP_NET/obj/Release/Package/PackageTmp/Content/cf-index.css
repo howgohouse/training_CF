@@ -279,3 +279,17 @@
 		.d-md-block{
 			display: table-cell;
 		}
+
+		.col-md-12 {
+		    width: calc(100%);
+		}
+		.col-md-4 {
+			margin-left: 20px;
+		    width: calc((100% - 80px) / 3);
+		}
+		@media (max-width: 769px){
+		    .col-md-4 {
+		    	margin-left: 20px;
+		        width: calc(100% - 40px);
+		    }
+		}
