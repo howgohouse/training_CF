@@ -126,6 +126,12 @@
 
     setTimeout(function () {
         var x = document.getElementsByClassName("mySlides");
-        setSlideImage(1, x.length);
+        
+        if (x.length > 0) {
+            setSlideImage(1, x.length);
+        } else {
+            console.log('ok');
+            displayLoad();
+        }
     }, 100);
 </script>

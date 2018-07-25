@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>CF募資網</title>
 	<link rel="stylesheet" href="content/w3.css">
 	<link rel="stylesheet" href="content/fe-index.css">
 	<link rel="stylesheet" href="content/main.css">
@@ -363,7 +363,7 @@
 				    document.getElementById("dialog-explanation-"+value).style.display = "block";
 					document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-show');
 				    setTimeout(function () {
-						document.getElementById("top-menu").style.display = "none";
+						//document.getElementById("top-menu").style.display = "none";
 					},500);
 				    $('#dialog-main').scrollTop(0);
 				},500);
@@ -375,7 +375,7 @@
 		    document.getElementById("dialog-explanation-"+value).style.display = "block";
 			document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-show');
 		    setTimeout(function () {
-				document.getElementById("top-menu").style.display = "none";
+				//document.getElementById("top-menu").style.display = "none";
 			},500);
 		    $('#dialog-main').scrollTop(0);
 		}
@@ -385,7 +385,7 @@
 	    document.getElementById("dialog-bg").classList.remove("main-introduction-dialog-bg-show");
 		document.getElementById("dialog-explanation-"+value).classList.remove('main-introduction-dialog-animation-show');
 		document.getElementById("dialog-explanation-"+value).classList.add('main-introduction-dialog-animation-notshow');
-	    document.getElementById("top-menu").style.display = "block";
+	    //document.getElementById("top-menu").style.display = "block";
 		setTimeout(function () {
 			document.getElementById("dialog-explanation-"+value).style.display = "none";
 			document.getElementById("dialog-explanation-"+value).classList.remove('main-introduction-dialog-animation-notshow');
@@ -504,7 +504,7 @@
 	displayLoadFirst();
 
 	function GoPage() {
-		$("#navbarNavAltMarkup").removeClass('show');
+		$("#myTopnav").removeClass('responsive');
     }
 
     function resetExplanationDialog(y){
@@ -522,6 +522,8 @@
     }
 
     resetExplanationDialog();
+
+	//location.href = "http://192.168.2.113/";
 	
 	</script>
 

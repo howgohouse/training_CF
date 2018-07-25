@@ -37,9 +37,9 @@ namespace CF_ASP_NET.Controllers
             ViewData["prev_page"] = prev_page;
             ViewData["next_page"] = next_page;
             ViewData["disable_str1"] = "";
-            if (page == 0) ViewData["disable_str1"] = "w3-disabled";
+            if (page == 0 | data_count == 0) ViewData["disable_str1"] = "w3-disabled";
             ViewData["disable_str2"] = "";
-            if (page == max_page) ViewData["disable_str2"] = "w3-disabled";
+            if (page == max_page | data_count == 0) ViewData["disable_str2"] = "w3-disabled";
             ViewData["OrderBy"] = order_by;
             ViewData["Keyword"] = keyword;
             ViewData["DescAsc"] = desc_or_asc;

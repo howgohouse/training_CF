@@ -22,16 +22,16 @@
       <publishTime>06/15/2018 18:48:46</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/19/2018 21:06:48</publishTime>
+      <publishTime>07/25/2018 19:26:35</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/19/2018 21:06:48</publishTime>
+      <publishTime>07/25/2018 19:26:35</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.dll">
-      <publishTime>07/19/2018 21:06:38</publishTime>
+      <publishTime>07/25/2018 19:26:23</publishTime>
     </File>
     <File Include="bin/CF_ASP_NET.pdb">
-      <publishTime>07/19/2018 21:06:38</publishTime>
+      <publishTime>07/25/2018 19:26:23</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/29/2018 14:51:46</publishTime>
@@ -442,7 +442,7 @@
       <publishTime>06/27/2018 19:23:12</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/19/2018 21:06:40</publishTime>
+      <publishTime>07/25/2018 19:26:26</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>06/20/2018 19:02:30</publishTime>
@@ -1879,10 +1879,10 @@
       <publishTime>06/15/2018 18:55:20</publishTime>
     </File>
     <File Include="Views/BHome/Index.cshtml">
-      <publishTime>07/18/2018 20:10:37</publishTime>
+      <publishTime>07/25/2018 18:23:53</publishTime>
     </File>
     <File Include="Views/BLogin/Index.cshtml">
-      <publishTime>07/18/2018 13:48:20</publishTime>
+      <publishTime>07/25/2018 18:25:15</publishTime>
     </File>
     <File Include="Views/BLogout/Index.cshtml">
       <publishTime>06/29/2018 12:59:36</publishTime>
@@ -1912,7 +1912,7 @@
       <publishTime>07/19/2018 20:35:09</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/18/2018 20:08:56</publishTime>
+      <publishTime>07/25/2018 18:30:33</publishTime>
     </File>
     <File Include="Views/Home/Invest.cshtml">
       <publishTime>07/17/2018 12:35:20</publishTime>
@@ -1936,7 +1936,7 @@
       <publishTime>07/16/2018 19:27:35</publishTime>
     </File>
     <File Include="Views/Home/ProposalListFirst.cshtml">
-      <publishTime>07/17/2018 21:36:20</publishTime>
+      <publishTime>07/25/2018 19:25:58</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>06/15/2018 18:48:27</publishTime>

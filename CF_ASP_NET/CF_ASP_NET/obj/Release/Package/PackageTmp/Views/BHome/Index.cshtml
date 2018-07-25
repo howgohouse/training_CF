@@ -1,6 +1,6 @@
 ﻿@using CF_ASP_NET.Models;
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "CF募資網";
 }
 @Styles.Render("~/Content/cf-index.css")
 @Styles.Render("~/Content/load-be-control.css")
@@ -88,7 +88,7 @@
         function setMainPage(function_name, page, order_by, desc_or_asc, keyword) {
             playLoad();
             setTimeout(function () {
-                $("#navbarNavAltMarkup").removeClass('show');
+                $("#myTopnav").removeClass('responsive');
                 var array =
                     { "page": page, "order_by": order_by, "desc_or_asc": desc_or_asc, "keyword": keyword }
                 $.post(document.getElementById("murl").href + "b" + function_name, array,
@@ -104,7 +104,7 @@
         function setMainPageFirst(function_name, page, order_by, desc_or_asc, keyword) {
             displayLoadFirst();
             setTimeout(function () {
-                $("#navbarNavAltMarkup").removeClass('show');
+                $("#myTopnav").removeClass('responsive');
                 var array =
                     { "page": page, "order_by": order_by, "desc_or_asc": desc_or_asc, "keyword": keyword }
                 $.post(document.getElementById("murl").href + "b" + function_name, array,
@@ -121,7 +121,7 @@
         }
 
         function setMainPageCloseDialog(function_name, page, order_by, desc_or_asc, keyword) {
-            $("#navbarNavAltMarkup").removeClass('show');
+            $("#myTopnav").removeClass('responsive');
             var array =
                 { "page": page, "order_by": order_by, "desc_or_asc": desc_or_asc, "keyword": keyword }
             $.post(document.getElementById("murl").href + "b" + function_name, array,
@@ -135,7 +135,7 @@
 
         function displayMenu() {
             setTimeout(function () {
-                $("#navbarNavAltMarkup").removeClass('show');
+                $("#myTopnav").removeClass('responsive');
             }, 100);
         }
 

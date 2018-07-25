@@ -1,6 +1,6 @@
 ﻿@using CF_ASP_NET.Models;
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "CF募資網";
 }
 @Styles.Render("~/Content/fe-index.css")
 @Styles.Render("~/Content/load-fe-control.css")
@@ -251,7 +251,7 @@
                     document.getElementById("dialog-explanation-" + value).style.display = "block";
                     document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-show');
                     setTimeout(function () {
-                        document.getElementById("top-menu").style.display = "none";
+                        //document.getElementById("top-menu").style.display = "none";
                     }, 500);
                     $('#dialog-main').scrollTop(0);
                 }, 500);
@@ -263,7 +263,7 @@
             document.getElementById("dialog-explanation-" + value).style.display = "block";
             document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-show');
             setTimeout(function () {
-                document.getElementById("top-menu").style.display = "none";
+                //document.getElementById("top-menu").style.display = "none";
             }, 500);
             $('#dialog-main').scrollTop(0);
         }
@@ -273,7 +273,7 @@
         document.getElementById("dialog-bg").classList.remove("main-introduction-dialog-bg-show");
         document.getElementById("dialog-explanation-" + value).classList.remove('main-introduction-dialog-animation-show');
         document.getElementById("dialog-explanation-" + value).classList.add('main-introduction-dialog-animation-notshow');
-        document.getElementById("top-menu").style.display = "block";
+        //document.getElementById("top-menu").style.display = "block";
         setTimeout(function () {
             document.getElementById("dialog-explanation-" + value).style.display = "none";
             document.getElementById("dialog-explanation-" + value).classList.remove('main-introduction-dialog-animation-notshow');
@@ -307,7 +307,7 @@
             document.getElementById('dialog-main').src = document.getElementById("murl").href + function_name + "/" + id;
             document.getElementById("dialog").style.display = "block";
             document.getElementById("dialog-cover").style.display = "block";
-            document.getElementById("top-menu").style.display = "none";
+            //document.getElementById("top-menu").style.display = "none";
             $('#dialog-main').scrollTop(0);
         }, 1000);
 
@@ -338,7 +338,7 @@
             document.getElementById('dialog-main').src = document.getElementById("murl").href + function_name + "/" + id;
             document.getElementById("dialog").style.display = "block";
             document.getElementById("dialog-cover").style.display = "block";
-            document.getElementById("top-menu").style.display = "none";
+            //document.getElementById("top-menu").style.display = "none";
             $('#dialog-main').scrollTop(0);
         }, 1000);
 
@@ -375,7 +375,7 @@
         setTimeout(function () {
             document.getElementById("dialog").style.display = "none";
             document.getElementById("dialog-cover").style.display = "none";
-            document.getElementById("top-menu").style.display = "block";
+            //document.getElementById("top-menu").style.display = "block";
             document.getElementById('dialog-main').src = "";
             setTimeout(function () { displayLoad(); }, 1000);
         }, 1000);
@@ -385,7 +385,7 @@
         setTimeout(function () {
             document.getElementById("dialog").style.display = "none";
             document.getElementById("dialog-cover").style.display = "none";
-            document.getElementById("top-menu").style.display = "block";
+            //document.getElementById("top-menu").style.display = "block";
             document.getElementById('dialog-main').src = "";
             setTimeout(function () { displayLoad(); }, 1000);
         }, 1000);
@@ -412,7 +412,7 @@
     }
 
     function GoPage() {
-        $("#navbarNavAltMarkup").removeClass('show');
+        $("#myTopnav").removeClass('responsive');
     }
 
     setSlidePageFirst(0);
